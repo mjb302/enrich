@@ -1387,4 +1387,33 @@ Role: ${referrerRole || 'Not specified'}`;
         }
 
         // Check for PIN in URL (for QR code access)
-        function checkUR
+        function checkURLForPIN() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const pin = urlParams.get('pin');
+            
+            if (pin && pin.length === 5 && careHomePINs[pin]) {
+                // Navigate to referral section
+                showSection('referral');
+                
+                // Fill in the PIN
+                const digits = pin.split('');
+                pinInputs.forEach((input, index) => {
+                    if (digits[index]) {
+                        input.value = digits[index];
+                    }
+                });
+                
+                // Validate and show form
+                setTimeout(() => {
+                    validatePIN();
+                }, 100);
+            }
+        }
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            checkURLForPIN();
+        });
+    </script>
+</body>
+</html>
