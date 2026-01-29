@@ -209,6 +209,64 @@
             opacity: 0.9;
         }
 
+        /* Hero Action Buttons */
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .hero-referral-btn {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--white);
+            color: var(--enrich-purple);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1.2rem;
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .hero-referral-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+        }
+
+        .hero-btn-logo {
+            height: 50px;
+            width: auto;
+            border-radius: 6px;
+        }
+
+        .hero-map-link {
+            display: flex;
+            align-items: center;
+            background: rgba(255,255,255,0.15);
+            border: 2px solid rgba(255,255,255,0.5);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .hero-map-link:hover {
+            background: rgba(255,255,255,0.25);
+            border-color: var(--white);
+            transform: translateY(-3px);
+        }
+
         /* Cards */
         .card-grid {
             display: grid;
@@ -567,6 +625,28 @@
                 gap: 1.5rem;
             }
 
+            .hero-actions {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-referral-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 0.8rem 1.5rem;
+                font-size: 1.1rem;
+            }
+
+            .hero-btn-logo {
+                height: 40px;
+            }
+
+            .hero-map-link {
+                width: 100%;
+                justify-content: center;
+                padding: 0.8rem 1.5rem;
+            }
+
             main {
                 padding: 1rem;
             }
@@ -679,19 +759,14 @@
             <div class="hero">
                 <h2>Specialist Geriatrician Care for Care Home Residents</h2>
                 <p>EnRICH delivers integrated geriatrician-led care spanning community, emergency department, and inpatient settings to improve outcomes for some of our most vulnerable patients.</p>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">43%</div>
-                        <div class="stat-label">Reduction in ED attendances</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">38%</div>
-                        <div class="stat-label">Reduction in admissions</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">£1.91M</div>
-                        <div class="stat-label">Annual savings projected</div>
-                    </div>
+                <div class="hero-actions">
+                    <button onclick="showSection('referral')" class="hero-referral-btn">
+                        <img src="EnRICH_Logo_solid.png" alt="EnRICH Logo" class="hero-btn-logo">
+                        <span>Make a Referral</span>
+                    </button>
+                    <a href="https://mjb302.github.io/enrich-map/" target="_blank" class="hero-map-link">
+                        <span>📍 View Interactive Map</span>
+                    </a>
                 </div>
             </div>
 
@@ -891,7 +966,7 @@
                     <p class="error-message" id="pin-error">Invalid PIN code. Please check and try again.</p>
 
                     <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-gray);">
-                        Don't have a PIN? Contact the EnRICH team at <a href="mailto:cuh.carehomesteam@nhs.net">cuh.carehomesteam@nhs.net</a>
+                        Don't have a PIN? Contact the EnRICH team at <a href="/cdn-cgi/l/email-protection#92f1e7fabcf1f3e0f7fafdfff7e1e6f7f3ffd2fcfae1bcfcf7e6"><span class="__cf_email__" data-cfemail="412234296f22203324292e2c24323524202c012f29326f2f2435">[email&#160;protected]</span></a>
                     </p>
                 </div>
             </div>
@@ -980,7 +1055,7 @@ Role:
 
                     <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--light-gray); text-align: center;">
                         <p style="color: var(--text-gray); font-size: 0.9rem;">
-                            Send referrals to: <a href="mailto:cuh.carehomesteam@nhs.net" style="color: var(--enrich-purple); font-weight: 600;">cuh.carehomesteam@nhs.net</a>
+                            Send referrals to: <a href="/cdn-cgi/l/email-protection#7714021f59141605121f181a12040312161a37191f0459191203" style="color: var(--enrich-purple); font-weight: 600;"><span class="__cf_email__" data-cfemail="afccdac781ccceddcac7c0c2cadcdbcacec2efc1c7dc81c1cadb">[email&#160;protected]</span></a>
                         </p>
                     </div>
                 </div>
@@ -1034,7 +1109,7 @@ Role:
 
                 <div class="highlight-box" style="margin-top: 2rem;">
                     <h4>Contact the EnRICH Team</h4>
-                    <p><strong>Email:</strong> <a href="mailto:cuh.carehomesteam@nhs.net">cuh.carehomesteam@nhs.net</a></p>
+                    <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#4724322f69242635222f282a22343322262a07292f3469292233"><span class="__cf_email__" data-cfemail="e281978acc818390878a8d8f87919687838fa28c8a91cc8c8796">[email&#160;protected]</span></a></p>
                     <p style="margin-top: 0.5rem;">For urgent clinical queries during working hours, please contact the team directly. For emergency situations, always call 999.</p>
                 </div>
             </div>
@@ -1046,12 +1121,12 @@ Role:
             <p>&copy; 2026 EnRICH - Enhanced Reviews in Care Homes<br>
             Cambridge University Hospitals NHS Foundation Trust</p>
             <p>
-                Contact: <a href="mailto:cuh.carehomesteam@nhs.net">cuh.carehomesteam@nhs.net</a>
+                Contact: <a href="/cdn-cgi/l/email-protection#ceadbba6e0adafbcaba6a1a3abbdbaabafa38ea0a6bde0a0abba"><span class="__cf_email__" data-cfemail="3c5f4954125f5d4e59545351594f48595d517c52544f12525948">[email&#160;protected]</span></a>
             </p>
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Care Home PIN Database
         const careHomePINs = {
             '24569': 'Brook House Care Home',
@@ -1312,27 +1387,4 @@ Role: ${referrerRole || 'Not specified'}`;
         }
 
         // Check for PIN in URL (for QR code access)
-        function checkURLParams() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const pin = urlParams.get('pin');
-            
-            if (pin && careHomePINs[pin]) {
-                showSection('referral');
-                // Fill in PIN
-                pin.split('').forEach((digit, i) => {
-                    if (pinInputs[i]) {
-                        pinInputs[i].value = digit;
-                    }
-                });
-                validatePIN();
-            }
-        }
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            checkURLParams();
-            pinInputs[0].focus();
-        });
-    </script>
-</body>
-</html>
+        function checkUR
