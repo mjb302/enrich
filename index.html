@@ -905,7 +905,7 @@
             margin: 1rem 0;
         }
 
-        .care-home-item {
+        a.care-home-item {
             background: var(--white);
             padding: 0.6rem 0.8rem;
             border-radius: 6px;
@@ -915,13 +915,19 @@
             text-decoration: none;
             display: block;
             cursor: pointer;
+            color: inherit;
         }
 
-        .care-home-item:hover {
+        a.care-home-item:hover {
             transform: translateX(3px);
             box-shadow: 0 3px 10px rgba(30, 58, 95, 0.15);
             border-left-color: var(--enrich-blue);
             background: linear-gradient(135deg, var(--white) 0%, #f8f0f7 100%);
+            text-decoration: none;
+        }
+
+        a.care-home-item:visited {
+            color: inherit;
         }
 
         .care-home-item .home-name {
@@ -949,6 +955,162 @@
         .care-home-item .cqc-link svg {
             width: 10px;
             height: 10px;
+        }
+
+        /* Meet the Team Section */
+        .team-intro {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .team-pin-section {
+            background: linear-gradient(135deg, var(--light-purple) 0%, var(--light-blue) 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .team-pin-section h3 {
+            color: var(--enrich-navy);
+            margin-bottom: 1rem;
+        }
+
+        .team-pin-section p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .team-pin-inputs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-pin-digit {
+            width: 50px;
+            height: 55px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .team-pin-digit:focus {
+            border-color: var(--enrich-purple);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(139, 42, 125, 0.2);
+        }
+
+        .team-pin-error {
+            color: #dc3545;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .team-content {
+            display: none;
+        }
+
+        .team-content.visible {
+            display: block;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 12px rgba(30, 58, 95, 0.08);
+            border-top: 4px solid var(--enrich-purple);
+            text-align: center;
+        }
+
+        .team-member-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-blue) 100%);
+            margin: 0 auto 1rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .team-member h4 {
+            color: var(--enrich-navy);
+            margin-bottom: 0.25rem;
+            font-size: 1.1rem;
+        }
+
+        .team-member .role {
+            color: var(--enrich-purple);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .team-member .contact-info {
+            background: var(--light-purple);
+            border-radius: 8px;
+            padding: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .team-member .contact-info a {
+            color: var(--enrich-blue);
+            text-decoration: none;
+            font-size: 0.85rem;
+            word-break: break-all;
+        }
+
+        .team-member .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .team-note {
+            background: var(--light-blue);
+            border-left: 4px solid var(--enrich-blue);
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 2rem;
+        }
+
+        .team-note h4 {
+            color: var(--enrich-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-note p {
+            color: var(--text-gray);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .team-pin-digit {
+                width: 45px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Timeline Styles */
@@ -1159,6 +1321,7 @@
                 <button onclick="showSection('about')" id="nav-about">About EnRICH</button>
                 <button onclick="showSection('services')" id="nav-services">Our Services</button>
                 <button onclick="showSection('carehomes')" id="nav-carehomes">Our Care Homes</button>
+                <button onclick="showSection('team')" id="nav-team">Meet the Team</button>
                 <button onclick="showSection('referral')" id="nav-referral">Make a Referral</button>
                 <button onclick="showSection('resources')" id="nav-resources">Resources</button>
             </nav>
@@ -1388,57 +1551,57 @@
                 <p>These care homes are currently receiving the full EnRICH service:</p>
 
                 <div class="care-homes-grid">
-                    <a href="https://www.cqc.org.uk/location/1-11348604884" target="_blank" class="care-home-item">
+                    <a href="https://www.cqc.org.uk/location/1-11348604884" target="_blank" rel="noopener noreferrer" class="care-home-item">
                         <div class="home-name">Heathlands House</div>
                         <div class="home-date">Since Oct 2024</div>
                         <div class="cqc-link">View CQC ↗</div>
                     </a>
-                    <a href="https://www.cqc.org.uk/location/1-120415751" target="_blank" class="care-home-item">
+                    <a href="https://www.cqc.org.uk/location/1-120415751" target="_blank" rel="noopener noreferrer" class="care-home-item">
                         <div class="home-name">Cambridge Manor</div>
                         <div class="home-date">Since Feb 2025</div>
                         <div class="cqc-link">View CQC ↗</div>
                     </a>
-                    <a href="https://www.cqc.org.uk/location/1-6825580794" target="_blank" class="care-home-item">
+                    <a href="https://www.cqc.org.uk/location/1-6825580794" target="_blank" rel="noopener noreferrer" class="care-home-item">
                         <div class="home-name">Southwell Court</div>
                         <div class="home-date">Since Mar 2025</div>
                         <div class="cqc-link">View CQC ↗</div>
                     </a>
-                    <a href="https://www.cqc.org.uk/location/1-2424945414" target="_blank" class="care-home-item">
+                    <a href="https://www.cqc.org.uk/location/1-2424945414" target="_blank" rel="noopener noreferrer" class="care-home-item">
                         <div class="home-name">Hatley Court</div>
                         <div class="home-date">Since Mar 2025</div>
                         <div class="cqc-link">View CQC ↗</div>
                     </a>
-                    <a href="https://www.cqc.org.uk/location/1-18445801604" target="_blank" class="care-home-item">
+                    <a href="https://www.cqc.org.uk/location/1-18445801604" target="_blank" rel="noopener noreferrer" class="care-home-item">
                         <div class="home-name">Cambridge Grove</div>
                         <div class="home-date">Since Mar 2025</div>
                         <div class="cqc-link">View CQC ↗</div>
                     </a>
-                    <a href="https://www.cqc.org.uk/location/1-125950803" target="_blank" class="care-home-item">
+                    <a href="https://www.cqc.org.uk/location/1-125950803" target="_blank" rel="noopener noreferrer" class="care-home-item">
                         <div class="home-name">Brook House</div>
                         <div class="home-date">Since Apr 2025</div>
                         <div class="cqc-link">View CQC ↗</div>
                     </a>
-                    <a href="https://www.cqc.org.uk/location/1-647971431" target="_blank" class="care-home-item">
+                    <a href="https://www.cqc.org.uk/location/1-647971431" target="_blank" rel="noopener noreferrer" class="care-home-item">
                         <div class="home-name">Waterbeach Lodge</div>
                         <div class="home-date">Since Jun 2025</div>
                         <div class="cqc-link">View CQC ↗</div>
                     </a>
-                    <a href="https://www.cqc.org.uk/location/1-307297384" target="_blank" class="care-home-item">
+                    <a href="https://www.cqc.org.uk/location/1-307297384" target="_blank" rel="noopener noreferrer" class="care-home-item">
                         <div class="home-name">Lily House</div>
                         <div class="home-date">Since Sep 2025</div>
                         <div class="cqc-link">View CQC ↗</div>
                     </a>
-                    <a href="https://www.cqc.org.uk/location/1-16481754098" target="_blank" class="care-home-item">
+                    <a href="https://www.cqc.org.uk/location/1-16481754098" target="_blank" rel="noopener noreferrer" class="care-home-item">
                         <div class="home-name">Vera James House</div>
                         <div class="home-date">Since Oct 2025</div>
                         <div class="cqc-link">View CQC ↗</div>
                     </a>
-                    <a href="https://www.cqc.org.uk/location/1-393307254" target="_blank" class="care-home-item">
+                    <a href="https://www.cqc.org.uk/location/1-393307254" target="_blank" rel="noopener noreferrer" class="care-home-item">
                         <div class="home-name">Maycroft</div>
                         <div class="home-date">Since Oct 2025</div>
                         <div class="cqc-link">View CQC ↗</div>
                     </a>
-                    <a href="https://www.cqc.org.uk/location/1-2907731103" target="_blank" class="care-home-item">
+                    <a href="https://www.cqc.org.uk/location/1-2907731103" target="_blank" rel="noopener noreferrer" class="care-home-item">
                         <div class="home-name">Highfield</div>
                         <div class="home-date">Since Dec 2025</div>
                         <div class="cqc-link">View CQC ↗</div>
@@ -1535,6 +1698,70 @@
                 <div class="highlight-box" style="margin-top: 2rem;">
                     <h4>Is your care home interested in EnRICH?</h4>
                     <p>If your care home is located in Cambridgeshire and you're interested in learning more about the EnRICH service, please contact us at <a href="/cdn-cgi/l/email-protection#c4a7b1aceaa7a5b6a1acaba9a1b7b0a1a5a984aaacb7eaaaa1b0"><span class="__cf_email__" data-cfemail="cba8bea3e5a8aab9aea3a4a6aeb8bfaeaaa68ba5a3b8e5a5aebf">[email&#160;protected]</span></a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MEET THE TEAM SECTION -->
+        <section id="team">
+            <div class="container">
+                <h2>Meet the Team</h2>
+                
+                <div class="team-intro">
+                    <p>The EnRICH service is delivered by a dedicated team of healthcare professionals committed to improving care for care home residents across Cambridgeshire.</p>
+                </div>
+
+                <div class="team-pin-section" id="team-pin-entry">
+                    <h3>🔒 Healthcare Professional Access</h3>
+                    <p>Enter your care home or GP practice PIN code to view team contact details. This helps us ensure our contact information is shared only with healthcare partners.</p>
+                    
+                    <div class="team-pin-inputs">
+                        <input type="text" class="team-pin-digit" maxlength="1" data-index="0" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 1">
+                        <input type="text" class="team-pin-digit" maxlength="1" data-index="1" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 2">
+                        <input type="text" class="team-pin-digit" maxlength="1" data-index="2" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 3">
+                        <input type="text" class="team-pin-digit" maxlength="1" data-index="3" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 4">
+                        <input type="text" class="team-pin-digit" maxlength="1" data-index="4" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 5">
+                    </div>
+                    <div class="team-pin-error" id="team-pin-error">Invalid PIN. Please check your code and try again.</div>
+                </div>
+
+                <div class="team-content" id="team-content">
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="team-member-photo">👨‍⚕️</div>
+                            <h4>[Clinical Lead Name]</h4>
+                            <div class="role">Consultant Geriatrician & Clinical Lead</div>
+                            <p>Leading the EnRICH service with expertise in geriatric medicine and care home support.</p>
+                            <div class="contact-info">
+                                <a href="mailto:firstname.lastname@nhs.net">firstname.lastname@nhs.net</a>
+                            </div>
+                        </div>
+
+                        <div class="team-member">
+                            <div class="team-member-photo">👩‍⚕️</div>
+                            <h4>[Team Member Name]</h4>
+                            <div class="role">Specialist Registrar</div>
+                            <p>Providing comprehensive geriatric assessments and supporting advance care planning.</p>
+                            <div class="contact-info">
+                                <a href="mailto:firstname.lastname@nhs.net">firstname.lastname@nhs.net</a>
+                            </div>
+                        </div>
+
+                        <div class="team-member">
+                            <div class="team-member-photo">👩‍💼</div>
+                            <h4>[Team Member Name]</h4>
+                            <div class="role">Service Coordinator</div>
+                            <p>Coordinating referrals, scheduling visits, and liaising with care homes.</p>
+                            <div class="contact-info">
+                                <a href="mailto:firstname.lastname@nhs.net">firstname.lastname@nhs.net</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-note">
+                        <h4>📧 General Enquiries</h4>
+                        <p>For general enquiries about the EnRICH service, please contact our team inbox: <a href="mailto:cuh.carehomesteam@nhs.net">cuh.carehomesteam@nhs.net</a></p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1832,6 +2059,93 @@ Role:
                 });
 
                 if (pastedData.length === 5) {
+                    validatePIN();
+                }
+            });
+        });
+
+        // TEAM PIN Input handling
+        const teamPinInputs = document.querySelectorAll('.team-pin-digit');
+        
+        function validateTeamPIN() {
+            const enteredPIN = Array.from(teamPinInputs).map(input => input.value).join('');
+            const errorMsg = document.getElementById('team-pin-error');
+            const teamContent = document.getElementById('team-content');
+            const teamPinEntry = document.getElementById('team-pin-entry');
+            
+            if (enteredPIN.length === 5 && careHomePINs[enteredPIN]) {
+                // Valid PIN - show team content
+                errorMsg.style.display = 'none';
+                teamPinEntry.style.display = 'none';
+                teamContent.classList.add('visible');
+            } else if (enteredPIN.length === 5) {
+                // Invalid PIN
+                errorMsg.style.display = 'block';
+                teamPinInputs.forEach(input => {
+                    input.value = '';
+                    input.style.borderColor = '#dc3545';
+                });
+                teamPinInputs[0].focus();
+                
+                setTimeout(() => {
+                    teamPinInputs.forEach(input => {
+                        input.style.borderColor = '#ddd';
+                    });
+                }, 1500);
+            }
+        }
+        
+        teamPinInputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                const value = e.target.value;
+                
+                // Only allow digits
+                if (!/^\d*$/.test(value)) {
+                    e.target.value = '';
+                    return;
+                }
+
+                // Move to next input
+                if (value && index < teamPinInputs.length - 1) {
+                    teamPinInputs[index + 1].focus();
+                }
+
+                // Auto-submit when all filled
+                if (index === teamPinInputs.length - 1 && value) {
+                    validateTeamPIN();
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                // Handle backspace
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    teamPinInputs[index - 1].focus();
+                }
+                
+                // Handle Enter
+                if (e.key === 'Enter') {
+                    validateTeamPIN();
+                }
+            });
+
+            // Handle paste
+            input.addEventListener('paste', (e) => {
+                e.preventDefault();
+                const pastedData = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 5);
+                
+                pastedData.split('').forEach((digit, i) => {
+                    if (teamPinInputs[i]) {
+                        teamPinInputs[i].value = digit;
+                    }
+                });
+
+                if (pastedData.length === 5) {
+                    validateTeamPIN();
+                }
+            });
+        });
+
+                if (pastedData.length === 5) {
                     pinInputs[4].focus();
                     validatePIN();
                 }
@@ -1997,4 +2311,16 @@ Role: ${referrerRole || 'Not specified'}`;
                 });
                 
                 // Validate and show form
-                setTimeout(() =
+                setTimeout(() => {
+                    validatePIN();
+                }, 100);
+            }
+        }
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            checkURLForPIN();
+        });
+    </script>
+</body>
+</html>
