@@ -357,17 +357,9 @@
             flex-shrink: 0;
         }
 
-        .bgs-logo-placeholder img {
-            height: 60px;
-            width: auto;
-            background: white;
-            padding: 8px;
-            border-radius: 8px;
-        }
-
-        .bgs-logo-fallback {
-            width: 80px;
-            height: 60px;
+        .bgs-logo-text {
+            width: 70px;
+            height: 50px;
             background: white;
             color: #006747;
             border-radius: 8px;
@@ -375,7 +367,7 @@
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .bgs-content h4 {
@@ -411,6 +403,137 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
+        /* Meet the Team Section */
+        .team-intro {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .team-pin-section {
+            background: linear-gradient(135deg, #F5EBF4 0%, #E8EEF4 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .team-pin-section h3 {
+            color: var(--enrich-navy);
+            margin-bottom: 1rem;
+        }
+
+        .team-pin-section p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .team-pin-inputs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-pin-digit {
+            width: 50px;
+            height: 55px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .team-pin-digit:focus {
+            border-color: var(--enrich-purple);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(139, 42, 125, 0.2);
+        }
+
+        .team-pin-error {
+            color: #dc3545;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .team-content {
+            display: none;
+        }
+
+        .team-content.visible {
+            display: block;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 12px rgba(30, 58, 95, 0.08);
+            border-top: 4px solid var(--enrich-purple);
+            text-align: center;
+        }
+
+        .team-member-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member h4 {
+            color: var(--enrich-navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .team-member .role {
+            color: var(--enrich-purple);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .team-member .contact-info {
+            background: #F5EBF4;
+            border-radius: 8px;
+            padding: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .team-member .contact-info a {
+            color: var(--enrich-blue);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .team-note {
+            background: #E8EEF4;
+            border-left: 4px solid var(--enrich-blue);
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 2rem;
+        }
+
+        .team-note h4 {
+            color: var(--enrich-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-note p {
+            color: var(--text-gray);
+            margin: 0;
+        }
+
+        .team-note a {
+            color: var(--enrich-blue);
+        }
+
         @media (max-width: 768px) {
             .bgs-resources-card {
                 flex-direction: column;
@@ -419,6 +542,16 @@
             
             .bgs-links {
                 justify-content: center;
+            }
+
+            .team-pin-digit {
+                width: 45px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1000,414 +1133,6 @@
             background: var(--enrich-purple);
             color: var(--white);
         }
-
-        /* Care Homes Section */
-        .care-homes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 0.6rem;
-            margin: 1rem 0;
-        }
-
-        a.care-home-item {
-            background: var(--white);
-            padding: 0.6rem 0.8rem;
-            border-radius: 6px;
-            border-left: 3px solid var(--enrich-purple);
-            box-shadow: 0 2px 6px rgba(30, 58, 95, 0.08);
-            transition: all 0.2s ease;
-            text-decoration: none;
-            display: block;
-            cursor: pointer;
-            color: inherit;
-        }
-
-        a.care-home-item:hover {
-            transform: translateX(3px);
-            box-shadow: 0 3px 10px rgba(30, 58, 95, 0.15);
-            border-left-color: var(--enrich-blue);
-            background: linear-gradient(135deg, var(--white) 0%, #f8f0f7 100%);
-            text-decoration: none;
-        }
-
-        a.care-home-item:visited {
-            color: inherit;
-        }
-
-        .care-home-item .home-name {
-            font-weight: 600;
-            font-size: 0.85rem;
-            color: var(--enrich-navy);
-            line-height: 1.3;
-        }
-
-        .care-home-item .home-date {
-            font-size: 0.7rem;
-            color: var(--text-gray);
-            margin-top: 0.15rem;
-        }
-
-        .care-home-item .cqc-link {
-            font-size: 0.65rem;
-            color: var(--enrich-blue);
-            margin-top: 0.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .care-home-item .cqc-link svg {
-            width: 10px;
-            height: 10px;
-        }
-
-        /* Meet the Team Section */
-        .team-intro {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .team-pin-section {
-            background: linear-gradient(135deg, var(--light-purple) 0%, var(--light-blue) 100%);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            max-width: 500px;
-            margin: 0 auto 2rem auto;
-        }
-
-        .team-pin-section h3 {
-            color: var(--enrich-navy);
-            margin-bottom: 1rem;
-        }
-
-        .team-pin-section p {
-            color: var(--text-gray);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .team-pin-inputs {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .team-pin-digit {
-            width: 50px;
-            height: 55px;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-        }
-
-        .team-pin-digit:focus {
-            border-color: var(--enrich-purple);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(139, 42, 125, 0.2);
-        }
-
-        .team-pin-error {
-            color: #dc3545;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-            display: none;
-        }
-
-        .team-content {
-            display: none;
-        }
-
-        .team-content.visible {
-            display: block;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .team-member {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 12px rgba(30, 58, 95, 0.08);
-            border-top: 4px solid var(--enrich-purple);
-            text-align: center;
-        }
-
-        .team-member-photo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-blue) 100%);
-            margin: 0 auto 1rem auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: white;
-        }
-
-        .team-member h4 {
-            color: var(--enrich-navy);
-            margin-bottom: 0.25rem;
-            font-size: 1.1rem;
-        }
-
-        .team-member .role {
-            color: var(--enrich-purple);
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .team-member .contact-info {
-            background: var(--light-purple);
-            border-radius: 8px;
-            padding: 0.75rem;
-            margin-top: 1rem;
-        }
-
-        .team-member .contact-info a {
-            color: var(--enrich-blue);
-            text-decoration: none;
-            font-size: 0.85rem;
-            word-break: break-all;
-        }
-
-        .team-member .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        .team-note {
-            background: var(--light-blue);
-            border-left: 4px solid var(--enrich-blue);
-            padding: 1rem 1.5rem;
-            border-radius: 0 8px 8px 0;
-            margin-top: 2rem;
-        }
-
-        .team-note h4 {
-            color: var(--enrich-navy);
-            margin-bottom: 0.5rem;
-        }
-
-        .team-note p {
-            color: var(--text-gray);
-            margin: 0;
-            font-size: 0.95rem;
-        }
-
-        @media (max-width: 768px) {
-            .team-pin-digit {
-                width: 45px;
-                height: 50px;
-                font-size: 1.3rem;
-            }
-            
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Timeline Styles */
-        .timeline-section {
-            margin-top: 3rem;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-            margin: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--enrich-purple), var(--enrich-blue));
-            border-radius: 2px;
-        }
-
-        .timeline-wave {
-            position: relative;
-            margin-bottom: 2rem;
-            padding-left: 1.5rem;
-        }
-
-        .timeline-wave::before {
-            content: '';
-            position: absolute;
-            left: -2rem;
-            top: 0.5rem;
-            width: 16px;
-            height: 16px;
-            background: var(--enrich-purple);
-            border-radius: 50%;
-            border: 3px solid var(--white);
-            box-shadow: 0 0 0 3px var(--enrich-purple);
-        }
-
-        .timeline-wave.wave-future::before {
-            background: var(--enrich-blue);
-            box-shadow: 0 0 0 3px var(--enrich-blue);
-        }
-
-        .wave-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 0.75rem;
-        }
-
-        .wave-badge {
-            background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%);
-            color: var(--white);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .wave-badge.wave-future {
-            background: linear-gradient(135deg, var(--enrich-blue) 0%, var(--enrich-blue-dark) 100%);
-        }
-
-        .wave-date {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--enrich-navy);
-        }
-
-        .wave-homes {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .wave-home-tag {
-            background: var(--light-gray);
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            color: var(--enrich-navy);
-            border: 1px solid #dee2e6;
-        }
-
-        .current-indicator {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: #d4edda;
-            color: #155724;
-            padding: 0.3rem 0.8rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .current-indicator::before {
-            content: '✓';
-        }
-
-        .stats-banner {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            background: linear-gradient(135deg, var(--enrich-navy) 0%, var(--enrich-teal) 100%);
-            color: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-        }
-
-        .stats-banner .stat-item {
-            text-align: center;
-        }
-
-        .stats-banner .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--enrich-blue-light);
-        }
-
-        .stats-banner .stat-label {
-            font-size: 0.95rem;
-            opacity: 0.95;
-        }
-
-        @media (max-width: 768px) {
-            .care-homes-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.5rem;
-            }
-
-            .care-home-item {
-                padding: 0.5rem 0.6rem;
-            }
-
-            .care-home-item .home-name {
-                font-size: 0.75rem;
-            }
-
-            .care-home-item .home-date {
-                font-size: 0.65rem;
-            }
-
-            .care-home-item .cqc-link {
-                font-size: 0.6rem;
-            }
-
-            .timeline {
-                padding-left: 1.5rem;
-            }
-
-            .timeline-wave {
-                padding-left: 1rem;
-            }
-
-            .wave-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-
-            .stats-banner {
-                gap: 1.5rem;
-                padding: 1.5rem 1rem;
-            }
-
-            .stats-banner .stat-number {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .care-homes-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.4rem;
-            }
-
-            .care-home-item {
-                padding: 0.4rem 0.5rem;
-            }
-
-            .care-home-item .home-name {
-                font-size: 0.7rem;
-            }
-        }
     </style>
 </head>
 <body>
@@ -1424,7 +1149,6 @@
                 <button onclick="showSection('home')" class="active" id="nav-home">Home</button>
                 <button onclick="showSection('about')" id="nav-about">About EnRICH</button>
                 <button onclick="showSection('services')" id="nav-services">Our Services</button>
-                <button onclick="showSection('carehomes')" id="nav-carehomes">Our Care Homes</button>
                 <button onclick="showSection('team')" id="nav-team">Meet the Team</button>
                 <button onclick="showSection('referral')" id="nav-referral">Make a Referral</button>
                 <button onclick="showSection('resources')" id="nav-resources">Resources</button>
@@ -1628,8 +1352,7 @@
                 <!-- BGS Resources Card -->
                 <div class="bgs-resources-card">
                     <div class="bgs-logo-placeholder">
-                        <img src="https://www.bgs.org.uk/sites/default/files/bgs_logo.png" alt="British Geriatrics Society" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="bgs-logo-fallback" style="display:none;">BGS</div>
+                        <div class="bgs-logo-text">BGS</div>
                     </div>
                     <div class="bgs-content">
                         <h4>British Geriatrics Society Resources</h4>
@@ -1649,182 +1372,6 @@
             </div>
         </section>
 
-        <!-- OUR CARE HOMES SECTION -->
-        <section id="carehomes">
-            <div class="info-section">
-                <h2>Our Care Homes</h2>
-                <p>EnRICH currently works with 11 care homes across Cambridgeshire, with plans to expand to 31 care homes by late 2027. Below you can see our current partner care homes and our planned expansion timeline.</p>
-
-                <div class="stats-banner">
-                    <div class="stat-item">
-                        <div class="stat-number">11</div>
-                        <div class="stat-label">Current Care Homes</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">31</div>
-                        <div class="stat-label">Total by 2027</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">6</div>
-                        <div class="stat-label">Expansion Waves</div>
-                    </div>
-                </div>
-
-                <h3>Current EnRICH Care Homes</h3>
-                <p>These care homes are currently receiving the full EnRICH service:</p>
-
-                <div class="care-homes-grid">
-                    <a href="https://www.cqc.org.uk/location/1-11348604884" target="_blank" rel="noopener noreferrer" class="care-home-item">
-                        <div class="home-name">Heathlands House</div>
-                        <div class="home-date">Since Oct 2024</div>
-                        <div class="cqc-link">View CQC ↗</div>
-                    </a>
-                    <a href="https://www.cqc.org.uk/location/1-120415751" target="_blank" rel="noopener noreferrer" class="care-home-item">
-                        <div class="home-name">Cambridge Manor</div>
-                        <div class="home-date">Since Feb 2025</div>
-                        <div class="cqc-link">View CQC ↗</div>
-                    </a>
-                    <a href="https://www.cqc.org.uk/location/1-6825580794" target="_blank" rel="noopener noreferrer" class="care-home-item">
-                        <div class="home-name">Southwell Court</div>
-                        <div class="home-date">Since Mar 2025</div>
-                        <div class="cqc-link">View CQC ↗</div>
-                    </a>
-                    <a href="https://www.cqc.org.uk/location/1-2424945414" target="_blank" rel="noopener noreferrer" class="care-home-item">
-                        <div class="home-name">Hatley Court</div>
-                        <div class="home-date">Since Mar 2025</div>
-                        <div class="cqc-link">View CQC ↗</div>
-                    </a>
-                    <a href="https://www.cqc.org.uk/location/1-18445801604" target="_blank" rel="noopener noreferrer" class="care-home-item">
-                        <div class="home-name">Cambridge Grove</div>
-                        <div class="home-date">Since Mar 2025</div>
-                        <div class="cqc-link">View CQC ↗</div>
-                    </a>
-                    <a href="https://www.cqc.org.uk/location/1-125950803" target="_blank" rel="noopener noreferrer" class="care-home-item">
-                        <div class="home-name">Brook House</div>
-                        <div class="home-date">Since Apr 2025</div>
-                        <div class="cqc-link">View CQC ↗</div>
-                    </a>
-                    <a href="https://www.cqc.org.uk/location/1-647971431" target="_blank" rel="noopener noreferrer" class="care-home-item">
-                        <div class="home-name">Waterbeach Lodge</div>
-                        <div class="home-date">Since Jun 2025</div>
-                        <div class="cqc-link">View CQC ↗</div>
-                    </a>
-                    <a href="https://www.cqc.org.uk/location/1-307297384" target="_blank" rel="noopener noreferrer" class="care-home-item">
-                        <div class="home-name">Lily House</div>
-                        <div class="home-date">Since Sep 2025</div>
-                        <div class="cqc-link">View CQC ↗</div>
-                    </a>
-                    <a href="https://www.cqc.org.uk/location/1-16481754098" target="_blank" rel="noopener noreferrer" class="care-home-item">
-                        <div class="home-name">Vera James House</div>
-                        <div class="home-date">Since Oct 2025</div>
-                        <div class="cqc-link">View CQC ↗</div>
-                    </a>
-                    <a href="https://www.cqc.org.uk/location/1-393307254" target="_blank" rel="noopener noreferrer" class="care-home-item">
-                        <div class="home-name">Maycroft</div>
-                        <div class="home-date">Since Oct 2025</div>
-                        <div class="cqc-link">View CQC ↗</div>
-                    </a>
-                    <a href="https://www.cqc.org.uk/location/1-2907731103" target="_blank" rel="noopener noreferrer" class="care-home-item">
-                        <div class="home-name">Highfield</div>
-                        <div class="home-date">Since Dec 2025</div>
-                        <div class="cqc-link">View CQC ↗</div>
-                    </a>
-                </div>
-
-                <div class="timeline-section">
-                    <h3>Expansion Timeline</h3>
-                    <p>Our phased rollout plan brings EnRICH to more care homes across Cambridgeshire:</p>
-
-                    <div class="timeline">
-                        <!-- Wave 1 -->
-                        <div class="timeline-wave wave-future">
-                            <div class="wave-header">
-                                <span class="wave-badge wave-future">Wave 1</span>
-                                <span class="wave-date">February 2026</span>
-                            </div>
-                            <div class="wave-homes">
-                                <span class="wave-home-tag">Langdon House</span>
-                                <span class="wave-home-tag">Alex Wood House</span>
-                                <span class="wave-home-tag">Etheldred House Care Home</span>
-                                <span class="wave-home-tag">Hilton Park - Oaklands</span>
-                            </div>
-                        </div>
-
-                        <!-- Wave 2 -->
-                        <div class="timeline-wave wave-future">
-                            <div class="wave-header">
-                                <span class="wave-badge wave-future">Wave 2</span>
-                                <span class="wave-date">June 2026</span>
-                            </div>
-                            <div class="wave-homes">
-                                <span class="wave-home-tag">Home Meadow</span>
-                                <span class="wave-home-tag">Primrose Croft Care Home</span>
-                                <span class="wave-home-tag">Melbourn Springs Care Home</span>
-                                <span class="wave-home-tag">Home Close</span>
-                            </div>
-                        </div>
-
-                        <!-- Wave 3 -->
-                        <div class="timeline-wave wave-future">
-                            <div class="wave-header">
-                                <span class="wave-badge wave-future">Wave 3</span>
-                                <span class="wave-date">October 2026</span>
-                            </div>
-                            <div class="wave-homes">
-                                <span class="wave-home-tag">Cleves Place</span>
-                                <span class="wave-home-tag">Queens Court</span>
-                                <span class="wave-home-tag">Townsend Manor</span>
-                                <span class="wave-home-tag">Fitzwilliam House Care Home</span>
-                            </div>
-                        </div>
-
-                        <!-- Wave 4 -->
-                        <div class="timeline-wave wave-future">
-                            <div class="wave-header">
-                                <span class="wave-badge wave-future">Wave 4</span>
-                                <span class="wave-date">February 2027</span>
-                            </div>
-                            <div class="wave-homes">
-                                <span class="wave-home-tag">Bramley Court</span>
-                                <span class="wave-home-tag">Cottenham Court Care Home</span>
-                                <span class="wave-home-tag">Woodlands Care Centre</span>
-                                <span class="wave-home-tag">The Cambridgeshire Care Home</span>
-                            </div>
-                        </div>
-
-                        <!-- Wave 5 -->
-                        <div class="timeline-wave wave-future">
-                            <div class="wave-header">
-                                <span class="wave-badge wave-future">Wave 5</span>
-                                <span class="wave-date">June 2027</span>
-                            </div>
-                            <div class="wave-homes">
-                                <span class="wave-home-tag">Melwood Grange</span>
-                                <span class="wave-home-tag">Midfield Lodge</span>
-                            </div>
-                        </div>
-
-                        <!-- Wave 6 -->
-                        <div class="timeline-wave wave-future">
-                            <div class="wave-header">
-                                <span class="wave-badge wave-future">Wave 6</span>
-                                <span class="wave-date">October 2027</span>
-                            </div>
-                            <div class="wave-homes">
-                                <span class="wave-home-tag">Symonds House</span>
-                                <span class="wave-home-tag">Orchard House Residential Care Home</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="highlight-box" style="margin-top: 2rem;">
-                    <h4>Is your care home interested in EnRICH?</h4>
-                    <p>If your care home is located in Cambridgeshire and you're interested in learning more about the EnRICH service, please contact us at <a href="/cdn-cgi/l/email-protection#c4a7b1aceaa7a5b6a1acaba9a1b7b0a1a5a984aaacb7eaaaa1b0"><span class="__cf_email__" data-cfemail="cba8bea3e5a8aab9aea3a4a6aeb8bfaeaaa68ba5a3b8e5a5aebf">[email&#160;protected]</span></a>.</p>
-                </div>
-            </div>
-        </section>
-
         <!-- MEET THE TEAM SECTION -->
         <section id="team">
             <div class="container">
@@ -1836,54 +1383,51 @@
 
                 <div class="team-pin-section" id="team-pin-entry">
                     <h3>🔒 Healthcare Professional Access</h3>
-                    <p>Enter your care home or GP practice PIN code to view team contact details. This helps us ensure our contact information is shared only with healthcare partners.</p>
+                    <p>Enter your care home or GP practice PIN code to view team contact details.</p>
                     
                     <div class="team-pin-inputs">
-                        <input type="text" class="team-pin-digit" maxlength="1" data-index="0" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 1">
-                        <input type="text" class="team-pin-digit" maxlength="1" data-index="1" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 2">
-                        <input type="text" class="team-pin-digit" maxlength="1" data-index="2" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 3">
-                        <input type="text" class="team-pin-digit" maxlength="1" data-index="3" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 4">
-                        <input type="text" class="team-pin-digit" maxlength="1" data-index="4" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 5">
+                        <input type="text" class="team-pin-digit" maxlength="1" data-index="0" inputmode="numeric" pattern="[0-9]*">
+                        <input type="text" class="team-pin-digit" maxlength="1" data-index="1" inputmode="numeric" pattern="[0-9]*">
+                        <input type="text" class="team-pin-digit" maxlength="1" data-index="2" inputmode="numeric" pattern="[0-9]*">
+                        <input type="text" class="team-pin-digit" maxlength="1" data-index="3" inputmode="numeric" pattern="[0-9]*">
+                        <input type="text" class="team-pin-digit" maxlength="1" data-index="4" inputmode="numeric" pattern="[0-9]*">
                     </div>
-                    <div class="team-pin-error" id="team-pin-error">Invalid PIN. Please check your code and try again.</div>
+                    <div class="team-pin-error" id="team-pin-error">Invalid PIN. Please try again.</div>
                 </div>
 
                 <div class="team-content" id="team-content">
                     <div class="team-grid">
                         <div class="team-member">
-                            <div class="team-member-photo">👨‍⚕️</div>
+                            <div class="team-member-icon">👨‍⚕️</div>
                             <h4>[Clinical Lead Name]</h4>
                             <div class="role">Consultant Geriatrician & Clinical Lead</div>
-                            <p>Leading the EnRICH service with expertise in geriatric medicine and care home support.</p>
                             <div class="contact-info">
-                                <a href="/cdn-cgi/l/email-protection#0c6a657e7f78626d616922606d7f78626d61694c62647f22626978"><span class="__cf_email__" data-cfemail="e086899293948e818d85ce8c8193948e818d85a08e8893ce8e8594">[email&#160;protected]</span></a>
+                                <a href="mailto:firstname.lastname@nhs.net">firstname.lastname@nhs.net</a>
                             </div>
                         </div>
 
                         <div class="team-member">
-                            <div class="team-member-photo">👩‍⚕️</div>
+                            <div class="team-member-icon">👩‍⚕️</div>
                             <h4>[Team Member Name]</h4>
                             <div class="role">Specialist Registrar</div>
-                            <p>Providing comprehensive geriatric assessments and supporting advance care planning.</p>
                             <div class="contact-info">
-                                <a href="/cdn-cgi/l/email-protection#9bfdf2e9e8eff5faf6feb5f7fae8eff5faf6fedbf5f3e8b5f5feef"><span class="__cf_email__" data-cfemail="5b3d3229282f353a363e75373a282f353a363e1b35332875353e2f">[email&#160;protected]</span></a>
+                                <a href="mailto:firstname.lastname@nhs.net">firstname.lastname@nhs.net</a>
                             </div>
                         </div>
 
                         <div class="team-member">
-                            <div class="team-member-photo">👩‍💼</div>
+                            <div class="team-member-icon">👩‍💼</div>
                             <h4>[Team Member Name]</h4>
                             <div class="role">Service Coordinator</div>
-                            <p>Coordinating referrals, scheduling visits, and liaising with care homes.</p>
                             <div class="contact-info">
-                                <a href="/cdn-cgi/l/email-protection#3a5c5348494e545b575f14565b494e545b575f7a54524914545f4e"><span class="__cf_email__" data-cfemail="3a5c5348494e545b575f14565b494e545b575f7a54524914545f4e">[email&#160;protected]</span></a>
+                                <a href="mailto:firstname.lastname@nhs.net">firstname.lastname@nhs.net</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="team-note">
                         <h4>📧 General Enquiries</h4>
-                        <p>For general enquiries about the EnRICH service, please contact our team inbox: <a href="/cdn-cgi/l/email-protection#e685938ec8858794838e898b83959283878ba6888e95c8888392"><span class="__cf_email__" data-cfemail="e88b9d80c68b899a8d8087858d9b9c8d8985a886809bc6868d9c">[email&#160;protected]</span></a></p>
+                        <p>For general enquiries about the EnRICH service: <a href="mailto:cuh.carehomesteam@nhs.net">cuh.carehomesteam@nhs.net</a></p>
                     </div>
                 </div>
             </div>
@@ -2069,7 +1613,7 @@ Role:
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Care Home PIN Database
         const careHomePINs = {
             '24569': 'Brook House Care Home',
@@ -2180,93 +1724,6 @@ Role:
                         pinInputs[i].value = digit;
                     }
                 });
-
-                if (pastedData.length === 5) {
-                    validatePIN();
-                }
-            });
-        });
-
-        // TEAM PIN Input handling
-        const teamPinInputs = document.querySelectorAll('.team-pin-digit');
-        
-        function validateTeamPIN() {
-            const enteredPIN = Array.from(teamPinInputs).map(input => input.value).join('');
-            const errorMsg = document.getElementById('team-pin-error');
-            const teamContent = document.getElementById('team-content');
-            const teamPinEntry = document.getElementById('team-pin-entry');
-            
-            if (enteredPIN.length === 5 && careHomePINs[enteredPIN]) {
-                // Valid PIN - show team content
-                errorMsg.style.display = 'none';
-                teamPinEntry.style.display = 'none';
-                teamContent.classList.add('visible');
-            } else if (enteredPIN.length === 5) {
-                // Invalid PIN
-                errorMsg.style.display = 'block';
-                teamPinInputs.forEach(input => {
-                    input.value = '';
-                    input.style.borderColor = '#dc3545';
-                });
-                teamPinInputs[0].focus();
-                
-                setTimeout(() => {
-                    teamPinInputs.forEach(input => {
-                        input.style.borderColor = '#ddd';
-                    });
-                }, 1500);
-            }
-        }
-        
-        teamPinInputs.forEach((input, index) => {
-            input.addEventListener('input', (e) => {
-                const value = e.target.value;
-                
-                // Only allow digits
-                if (!/^\d*$/.test(value)) {
-                    e.target.value = '';
-                    return;
-                }
-
-                // Move to next input
-                if (value && index < teamPinInputs.length - 1) {
-                    teamPinInputs[index + 1].focus();
-                }
-
-                // Auto-submit when all filled
-                if (index === teamPinInputs.length - 1 && value) {
-                    validateTeamPIN();
-                }
-            });
-
-            input.addEventListener('keydown', (e) => {
-                // Handle backspace
-                if (e.key === 'Backspace' && !e.target.value && index > 0) {
-                    teamPinInputs[index - 1].focus();
-                }
-                
-                // Handle Enter
-                if (e.key === 'Enter') {
-                    validateTeamPIN();
-                }
-            });
-
-            // Handle paste
-            input.addEventListener('paste', (e) => {
-                e.preventDefault();
-                const pastedData = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 5);
-                
-                pastedData.split('').forEach((digit, i) => {
-                    if (teamPinInputs[i]) {
-                        teamPinInputs[i].value = digit;
-                    }
-                });
-
-                if (pastedData.length === 5) {
-                    validateTeamPIN();
-                }
-            });
-        });
 
                 if (pastedData.length === 5) {
                     pinInputs[4].focus();
@@ -2439,6 +1896,72 @@ Role: ${referrerRole || 'Not specified'}`;
                 }, 100);
             }
         }
+
+        // TEAM PIN Input handling
+        const teamPinInputs = document.querySelectorAll('.team-pin-digit');
+        
+        function validateTeamPIN() {
+            const enteredPIN = Array.from(teamPinInputs).map(input => input.value).join('');
+            const errorMsg = document.getElementById('team-pin-error');
+            const teamContent = document.getElementById('team-content');
+            const teamPinEntry = document.getElementById('team-pin-entry');
+            
+            if (enteredPIN.length === 5 && careHomePINs[enteredPIN]) {
+                errorMsg.style.display = 'none';
+                teamPinEntry.style.display = 'none';
+                teamContent.classList.add('visible');
+            } else if (enteredPIN.length === 5) {
+                errorMsg.style.display = 'block';
+                teamPinInputs.forEach(input => {
+                    input.value = '';
+                    input.style.borderColor = '#dc3545';
+                });
+                teamPinInputs[0].focus();
+                setTimeout(() => {
+                    teamPinInputs.forEach(input => {
+                        input.style.borderColor = '#ddd';
+                    });
+                }, 1500);
+            }
+        }
+        
+        teamPinInputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                const value = e.target.value;
+                if (!/^\d*$/.test(value)) {
+                    e.target.value = '';
+                    return;
+                }
+                if (value && index < teamPinInputs.length - 1) {
+                    teamPinInputs[index + 1].focus();
+                }
+                if (index === teamPinInputs.length - 1 && value) {
+                    validateTeamPIN();
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    teamPinInputs[index - 1].focus();
+                }
+                if (e.key === 'Enter') {
+                    validateTeamPIN();
+                }
+            });
+
+            input.addEventListener('paste', (e) => {
+                e.preventDefault();
+                const pastedData = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 5);
+                pastedData.split('').forEach((digit, i) => {
+                    if (teamPinInputs[i]) {
+                        teamPinInputs[i].value = digit;
+                    }
+                });
+                if (pastedData.length === 5) {
+                    validateTeamPIN();
+                }
+            });
+        });
 
         // Run on page load
         document.addEventListener('DOMContentLoaded', function() {
