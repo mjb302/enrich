@@ -1300,7 +1300,7 @@
                         <span class="learn-more">Learn more about ACP →</span>
                     </a>
 
-                    <div class="card">
+                    <a href="medications-conditions.html" class="card card-link">
                         <h3>Medication & Condition Reviews</h3>
                         <p>Expert review of complex medication regimens and chronic disease management:</p>
                         <ul>
@@ -1310,9 +1310,10 @@
                             <li>Delirium prevention</li>
                             <li>Community-based interventions (IV antibiotics, parenteral diuretics)</li>
                         </ul>
-                    </div>
+                        <span class="learn-more">Learn more about Medication Reviews →</span>
+                    </a>
 
-                    <div class="card blue-accent">
+                    <a href="acute-deterioration.html" class="card blue-accent card-link">
                         <h3>Acute Deterioration Response</h3>
                         <p>Rapid clinical support when residents become unwell:</p>
                         <ul>
@@ -1322,9 +1323,10 @@
                             <li>Rapid discharge facilitation</li>
                             <li>Virtual ward support</li>
                         </ul>
-                    </div>
+                        <span class="learn-more">Learn more about Acute Response →</span>
+                    </a>
 
-                    <div class="card">
+                    <a href="staff-education.html" class="card card-link">
                         <h3>Staff Education & Support</h3>
                         <p>Building confidence and capability in care home teams:</p>
                         <ul>
@@ -1334,9 +1336,10 @@
                             <li>Development of clinical policies</li>
                             <li>Rapid access to specialist advice</li>
                         </ul>
-                    </div>
+                        <span class="learn-more">Learn more about Staff Education →</span>
+                    </a>
 
-                    <div class="card blue-accent">
+                    <a href="mdt-collaboration.html" class="card blue-accent card-link">
                         <h3>MDT Collaboration</h3>
                         <p>Working together for better outcomes:</p>
                         <ul>
@@ -1346,7 +1349,8 @@
                             <li>Collaboration with ambulance services</li>
                             <li>Integrated care system working</li>
                         </ul>
-                    </div>
+                        <span class="learn-more">Learn more about MDT Collaboration →</span>
+                    </a>
                 </div>
 
                 <!-- BGS Resources Card -->
@@ -1402,7 +1406,7 @@
                             <h4>[Clinical Lead Name]</h4>
                             <div class="role">Consultant Geriatrician & Clinical Lead</div>
                             <div class="contact-info">
-                                <a href="mailto:firstname.lastname@nhs.net">firstname.lastname@nhs.net</a>
+                                <a href="/cdn-cgi/l/email-protection#5036392223243e313d357e3c3123243e313d35103e38237e3e3524"><span class="__cf_email__" data-cfemail="583e312a2b2c3639353d7634392b2c3639353d1836302b76363d2c">[email&#160;protected]</span></a>
                             </div>
                         </div>
 
@@ -1411,7 +1415,7 @@
                             <h4>[Team Member Name]</h4>
                             <div class="role">Specialist Registrar</div>
                             <div class="contact-info">
-                                <a href="mailto:firstname.lastname@nhs.net">firstname.lastname@nhs.net</a>
+                                <a href="/cdn-cgi/l/email-protection#c8aea1babbbca6a9a5ade6a4a9bbbca6a9a5ad88a6a0bbe6a6adbc"><span class="__cf_email__" data-cfemail="36505f44454258575b53185a57454258575b5376585e4518585342">[email&#160;protected]</span></a>
                             </div>
                         </div>
 
@@ -1420,14 +1424,14 @@
                             <h4>[Team Member Name]</h4>
                             <div class="role">Service Coordinator</div>
                             <div class="contact-info">
-                                <a href="mailto:firstname.lastname@nhs.net">firstname.lastname@nhs.net</a>
+                                <a href="/cdn-cgi/l/email-protection#0c6a657e7f78626d616922606d7f78626d61694c62647f22626978"><span class="__cf_email__" data-cfemail="9cfaf5eeefe8f2fdf1f9b2f0fdefe8f2fdf1f9dcf2f4efb2f2f9e8">[email&#160;protected]</span></a>
                             </div>
                         </div>
                     </div>
 
                     <div class="team-note">
                         <h4>📧 General Enquiries</h4>
-                        <p>For general enquiries about the EnRICH service: <a href="mailto:cuh.carehomesteam@nhs.net">cuh.carehomesteam@nhs.net</a></p>
+                        <p>For general enquiries about the EnRICH service: <a href="/cdn-cgi/l/email-protection#f695839ed8959784939e999b93858293979bb6989e85d8989382"><span class="__cf_email__" data-cfemail="711204195f12100314191e1c14020514101c311f19025f1f1405">[email&#160;protected]</span></a></p>
                     </div>
                 </div>
             </div>
@@ -1613,7 +1617,7 @@ Role:
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Care Home PIN Database
         const careHomePINs = {
             '24569': 'Brook House Care Home',
@@ -1947,26 +1951,4 @@ Role: ${referrerRole || 'Not specified'}`;
                 if (e.key === 'Enter') {
                     validateTeamPIN();
                 }
-            });
-
-            input.addEventListener('paste', (e) => {
-                e.preventDefault();
-                const pastedData = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 5);
-                pastedData.split('').forEach((digit, i) => {
-                    if (teamPinInputs[i]) {
-                        teamPinInputs[i].value = digit;
-                    }
-                });
-                if (pastedData.length === 5) {
-                    validateTeamPIN();
-                }
-            });
-        });
-
-        // Run on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            checkURLForPIN();
-        });
-    </script>
-</body>
-</html>
+     

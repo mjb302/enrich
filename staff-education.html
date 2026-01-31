@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Education & Support | EnRICH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --enrich-purple: #8B2A7D;
+            --enrich-blue: #1E3A5F;
+            --enrich-navy: #0D1B2A;
+            --light-purple: #F5EBF4;
+            --light-blue: #E8EEF4;
+            --white: #FFFFFF;
+            --text-gray: #4A5568;
+            --bgs-green: #006747;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--enrich-navy);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-blue) 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-section img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 2px solid white;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            background: white;
+            color: var(--enrich-purple);
+        }
+
+        .nhs-banner {
+            background: #005EB8;
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title h2 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 2rem;
+            color: var(--enrich-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-title p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 12px rgba(30, 58, 95, 0.08);
+        }
+
+        .content-card h3 {
+            color: var(--enrich-purple);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-card p {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .definition-box {
+            background: var(--light-purple);
+            border-left: 4px solid var(--enrich-purple);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+
+        .definition-box cite {
+            display: block;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--enrich-purple);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .domain-card {
+            background: var(--light-blue);
+            border-radius: 8px;
+            padding: 1rem;
+            border-top: 3px solid var(--enrich-purple);
+        }
+
+        .domain-card h4 {
+            color: var(--enrich-navy);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .domain-card p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .evidence-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .evidence-list li {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: var(--light-blue);
+            border-radius: 6px;
+            padding-left: 2.5rem;
+            position: relative;
+        }
+
+        .evidence-list li::before {
+            content: "📚";
+            position: absolute;
+            left: 0.75rem;
+        }
+
+        .benefits-box {
+            background: var(--light-purple);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .benefits-box h4 {
+            color: var(--enrich-purple);
+            margin-bottom: 1rem;
+        }
+
+        .benefits-box ul {
+            margin-left: 1.5rem;
+        }
+
+        .benefits-box li {
+            margin-bottom: 0.5rem;
+            color: var(--text-gray);
+        }
+
+        .pathway-box {
+            background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-blue) 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .pathway-box h4 {
+            margin-bottom: 1rem;
+        }
+
+        .pathway-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pathway-step {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .pathway-arrow {
+            font-size: 1.2rem;
+        }
+
+        .bgs-attribution {
+            background: linear-gradient(135deg, var(--bgs-green) 0%, #004d36 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .bgs-attribution h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .bgs-attribution p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .bgs-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .bgs-attribution a {
+            display: inline-block;
+            background: white;
+            color: var(--bgs-green);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .bgs-attribution a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .enrich-note {
+            background: var(--light-purple);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border: 2px solid var(--enrich-purple);
+        }
+
+        .enrich-note h4 {
+            color: var(--enrich-purple);
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: var(--enrich-navy);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .page-title h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-card {
+                padding: 1.25rem;
+            }
+
+            .domains-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bgs-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pathway-steps {
+                flex-direction: column;
+            }
+
+            .pathway-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="EnRICH_Logo_solid.png" alt="EnRICH Logo">
+                <div class="logo-text">
+                    <h1>EnRICH</h1>
+                    <p>Enhanced Reviews in Care Homes</p>
+                </div>
+            </div>
+            <a href="index.html" class="back-link">← Back to EnRICH</a>
+        </div>
+    </header>
+
+    <div class="nhs-banner">
+        A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong>
+    </div>
+
+    <main>
+        <div class="page-title">
+            <h2>Staff Education & Support</h2>
+            <p>Building confidence and capability in care home teams</p>
+        </div>
+
+        <div class="content-card">
+            <h3>📖 Why Education Matters</h3>
+            <p>Care home staff are at the frontline of caring for older adults with complex health needs. Building their confidence and capability through education and ongoing support is essential for delivering high-quality care and recognising when residents need specialist input.</p>
+            
+            <div class="definition-box">
+                "Improving knowledge and skills in geriatric medicine for all care home staff is essential to improve the quality of care for residents. Education should be tailored to the needs of the care home and delivered in accessible formats."
+                <cite>— British Geriatrics Society Care Homes Group</cite>
+            </div>
+
+            <p>The EnRICH team works alongside care home staff, providing regular education sessions, clinical discussions, and real-time support to enhance the care delivered to residents.</p>
+        </div>
+
+        <div class="content-card">
+            <h3>🎯 Our Education & Support Services</h3>
+            <p>We provide comprehensive education and support to care home teams:</p>
+
+            <div class="domains-grid">
+                <div class="domain-card">
+                    <h4>Regular Engagement</h4>
+                    <p>Scheduled teaching sessions tailored to each care home's learning needs and priorities.</p>
+                </div>
+                <div class="domain-card">
+                    <h4>Case Review</h4>
+                    <p>Clinical discussion of complex residents and reflective learning from outcomes.</p>
+                </div>
+                <div class="domain-card">
+                    <h4>Escalation Pathways</h4>
+                    <p>Clear guidance on when and how to seek specialist advice or urgent review.</p>
+                </div>
+                <div class="domain-card">
+                    <h4>Clinical Policies</h4>
+                    <p>Development of practical guidelines for common clinical scenarios.</p>
+                </div>
+                <div class="domain-card">
+                    <h4>Specialist Access</h4>
+                    <p>Rapid access to geriatrician advice when staff face challenging clinical situations.</p>
+                </div>
+                <div class="domain-card">
+                    <h4>Skills Development</h4>
+                    <p>Building competence in frailty recognition, NEWS2, and clinical assessment.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h3>📚 Key Learning Topics</h3>
+            <p>Our education sessions cover essential topics for care home staff:</p>
+
+            <ul class="evidence-list">
+                <li><strong>Frailty recognition</strong> – Understanding and identifying frailty using the Clinical Frailty Scale</li>
+                <li><strong>Delirium awareness</strong> – Recognising confusion as a sign of illness, not just dementia progression</li>
+                <li><strong>Falls prevention</strong> – Risk factors, assessment, and practical prevention strategies</li>
+                <li><strong>End of life care</strong> – Supporting residents and families during the final stages of life</li>
+                <li><strong>Medication safety</strong> – Recognising side effects, interactions, and when to raise concerns</li>
+                <li><strong>Advance care planning</strong> – Having difficult conversations and documenting wishes</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h3>✓ Benefits of Education</h3>
+
+            <div class="benefits-box">
+                <h4>What Staff Education Achieves</h4>
+                <ul>
+                    <li><strong>Improved recognition</strong> – Earlier identification of deteriorating residents</li>
+                    <li><strong>Confident decision-making</strong> – Knowing when to escalate and when to manage in-house</li>
+                    <li><strong>Better communication</strong> – Using clinical language that facilitates effective handover</li>
+                    <li><strong>Reduced hospital transfers</strong> – Managing more conditions safely in the care home</li>
+                    <li><strong>Enhanced resident experience</strong> – Care that aligns with individual preferences</li>
+                    <li><strong>Staff satisfaction</strong> – Greater confidence and professional development</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h3>📞 Clear Escalation Pathways</h3>
+            <p>We work with each care home to establish clear, practical escalation pathways:</p>
+
+            <div class="pathway-box">
+                <h4>When You're Concerned About a Resident</h4>
+                <div class="pathway-steps">
+                    <span class="pathway-step">Recognise change</span>
+                    <span class="pathway-arrow">→</span>
+                    <span class="pathway-step">Document observations</span>
+                    <span class="pathway-arrow">→</span>
+                    <span class="pathway-step">Check ReSPECT form</span>
+                    <span class="pathway-arrow">→</span>
+                    <span class="pathway-step">Contact EnRICH or GP</span>
+                    <span class="pathway-arrow">→</span>
+                    <span class="pathway-step">Implement advice</span>
+                </div>
+            </div>
+
+            <p>Our team provides guidance on the appropriate level of escalation – from simple advice calls through to urgent on-site assessment or hospital transfer when needed.</p>
+        </div>
+
+        <div class="enrich-note">
+            <h4>🏠 Education in EnRICH</h4>
+            <p>Education is embedded throughout the EnRICH model. During every care home visit, we take opportunities to discuss clinical cases, share knowledge, and build relationships with care home staff. This ongoing engagement creates a foundation of trust that enables effective collaboration when residents become unwell. We also offer formal teaching sessions on specific topics by arrangement.</p>
+        </div>
+
+        <div class="bgs-attribution">
+            <h4>Learn More from the British Geriatrics Society</h4>
+            <p>Access free educational resources on caring for older people.</p>
+            <div class="bgs-links">
+                <a href="https://www.bgs.org.uk/resources/care-home-resource-introduction" target="_blank" rel="noopener noreferrer">Care Home Resources →</a>
+                <a href="https://www.bgs.org.uk/resources/frailty-hub" target="_blank" rel="noopener noreferrer">Frailty Hub →</a>
+                <a href="https://www.bgs.org.uk/resources/delirium-education-and-training" target="_blank" rel="noopener noreferrer">Delirium Education →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 EnRICH - Enhanced Reviews in Care Homes | Cambridge University Hospitals NHS Foundation Trust</p>
+        <p><a href="index.html">Return to EnRICH Homepage</a></p>
+    </footer>
+</body>
+</html>
