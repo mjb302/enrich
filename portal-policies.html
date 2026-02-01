@@ -6,58 +6,254 @@
     <title>Policies &amp; Guidelines | EnRICH Staff Portal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&amp;family=Merriweather:wght@400;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --enrich-purple: #8B2A7D; --enrich-purple-dark: #6B1F5F; --enrich-blue: #2D7BC4; --enrich-blue-dark: #1E5A94; --enrich-blue-light: #4A9AE8; --enrich-navy: #1E3A5F; --enrich-teal: #2A6575; --white: #FFFFFF; --off-white: #F8F9FA; --light-gray: #E9ECEF; --text-gray: #495057; --shadow: 0 4px 20px rgba(30, 58, 95, 0.15); --shadow-hover: 0 8px 30px rgba(30, 58, 95, 0.25); }
+        :root {
+            --enrich-purple: #8B2A7D;
+            --enrich-blue: #1E3A5F;
+            --enrich-navy: #0D1B2A;
+            --light-purple: #F5EBF4;
+            --light-blue: #E8EEF4;
+            --white: #FFFFFF;
+            --text-gray: #4A5568;
+            --off-white: #F8F9FA;
+            --light-gray: #E9ECEF;
+            --green: #006747;
+            --green-light: #E6F5EF;
+            --shadow: 0 4px 20px rgba(30, 58, 95, 0.15);
+            --shadow-hover: 0 8px 30px rgba(30, 58, 95, 0.25);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--off-white); color: var(--enrich-navy); line-height: 1.6; }
-        header { background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%); color: var(--white); position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow); }
-        .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-        .logo-section { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--white); }
-        .logo-section img { height: 60px; width: auto; background: white; border-radius: 8px; padding: 4px; }
-        .logo-text h1 { font-family: 'Merriweather', Georgia, serif; font-size: 1.5rem; font-weight: 700; }
-        .logo-text p { font-size: 0.85rem; opacity: 0.9; font-weight: 300; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--off-white);
+            color: var(--enrich-navy);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-blue) 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: white;
+        }
+        .logo-section img {
+            height: 50px;
+            width: auto;
+            background: white;
+            border-radius: 8px;
+            padding: 4px;
+        }
+        .logo-text h1 { font-size: 1.5rem; font-weight: 700; }
+        .logo-text p { font-size: 0.8rem; opacity: 0.9; }
         nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-        nav a { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: var(--white); padding: 0.6rem 1.2rem; border-radius: 6px; font-family: inherit; font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease; text-decoration: none; }
-        nav a:hover, nav a.active { background: var(--white); color: var(--enrich-purple); }
+        nav a {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: inherit;
+        }
+        nav a:hover, nav a.active { background: white; color: var(--enrich-purple); }
         nav a.pin-link { border-color: rgba(255,255,255,0.5); }
-        .nhs-banner { background: var(--enrich-blue); color: var(--white); text-align: center; padding: 0.5rem; font-size: 0.85rem; }
+        .nhs-banner { background: var(--enrich-blue); color: white; text-align: center; padding: 0.5rem; font-size: 0.85rem; }
+
+        /* Layout */
         main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        .back-link { display: inline-block; color: var(--enrich-purple); text-decoration: none; font-weight: 600; margin-bottom: 1.5rem; font-size: 0.95rem; }
+
+        .back-link {
+            display: inline-block;
+            color: var(--enrich-purple);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
         .back-link:hover { text-decoration: underline; }
-        .page-header { background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%); color: var(--white); border-radius: 16px; padding: 2rem 2.5rem; margin-bottom: 2rem; }
-        .page-header h2 { font-family: 'Merriweather', Georgia, serif; font-size: 1.8rem; margin-bottom: 0.5rem; }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-blue) 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 2rem 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .page-header h2 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
         .page-header p { opacity: 0.9; }
-        .content-section { background: var(--white); border-radius: 12px; padding: 2rem; box-shadow: var(--shadow); margin-bottom: 1.5rem; }
-        .content-section h3 { font-family: 'Merriweather', Georgia, serif; color: var(--enrich-navy); margin-bottom: 1rem; font-size: 1.2rem; }
-        .content-section p { color: var(--text-gray); margin-bottom: 0.75rem; }
-        .content-section ul { color: var(--text-gray); margin-left: 1.5rem; margin-bottom: 1rem; }
-        .content-section li { margin-bottom: 0.4rem; }
-        .placeholder-notice { background: linear-gradient(135deg, rgba(139,42,125,0.08) 0%, rgba(45,123,196,0.08) 100%); border-left: 4px solid var(--enrich-blue); padding: 1.5rem; border-radius: 0 10px 10px 0; margin: 1.5rem 0; }
-        .placeholder-notice h4 { color: var(--enrich-blue); margin-bottom: 0.5rem; }
-        .placeholder-notice p { color: var(--text-gray); margin: 0; }
-        .contact-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-        .contact-table th { background: var(--enrich-navy); color: var(--white); padding: 0.75rem 1rem; text-align: left; font-weight: 600; }
-        .contact-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--light-gray); color: var(--text-gray); }
-        .contact-table tr:hover td { background: rgba(139,42,125,0.04); }
-        footer { background: var(--enrich-navy); color: var(--white); padding: 2rem; margin-top: 3rem; }
-        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .policy-card {
+            background: var(--white);
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .policy-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-banner {
+            padding: 1.5rem 1.5rem 1rem;
+            color: white;
+        }
+        .card-banner.purple { background: linear-gradient(135deg, var(--enrich-purple) 0%, #6B1F5F 100%); }
+        .card-banner.blue { background: linear-gradient(135deg, var(--enrich-blue) 0%, #15294A 100%); }
+        .card-banner.green { background: linear-gradient(135deg, var(--green) 0%, #004D35 100%); }
+
+        .card-banner .icon { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .card-banner h3 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 1.15rem;
+            margin-bottom: 0.25rem;
+        }
+        .card-banner .tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.15rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .card-body {
+            padding: 1.25rem 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-body p {
+            color: var(--text-gray);
+            font-size: 0.88rem;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+        .card-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.25rem;
+        }
+        .card-body ul li {
+            font-size: 0.82rem;
+            color: var(--text-gray);
+            padding: 0.3rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+        .card-body ul li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.65rem 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: all 0.2s;
+            text-align: center;
+            justify-content: center;
+        }
+        .card-link.purple { background: var(--enrich-purple); color: white; }
+        .card-link.purple:hover { background: #6B1F5F; }
+        .card-link.blue { background: var(--enrich-blue); color: white; }
+        .card-link.blue:hover { background: #15294A; }
+        .card-link.green { background: var(--green); color: white; }
+        .card-link.green:hover { background: #004D35; }
+
+        /* Footer */
+        footer {
+            background: var(--enrich-navy);
+            color: white;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
         .footer-content p { opacity: 0.9; font-size: 0.9rem; }
-        .footer-content a { color: var(--enrich-blue-light); }
+        .footer-content a { color: #93C5FD; }
+
         @media (max-width: 768px) {
             .header-content { flex-direction: column; text-align: center; padding: 1rem; }
             .logo-section { flex-direction: column; gap: 0.5rem; }
             .logo-section img { height: 50px; }
-            .logo-text h1 { font-size: 1.3rem; }
-            nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; padding-bottom: 5px; }
+            nav {
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                justify-content: flex-start;
+                padding-bottom: 5px;
+            }
             nav::-webkit-scrollbar { display: none; }
-            nav a { flex-shrink: 0; padding: 0.6rem 1rem; font-size: 0.85rem; min-height: 44px; display: flex; align-items: center; }
+            nav a {
+                flex-shrink: 0;
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
             main { padding: 1rem; }
             .page-header { padding: 1.5rem; }
             .page-header h2 { font-size: 1.4rem; }
-            .content-section { padding: 1.25rem; }
-            .contact-table { font-size: 0.85rem; }
-            .contact-table th, .contact-table td { padding: 0.5rem; }
+            .cards-grid { grid-template-columns: 1fr; }
             .footer-content { flex-direction: column; text-align: center; }
         }
     </style>
@@ -87,49 +283,75 @@
 
         <div class="page-header">
             <h2>&#x1F4CB; Policies &amp; Guidelines</h2>
-            <p>EnRICH Staff Portal &mdash; Authenticated Access</p>
+            <p>Clinical pathways, guidelines and management tools for the EnRICH team</p>
         </div>
 
-        <div class="content-section">
-            <h3>Clinical Protocols</h3>
-            <p>Key clinical protocols and care pathways used by the EnRICH service.</p>
-            <ul>
-                <li><strong>Acute Deterioration Protocol</strong> &mdash; When and how to escalate concerns about a resident's condition</li>
-                <li><strong>Falls Assessment Pathway</strong> &mdash; Post-fall assessment checklist and onward referral criteria</li>
-                <li><strong>Delirium Screening Protocol</strong> &mdash; 4AT screening tool guidance and management pathway</li>
-                <li><strong>End of Life Care Pathway</strong> &mdash; Symptom management and comfort care guidelines</li>
-            </ul>
-        </div>
+        <div class="cards-grid">
 
-        <div class="content-section">
-            <h3>Medication Management</h3>
-            <ul>
-                <li><strong>Polypharmacy Review Guidance</strong> &mdash; STOPPFrail criteria and deprescribing framework</li>
-                <li><strong>Anticipatory Medications</strong> &mdash; Standard anticipatory prescribing for end of life care</li>
-                <li><strong>Antibiotic Guidelines</strong> &mdash; Community-onset infection management in care homes</li>
-                <li><strong>Controlled Drug Procedures</strong> &mdash; Safe storage, administration, and record-keeping</li>
-            </ul>
-        </div>
+            <!-- CARD 1: CPICS Local Pathways -->
+            <div class="policy-card">
+                <div class="card-banner purple">
+                    <div class="icon">&#x1F4D6;</div>
+                    <h3>CPICS Local Pathways &amp; Guidelines</h3>
+                    <span class="tag">EXTERNAL RESOURCE</span>
+                </div>
+                <div class="card-body">
+                    <p>Access the full library of Cambridgeshire &amp; Peterborough Integrated Care System local clinical pathways and guidelines, covering primary care, community services, and secondary care referral criteria.</p>
+                    <ul>
+                        <li>Referral pathways and criteria</li>
+                        <li>Local prescribing guidelines</li>
+                        <li>Clinical management pathways</li>
+                        <li>Shared care protocols</li>
+                    </ul>
+                    <a href="https://www.cpics.org.uk/local-pathways-and-guidelines" target="_blank" class="card-link purple">Open CPICS Guidelines &#x2197;&#xFE0F;</a>
+                </div>
+            </div>
 
-        <div class="content-section">
-            <h3>Escalation &amp; Communication</h3>
-            <ul>
-                <li><strong>SBAR Communication Tool</strong> &mdash; Structured handover format for clinical escalation</li>
-                <li><strong>When to Call 999</strong> &mdash; Clear criteria for emergency ambulance activation</li>
-                <li><strong>EnRICH Referral Criteria</strong> &mdash; Which residents benefit from EnRICH input</li>
-                <li><strong>Hospital Transfer Checklist</strong> &mdash; Essential documentation and information to send with residents</li>
-            </ul>
-        </div>
+            <!-- CARD 2: Heart Failure Diuretics -->
+            <div class="policy-card">
+                <div class="card-banner blue">
+                    <div class="icon">&#x2764;&#xFE0F;</div>
+                    <h3>Heart Failure Diuretic Management</h3>
+                    <span class="tag">INTERACTIVE GUIDE</span>
+                </div>
+                <div class="card-body">
+                    <p>Interactive clinical guide for the administration of IV and SC diuretics for heart failure patients in the community, based on the CUH Virtual Ward guideline (Version 2, October 2025).</p>
+                    <ul>
+                        <li>Patient selection checklists</li>
+                        <li>Oral &rarr; IV dose conversion calculator</li>
+                        <li>U&amp;E monitoring action table</li>
+                        <li>SC furosemide end-of-life guidance</li>
+                        <li>Discharge checklist</li>
+                    </ul>
+                    <a href="portal-hf-diuretics.html" class="card-link blue">Open Interactive Guide &#x2192;</a>
+                </div>
+            </div>
 
-        <div class="placeholder-notice">
-            <h4>&#x1F4DD; Content Coming Soon</h4>
-            <p>Policy documents are being prepared for upload. In the meantime, please contact the EnRICH team for the latest versions of any clinical protocols or guidelines.</p>
+            <!-- CARD 3: Placeholder -->
+            <div class="policy-card">
+                <div class="card-banner green">
+                    <div class="icon">&#x1F4C1;</div>
+                    <h3>More Guidelines Coming Soon</h3>
+                    <span class="tag">IN DEVELOPMENT</span>
+                </div>
+                <div class="card-body">
+                    <p>Additional clinical protocols and management tools are being developed for the EnRICH team. Check back here for updates or contact the team to suggest new content.</p>
+                    <ul>
+                        <li>Falls assessment pathway</li>
+                        <li>Delirium screening protocol</li>
+                        <li>End of life care pathway</li>
+                        <li>Anticipatory medications guidance</li>
+                    </ul>
+                    <a href="staff-portal.html" class="card-link green">Back to Staff Portal &#x2192;</a>
+                </div>
+            </div>
+
         </div>
     </main>
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2026 EnRICH - Enhanced Reviews in Care Homes<br>Cambridge University Hospitals NHS Foundation Trust</p>
+            <p>&copy; 2026 EnRICH &mdash; Enhanced Reviews in Care Homes<br>Cambridge University Hospitals NHS Foundation Trust</p>
             <p><a href="resources.html">Resources</a> | <a href="https://mjb302.github.io/enrich-map/" target="_blank">Interactive Map</a></p>
         </div>
     </footer>

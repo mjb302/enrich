@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Failure Diuretic Management | EnRICH Staff Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --enrich-purple: #8B2A7D;
+            --enrich-blue: #1E3A5F;
+            --enrich-navy: #0D1B2A;
+            --light-purple: #F5EBF4;
+            --light-blue: #E8EEF4;
+            --white: #FFFFFF;
+            --text-gray: #4A5568;
+            --off-white: #F8F9FA;
+            --light-gray: #E9ECEF;
+            --green: #006747;
+            --green-light: #E6F5EF;
+            --amber: #92400E;
+            --amber-light: #FEF3C7;
+            --amber-bg: #FFFBEB;
+            --red: #991B1B;
+            --red-light: #FEE2E2;
+            --red-bg: #FEF2F2;
+            --blue-accent: #1E40AF;
+            --blue-light: #DBEAFE;
+            --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--off-white);
+            color: var(--enrich-navy);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-blue) 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: white;
+        }
+        .logo-section img {
+            height: 50px;
+            width: auto;
+            background: white;
+            border-radius: 8px;
+            padding: 4px;
+        }
+        .logo-text h1 { font-size: 1.5rem; font-weight: 700; }
+        .logo-text p { font-size: 0.8rem; opacity: 0.9; }
+        nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        nav a {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: inherit;
+        }
+        nav a:hover, nav a.active { background: white; color: var(--enrich-purple); }
+        nav a.pin-link { border-color: rgba(255,255,255,0.5); }
+        .nhs-banner { background: var(--enrich-blue); color: white; text-align: center; padding: 0.5rem; font-size: 0.85rem; }
+
+        /* Layout */
+        main { max-width: 960px; margin: 0 auto; padding: 1.5rem; }
+
+        .back-link {
+            display: inline-block;
+            color: var(--enrich-purple);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, var(--enrich-navy) 0%, var(--enrich-blue) 100%);
+            color: white;
+            border-radius: 14px;
+            padding: 2rem 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .page-hero h2 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+        .page-hero .subtitle { opacity: 0.85; font-size: 0.95rem; }
+        .page-hero .meta {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Draft banner */
+        .draft-banner {
+            background: var(--amber-bg);
+            border: 2px solid #F59E0B;
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        .draft-banner .icon { font-size: 1.3rem; flex-shrink: 0; }
+        .draft-banner strong { color: var(--amber); }
+        .draft-banner p { color: #78350F; font-size: 0.85rem; margin: 0; }
+
+        /* Quick Nav */
+        .quick-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .quick-nav a {
+            background: white;
+            border: 1.5px solid var(--light-gray);
+            border-radius: 8px;
+            padding: 0.7rem 0.75rem;
+            text-decoration: none;
+            color: var(--enrich-navy);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+        }
+        .quick-nav a:hover {
+            border-color: var(--enrich-purple);
+            background: var(--light-purple);
+            color: var(--enrich-purple);
+        }
+
+        /* Sections */
+        .section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.25rem;
+            overflow: hidden;
+        }
+        .section-header {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            user-select: none;
+            transition: background 0.2s;
+        }
+        .section-header:hover { background: rgba(0,0,0,0.02); }
+        .section-header h3 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .section-header .toggle {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+            color: var(--text-gray);
+            flex-shrink: 0;
+        }
+        .section-header .toggle.open { transform: rotate(180deg); }
+        .section-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .section-body.open { max-height: 5000px; }
+        .section-content {
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        /* Typography inside sections */
+        .section-content p { color: var(--text-gray); margin-bottom: 0.75rem; font-size: 0.9rem; }
+        .section-content ul, .section-content ol {
+            color: var(--text-gray);
+            margin: 0 0 1rem 1.25rem;
+            font-size: 0.9rem;
+        }
+        .section-content li { margin-bottom: 0.35rem; }
+        .section-content h4 {
+            color: var(--enrich-navy);
+            font-size: 0.95rem;
+            margin: 1.25rem 0 0.5rem;
+        }
+
+        /* Info boxes */
+        .info-box {
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+        }
+        .info-box.green { background: var(--green-light); border-left: 4px solid var(--green); }
+        .info-box.amber { background: var(--amber-bg); border-left: 4px solid #F59E0B; }
+        .info-box.red { background: var(--red-bg); border-left: 4px solid #EF4444; }
+        .info-box.blue { background: #EFF6FF; border-left: 4px solid #3B82F6; }
+        .info-box strong { display: block; margin-bottom: 0.3rem; }
+        .info-box p { margin: 0; color: inherit; }
+
+        /* Checklist */
+        .checklist { list-style: none; margin: 0 0 1rem 0; padding: 0; }
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 0.3rem;
+            font-size: 0.88rem;
+            color: var(--text-gray);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .checklist li:hover { background: rgba(0,0,0,0.02); }
+        .checklist li input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            flex-shrink: 0;
+            accent-color: var(--enrich-purple);
+            cursor: pointer;
+        }
+        .checklist li.checked { color: var(--green); }
+        .checklist li.checked span { text-decoration: line-through; opacity: 0.7; }
+
+        .checklist-progress {
+            background: var(--light-gray);
+            border-radius: 20px;
+            height: 8px;
+            margin: 0.5rem 0 1rem;
+            overflow: hidden;
+        }
+        .checklist-progress-bar {
+            height: 100%;
+            background: var(--enrich-purple);
+            border-radius: 20px;
+            transition: width 0.3s;
+        }
+        .checklist-label {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            font-weight: 600;
+        }
+
+        /* Tables */
+        .dose-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+        }
+        .dose-table th {
+            background: var(--enrich-navy);
+            color: white;
+            padding: 0.65rem 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        .dose-table td {
+            padding: 0.6rem 0.75rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .dose-table tr:hover td { background: rgba(139,42,125,0.04); }
+        .dose-table tr:nth-child(even) td { background: var(--off-white); }
+        .dose-table tr:nth-child(even):hover td { background: rgba(139,42,125,0.06); }
+        .dose-table .highlight td { background: var(--light-purple); font-weight: 600; }
+
+        /* Monitoring table */
+        .monitor-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.84rem;
+        }
+        .monitor-table th {
+            background: var(--enrich-navy);
+            color: white;
+            padding: 0.6rem 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.78rem;
+        }
+        .monitor-table td {
+            padding: 0.6rem 0.75rem;
+            border-bottom: 1px solid var(--light-gray);
+            vertical-align: top;
+        }
+        .monitor-table .level { font-weight: 700; white-space: nowrap; }
+        .monitor-table .level-warn { color: #D97706; }
+        .monitor-table .level-danger { color: #DC2626; }
+
+        /* Decision flowchart */
+        .flow-step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+            align-items: flex-start;
+        }
+        .flow-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--enrich-purple);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .flow-content {
+            flex: 1;
+            padding-top: 4px;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+        .flow-content strong { color: var(--enrich-navy); }
+        .flow-connector {
+            width: 2px;
+            height: 16px;
+            background: var(--light-gray);
+            margin-left: 15px;
+        }
+
+        /* Route selector (interactive) */
+        .route-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .route-card {
+            border: 2px solid var(--light-gray);
+            border-radius: 10px;
+            padding: 1.25rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .route-card:hover { border-color: var(--enrich-purple); }
+        .route-card.selected {
+            border-color: var(--enrich-purple);
+            background: var(--light-purple);
+            box-shadow: 0 0 0 3px rgba(139,42,125,0.15);
+        }
+        .route-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .route-card h4 { font-size: 0.95rem; color: var(--enrich-navy); margin-bottom: 0.3rem; }
+        .route-card p { font-size: 0.8rem; color: var(--text-gray); margin: 0; }
+        .route-card .tag {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        .tag-green { background: var(--green-light); color: var(--green); }
+        .tag-blue { background: var(--blue-light); color: var(--blue-accent); }
+        .tag-amber { background: var(--amber-light); color: var(--amber); }
+
+        .route-detail {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        .route-detail.visible { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Dose calculator */
+        .calc-row {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        .calc-row label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--enrich-navy);
+        }
+        .calc-row select, .calc-row input {
+            padding: 0.5rem 0.75rem;
+            border: 1.5px solid var(--light-gray);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+        .calc-row select:focus, .calc-row input:focus {
+            outline: none;
+            border-color: var(--enrich-purple);
+        }
+        .calc-result {
+            background: var(--light-purple);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 0.75rem 0;
+            font-size: 0.9rem;
+        }
+        .calc-result strong { color: var(--enrich-purple); }
+
+        /* Footer */
+        footer {
+            background: var(--enrich-navy);
+            color: white;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+        .footer-content a { color: #93C5FD; }
+
+        /* Print */
+        @media print {
+            header, nav, .nhs-banner, .quick-nav, .back-link, footer { display: none; }
+            .section-body { max-height: none !important; }
+            .section { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; text-align: center; }
+            .logo-section { flex-direction: column; gap: 0.5rem; }
+            .logo-section img { height: 50px; }
+            nav {
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                justify-content: flex-start;
+                padding-bottom: 5px;
+            }
+            nav::-webkit-scrollbar { display: none; }
+            nav a {
+                flex-shrink: 0;
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+            main { padding: 1rem; }
+            .page-hero { padding: 1.5rem; }
+            .page-hero h2 { font-size: 1.3rem; }
+            .page-hero .meta { flex-direction: column; gap: 0.25rem; }
+            .route-cards { grid-template-columns: 1fr; }
+            .dose-table, .monitor-table { font-size: 0.78rem; }
+            .dose-table th, .dose-table td,
+            .monitor-table th, .monitor-table td { padding: 0.4rem 0.5rem; }
+            .calc-row { flex-direction: column; align-items: stretch; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo-section">
+                <img src="EnRICH_Logo_solid.png" alt="EnRICH Logo">
+                <div class="logo-text"><h1>EnRICH</h1><p>Enhanced Reviews in Care Homes</p></div>
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About EnRICH</a>
+                <a href="services.html">Our Services</a>
+                <a href="resources.html">Resources</a>
+                <a href="team.html" class="pin-link">&#x1F512; Meet the Team</a>
+                <a href="referral.html" class="pin-link">&#x1F512; Make a Referral</a>
+                <a href="staff-portal.html" class="active pin-link">&#x1F512; Staff Portal</a>
+            </nav>
+        </div>
+    </header>
+    <div class="nhs-banner">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></div>
+
+    <main>
+        <a href="portal-policies.html" class="back-link">&larr; Back to Policies &amp; Guidelines</a>
+
+        <!-- HERO -->
+        <div class="page-hero">
+            <h2>&#x2764;&#xFE0F; Heart Failure Diuretic Management</h2>
+            <p class="subtitle">Guidelines for the Administration of IV and SC Diuretics for Heart Failure Patients in the Community Setting</p>
+            <div class="meta">
+                <span>&#x1F3E5; CUH Virtual Ward &mdash; Division C</span>
+                <span>&#x1F4C4; Version 2 &bull; October 2025</span>
+                <span>&#x1F465; Butler, Ford &amp; Bines</span>
+            </div>
+        </div>
+
+        <!-- DRAFT NOTICE -->
+        <div class="draft-banner">
+            <div class="icon">&#9888;&#xFE0F;</div>
+            <div>
+                <p><strong>Clinical Guideline &mdash; For Use by Trained Healthcare Professionals</strong></p>
+                <p>This tool summarises the CUH Virtual Ward guideline for parenteral diuretics in heart failure. It does not replace clinical judgement. Always discuss with the Virtual Ward consultant or senior clinical team when uncertain.</p>
+            </div>
+        </div>
+
+        <!-- QUICK NAV -->
+        <div class="quick-nav">
+            <a href="#scope">&#x1F4CB; Scope</a>
+            <a href="#selection">&#x2705; Patient Selection</a>
+            <a href="#assessment">&#x1F50D; Assessment</a>
+            <a href="#route">&#x1F48A; Choose Route</a>
+            <a href="#monitoring">&#x1F4CA; Monitoring</a>
+            <a href="#escalation">&#x26A0;&#xFE0F; Escalation</a>
+            <a href="#discharge">&#x1F3E0; Discharge</a>
+        </div>
+
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1: SCOPE -->
+        <!-- ============================================================ -->
+        <div class="section" id="scope">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h3>&#x1F4CB; Scope &amp; Purpose</h3>
+                <span class="toggle open">&#x25BC;</span>
+            </div>
+            <div class="section-body open">
+                <div class="section-content">
+                    <p>These guidelines facilitate the administration of hospital-initiated diuretic therapy in patients' own homes under the management of the <strong>Virtual Ward at Cambridge University Hospitals NHS Foundation Trust</strong>.</p>
+
+                    <h4>This protocol offers three treatment options:</h4>
+                    <ol>
+                        <li><strong>Oral metolazone</strong> &mdash; first-line choice due to ease of administration and efficacy</li>
+                        <li><strong>Intravenous (IV) furosemide</strong> &mdash; for patients requiring parenteral diuresis</li>
+                        <li><strong>Subcutaneous (SC) furosemide</strong> &mdash; anticipated for patients in their last days to weeks of life</li>
+                    </ol>
+
+                    <div class="info-box green">
+                        <strong>&#x2705; Service aims</strong>
+                        <p>Reduce hospital admissions for decompensated heart failure, facilitate earlier discharge, reduce hospital-related complications (deconditioning, falls, delirium, hospital-acquired infection), and avoid ED attendances.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ============================================================ -->
+        <!-- SECTION 2: PATIENT SELECTION -->
+        <!-- ============================================================ -->
+        <div class="section" id="selection">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h3>&#x2705; Patient Selection</h3>
+                <span class="toggle">&#x25BC;</span>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+
+                    <h4>Inclusion Criteria</h4>
+                    <p class="checklist-label" id="inclusion-label">0 of 8 confirmed</p>
+                    <div class="checklist-progress"><div class="checklist-progress-bar" id="inclusion-bar" style="width:0%"></div></div>
+                    <ul class="checklist" id="inclusion-checklist">
+                        <li onclick="toggleCheck(this, 'inclusion')"><input type="checkbox"><span>Accepted under the Virtual Ward for ongoing management</span></li>
+                        <li onclick="toggleCheck(this, 'inclusion')"><input type="checkbox"><span>Heart failure confirmed as cause of symptoms (no reversible causes identified)</span></li>
+                        <li onclick="toggleCheck(this, 'inclusion')"><input type="checkbox"><span>Fluid retention: peripheral oedema above the knee and/or weight gain &gt;3kg above dry weight</span></li>
+                        <li onclick="toggleCheck(this, 'inclusion')"><input type="checkbox"><span>Failure to relieve fluid overload by lifestyle measures including fluid restriction</span></li>
+                        <li onclick="toggleCheck(this, 'inclusion')"><input type="checkbox"><span>Considered bumetanide switch and thiazide addition (bumetanide 1mg &#x2248; furosemide 40mg)</span></li>
+                        <li onclick="toggleCheck(this, 'inclusion')"><input type="checkbox"><span>Sufficient and appropriate social/family/carer support</span></li>
+                        <li onclick="toggleCheck(this, 'inclusion')"><input type="checkbox"><span>Patient able to give informed consent to diuretic therapy at home</span></li>
+                        <li onclick="toggleCheck(this, 'inclusion')"><input type="checkbox"><span>Patient able to weigh themselves (or be weighed) and take daily observations (HR/BP/SpO2)</span></li>
+                    </ul>
+
+                    <h4>Exclusion Criteria</h4>
+                    <div class="info-box red">
+                        <strong>&#x1F6D1; Do not proceed if any of the following apply:</strong>
+                        <p></p>
+                    </div>
+                    <ul>
+                        <li><strong>Symptomatic hypotension</strong> &mdash; first consider reduction or withdrawal of antihypertensives (e.g. amlodipine). Avoid abrupt withdrawal of beta-blockers (risk of rebound tachycardia).</li>
+                        <li><strong>Insufficient carer support</strong></li>
+                        <li><strong>Pulmonary oedema with uncontrolled respiratory distress</strong> and the patient is a candidate for escalation to intensive heart failure management under Cardiology. If expected as part of ongoing treatment, consider palliative symptom control (e.g. opioids).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ============================================================ -->
+        <!-- SECTION 3: INITIAL ASSESSMENT -->
+        <!-- ============================================================ -->
+        <div class="section" id="assessment">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h3>&#x1F50D; Initial Assessment &amp; Onboarding</h3>
+                <span class="toggle">&#x25BC;</span>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+
+                    <p class="checklist-label" id="assessment-label">0 of 10 completed</p>
+                    <div class="checklist-progress"><div class="checklist-progress-bar" id="assessment-bar" style="width:0%"></div></div>
+                    <ul class="checklist" id="assessment-checklist">
+                        <li onclick="toggleCheck(this, 'assessment')"><input type="checkbox"><span>On VW EPIC referral, request symptom monitoring: SOB, PND, orthopnoea, leg swelling</span></li>
+                        <li onclick="toggleCheck(this, 'assessment')"><input type="checkbox"><span>Document BP, HR, weight and target weight (EPIC synopsis useful)</span></li>
+                        <li onclick="toggleCheck(this, 'assessment')"><input type="checkbox"><span>Advise patient on fluid intake recording and any fluid restriction</span></li>
+                        <li onclick="toggleCheck(this, 'assessment')"><input type="checkbox"><span>Obtain baseline U&amp;Es</span></li>
+                        <li onclick="toggleCheck(this, 'assessment')"><input type="checkbox"><span>Determine treatment route: metolazone, IV furosemide, or SC furosemide</span></li>
+                        <li onclick="toggleCheck(this, 'assessment')"><input type="checkbox"><span>Review infusion site if in-situ; check for signs of infection</span></li>
+                        <li onclick="toggleCheck(this, 'assessment')"><input type="checkbox"><span>Advise patient/carer on medication changes; no oral diuretics on day of IV administration</span></li>
+                        <li onclick="toggleCheck(this, 'assessment')"><input type="checkbox"><span>Consider toileting needs &mdash; commode or short-term catheter if mobility is an issue</span></li>
+                        <li onclick="toggleCheck(this, 'assessment')"><input type="checkbox"><span>Establish Treatment Escalation Plan (ReSPECT form) &mdash; ensure printed, signed copy with patient</span></li>
+                        <li onclick="toggleCheck(this, 'assessment')"><input type="checkbox"><span>Send discharge letter and onboarding documentation to GP immediately</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ============================================================ -->
+        <!-- SECTION 4: ROUTE OF ADMINISTRATION -->
+        <!-- ============================================================ -->
+        <div class="section" id="route">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h3>&#x1F48A; Choose Route of Administration</h3>
+                <span class="toggle">&#x25BC;</span>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <p>Select a treatment route based on clinical assessment, patient preference, device availability, and goals of care:</p>
+
+                    <div class="route-cards">
+                        <div class="route-card" onclick="selectRoute('metolazone')">
+                            <div class="icon">&#x1F48A;</div>
+                            <h4>Oral Metolazone</h4>
+                            <p>First-line choice for ease of administration</p>
+                            <span class="tag tag-green">FIRST LINE</span>
+                        </div>
+                        <div class="route-card" onclick="selectRoute('iv')">
+                            <div class="icon">&#x1F489;</div>
+                            <h4>IV Furosemide</h4>
+                            <p>Parenteral diuresis for refractory fluid overload</p>
+                            <span class="tag tag-blue">SECOND LINE</span>
+                        </div>
+                        <div class="route-card" onclick="selectRoute('sc')">
+                            <div class="icon">&#x1F3E5;</div>
+                            <h4>SC Furosemide</h4>
+                            <p>End of life symptom control; last days to weeks</p>
+                            <span class="tag tag-amber">PALLIATIVE</span>
+                        </div>
+                    </div>
+
+                    <!-- METOLAZONE DETAIL -->
+                    <div class="route-detail" id="route-metolazone">
+                        <h4>&#x1F48A; Oral Metolazone Administration</h4>
+
+                        <div class="info-box blue">
+                            <strong>Patient Information Leaflet</strong>
+                            <p>Provide the CUH PIL: Thiazide diuretic (water tablet): metolazone</p>
+                        </div>
+
+                        <div class="flow-step"><div class="flow-num">1</div><div class="flow-content"><strong>Prescribe licensed metolazone (Xaqua&reg;)</strong> &mdash; refer to prescribing support document for additional information.</div></div>
+                        <div class="flow-connector"></div>
+                        <div class="flow-step"><div class="flow-num">2</div><div class="flow-content"><strong>Give stat dose: Metolazone 2.5mg</strong></div></div>
+                        <div class="flow-connector"></div>
+                        <div class="flow-step"><div class="flow-num">3</div><div class="flow-content"><strong>Daily monitoring</strong> as per monitoring guidance below.</div></div>
+                        <div class="flow-connector"></div>
+                        <div class="flow-step"><div class="flow-num">4</div><div class="flow-content"><strong>Review symptoms, signs and weight loss</strong> to guide subsequent doses. Metolazone is often required <strong>2&ndash;3 times per week</strong>.</div></div>
+                        <div class="flow-connector"></div>
+                        <div class="flow-step"><div class="flow-num">5</div><div class="flow-content"><strong>U&amp;E monitoring:</strong> minimum twice weekly (may be less frequent than IV route).</div></div>
+
+                        <div class="info-box green">
+                            <strong>&#x2705; On completion</strong>
+                            <p>Optimise oral diuretics, review other HF medications (ACEi/ARB, SGLT2i, MRA) with GP advice on up-titration, send comprehensive discharge letter with current weight, target weight, and diuretic plan if weight increases.</p>
+                        </div>
+                    </div>
+
+                    <!-- IV FUROSEMIDE DETAIL -->
+                    <div class="route-detail" id="route-iv">
+                        <h4>&#x1F489; IV Furosemide Administration</h4>
+
+                        <div class="info-box amber">
+                            <strong>&#x26A0;&#xFE0F; Key prescribing points</strong>
+                            <p>Maximum rate: <strong>4mg/min</strong>. Commence no later than <strong>4pm</strong> to avoid excess overnight toileting. Dilute in NaCl 0.9% if necessary. Glucose solutions are unsuitable. Oral diuretics have ~50&ndash;60% bioavailability vs 100% IV.</p>
+                        </div>
+
+                        <h4>Dose Conversion: Oral &rarr; IV</h4>
+                        <p>Start at equivalent dose or increase by one increment if clinically appropriate:</p>
+
+                        <table class="dose-table">
+                            <thead>
+                                <tr>
+                                    <th>PO Furosemide</th>
+                                    <th>PO Bumetanide</th>
+                                    <th>IV Furosemide</th>
+                                    <th>Infusion Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>40mg</td><td>1mg</td><td>40mg</td><td>Slow IV push over 10 mins</td></tr>
+                                <tr><td>80mg</td><td>2mg</td><td>80mg</td><td>20 mins</td></tr>
+                                <tr><td>120mg</td><td>3mg</td><td>120mg</td><td>30 mins</td></tr>
+                                <tr><td>160mg</td><td>4mg</td><td>160mg</td><td>40 mins</td></tr>
+                                <tr><td>200mg</td><td>5mg</td><td>200mg</td><td>50 mins</td></tr>
+                                <tr><td>240mg</td><td>6mg</td><td>240mg</td><td>60 mins</td></tr>
+                            </tbody>
+                        </table>
+
+                        <!-- DOSE CALCULATOR -->
+                        <h4>&#x1F5A9; Quick Dose Calculator</h4>
+                        <div class="calc-row">
+                            <label for="current-oral">Current oral diuretic:</label>
+                            <select id="current-oral" onchange="calculateDose()">
+                                <option value="">-- Select --</option>
+                                <option value="furo-40">Furosemide 40mg</option>
+                                <option value="furo-80">Furosemide 80mg</option>
+                                <option value="furo-120">Furosemide 120mg</option>
+                                <option value="furo-160">Furosemide 160mg</option>
+                                <option value="furo-200">Furosemide 200mg</option>
+                                <option value="furo-240">Furosemide 240mg</option>
+                                <option value="bumet-1">Bumetanide 1mg</option>
+                                <option value="bumet-2">Bumetanide 2mg</option>
+                                <option value="bumet-3">Bumetanide 3mg</option>
+                                <option value="bumet-4">Bumetanide 4mg</option>
+                                <option value="bumet-5">Bumetanide 5mg</option>
+                                <option value="bumet-6">Bumetanide 6mg</option>
+                            </select>
+                        </div>
+                        <div class="calc-result" id="dose-result" style="display:none;"></div>
+
+                        <h4>Failure to respond</h4>
+                        <div class="flow-step"><div class="flow-num">1</div><div class="flow-content"><strong>Increase loop diuretic</strong> by 40mg furosemide increments (max 240mg).</div></div>
+                        <div class="flow-connector"></div>
+                        <div class="flow-step"><div class="flow-num">2</div><div class="flow-content"><strong>Consider adding metolazone</strong> &mdash; this will reduce the ongoing requirement for IV diuretic therapy.</div></div>
+                        <div class="flow-connector"></div>
+                        <div class="flow-step"><div class="flow-num">3</div><div class="flow-content"><strong>If no response within 72 hours</strong> (or agreed timeframe) &mdash; discuss with patient regarding wishes and goals of care. Consider switching focus to comfort and dignity vs. further hospital-based management.</div></div>
+
+                        <div class="info-box green">
+                            <strong>&#x2705; On completion</strong>
+                            <p>Convert to appropriate oral dose. Review all HF medications with GP advice on continuation and up-titration (ACEi/ARB, SGLT2i, MRA). Send comprehensive discharge letter with current weight, target weight, U&amp;E follow-up plan (usually within 1 week), and organised follow-up with local heart failure teams.</p>
+                        </div>
+                    </div>
+
+                    <!-- SC FUROSEMIDE DETAIL -->
+                    <div class="route-detail" id="route-sc">
+                        <h4>&#x1F3E5; Subcutaneous Furosemide &mdash; End of Life</h4>
+
+                        <div class="info-box red">
+                            <strong>&#x26A0;&#xFE0F; Unlicensed use</strong>
+                            <p>SC furosemide is unlicensed in the UK but has been used with success (Dickman &amp; Schneider 2016). For end-stage heart failure patients requiring parenteral diuresis for symptom control. Initiate alongside symptomatic management of dyspnoea (opiates and/or benzodiazepines) as necessary.</p>
+                        </div>
+
+                        <h4>Inclusion criteria (SC route)</h4>
+                        <ul>
+                            <li>End-stage heart failure, unresponsive or unable to tolerate higher-dose oral or IV diuretics</li>
+                            <li>Wish to avoid hospital admission; IV diuretics in the community cannot be facilitated</li>
+                            <li>Last days of life requiring ongoing diuretics for symptom relief</li>
+                        </ul>
+
+                        <h4>Exclusion criteria (SC route)</h4>
+                        <ul>
+                            <li>No identifiable symptomatic benefit from high-dose IV or SC therapy</li>
+                            <li>Severe site reaction to SC administration</li>
+                        </ul>
+
+                        <h4>Dosing</h4>
+                        <div class="info-box blue">
+                            <strong>SC dosing is a 1:1 conversion from oral dose</strong>
+                            <p>e.g. 120mg furosemide orally daily = 120mg/24h via syringe pump. Note: oral bioavailability is ~60&ndash;70%, so this represents a dose increase. Use previous oral 24h requirement as starting dose and titrate to response. Convert bumetanide to furosemide equivalence first (bumetanide 1mg &#x2248; furosemide 40mg).</p>
+                        </div>
+
+                        <h4>Syringe driver practical points</h4>
+                        <ul>
+                            <li>Furosemide must be used as a <strong>solitary agent</strong> &mdash; do not mix with other medications</li>
+                            <li>Concentration: 10mg/1ml ampoules</li>
+                            <li>T34&trade; syringe pump max capacity: 17ml (&#x2248; 170mg/24h per pump)</li>
+                            <li>Higher doses: use two pumps or 12-hourly administration (e.g. 2 &times; 120mg)</li>
+                            <li>May dilute with NaCl 0.9% if syringe capacity allows, or administer undiluted</li>
+                            <li>Protect from light; discard if solution is yellow (degradation)</li>
+                        </ul>
+
+                        <h4>Infusion sites</h4>
+                        <ul>
+                            <li>Upper chest or upper anterior arms</li>
+                            <li>Avoid: bony prominences, damaged tissue, oedematous areas, tattoos (may mask reactions)</li>
+                            <li>Note: very poor peripheral perfusion in terminal stage may limit SC absorption</li>
+                        </ul>
+
+                        <h4>End of life monitoring</h4>
+                        <ul>
+                            <li>Daily symptom monitoring &mdash; focus on comfort</li>
+                            <li>Daily infusion site inspection (pain, itching, redness may require re-siting or cessation)</li>
+                            <li>U&amp;E monitoring as advised by VW consultant; <strong>not appropriate in the last few days of life</strong></li>
+                            <li>Weight monitoring also <strong>not appropriate in the last few days of life</strong></li>
+                        </ul>
+
+                        <h4>Contraindications &amp; precautions</h4>
+                        <p>For patients in the final days of life, the prescriber must consider these but they may not necessarily deter use if the dose is carefully titrated:</p>
+                        <ul>
+                            <li>Anuria</li>
+                            <li>Comatose/pre-comatose states with hepatic cirrhosis</li>
+                            <li>CrCl &lt;30ml/min per 1.73m&sup2;</li>
+                            <li>Dehydration, hypovolaemia, or hyponatraemia</li>
+                            <li>Drug-induced renal failure</li>
+                            <li>Hypersensitivity to sulphonamides</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5: MONITORING -->
+        <!-- ============================================================ -->
+        <div class="section" id="monitoring">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h3>&#x1F4CA; Ongoing Monitoring</h3>
+                <span class="toggle">&#x25BC;</span>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+
+                    <h4>Daily monitoring</h4>
+                    <ul>
+                        <li>Heart failure symptoms: SOB, orthopnoea, PND, exercise tolerance, change in swelling, dizziness on standing</li>
+                        <li>Blood pressure, heart rate, weight, fluid balance</li>
+                        <li>Infusion site review (if applicable)</li>
+                        <li>If symptomatic low BP: stop or reduce other antihypertensives</li>
+                        <li><strong>Target weight loss: ~500g/day</strong></li>
+                    </ul>
+
+                    <h4>Renal function &amp; electrolyte monitoring</h4>
+                    <p>U&amp;Es every 48&ndash;72 hours (decided by specialist). Metolazone: minimum twice weekly.</p>
+
+                    <table class="monitor-table">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Level</th>
+                                <th>Action Required</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="3"><strong>Potassium</strong></td>
+                                <td class="level">&lt;3.5 mmol/L</td>
+                                <td>Short course of oral K+ supplements and dietary advice. If continues to reduce, consider an MRA.</td>
+                            </tr>
+                            <tr>
+                                <td class="level level-warn">&gt;5.5&ndash;&lt;6.0 mmol/L</td>
+                                <td>Stop K+ supplements, K+-sparing diuretics. Consider reducing/stopping ACEi, ARBs, MRAs, or sacubitril/valsartan. Consider haemolysis if other results stable &mdash; repeat.</td>
+                            </tr>
+                            <tr>
+                                <td class="level level-danger">&gt;6.0 mmol/L</td>
+                                <td><strong>URGENT:</strong> Repeat sampling and ECG. Discuss with senior clinical team. Refer to MERLIN hyperkalaemia guideline.</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2"><strong>Sodium</strong></td>
+                                <td class="level level-danger">&lt;125 mmol/L</td>
+                                <td><strong>If symptomatic:</strong> urgent patient assessment, discuss with senior clinical team.<br><strong>If asymptomatic:</strong> consider stopping/holding medications known to reduce sodium.</td>
+                            </tr>
+                            <tr>
+                                <td class="level level-warn">125&ndash;127 mmol/L</td>
+                                <td>Consider stopping medications known to reduce sodium (MRAs, ACEIs, antidepressants, PPIs). Increase U&amp;E monitoring frequency.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Creatinine</strong></td>
+                                <td class="level level-danger">Increase &gt;50% of baseline or &gt;300&mu;mol/L</td>
+                                <td>Reduce/stop nephrotoxic medications. If creatinine continues to increase: urgent patient assessment and discussion with senior clinical team.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ============================================================ -->
+        <!-- SECTION 6: ESCALATION -->
+        <!-- ============================================================ -->
+        <div class="section" id="escalation">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h3>&#x26A0;&#xFE0F; Escalation Pathway</h3>
+                <span class="toggle">&#x25BC;</span>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+
+                    <div class="info-box red">
+                        <strong>&#x1F6A8; Escalate immediately if:</strong>
+                        <p>K+ &gt;6.0 mmol/L &bull; Symptomatic Na+ &lt;125 mmol/L &bull; Creatinine rising &gt;50% above baseline &bull; Uncontrolled respiratory distress &bull; Symptomatic hypotension unresponsive to antihypertensive withdrawal</p>
+                    </div>
+
+                    <h4>Stepwise escalation for IV diuretics</h4>
+                    <div class="flow-step"><div class="flow-num">1</div><div class="flow-content"><strong>Increase IV furosemide</strong> by 40mg increments (maximum 240mg).</div></div>
+                    <div class="flow-connector"></div>
+                    <div class="flow-step"><div class="flow-num">2</div><div class="flow-content"><strong>Add metolazone</strong> to reduce ongoing IV requirement.</div></div>
+                    <div class="flow-connector"></div>
+                    <div class="flow-step"><div class="flow-num">3</div><div class="flow-content"><strong>No response within 72 hours:</strong> discuss with patient regarding wishes and goals of care.</div></div>
+                    <div class="flow-connector"></div>
+                    <div class="flow-step"><div class="flow-num">4</div><div class="flow-content">Consider: <strong>comfort-focused care at home</strong> vs. <strong>further hospital-based management</strong>, guided by patient's ReSPECT form and advance care plan.</div></div>
+
+                    <div class="info-box amber">
+                        <strong>&#x260E;&#xFE0F; Key contacts</strong>
+                        <p>CUH Virtual Ward (24h): <strong>01223 806806</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ============================================================ -->
+        <!-- SECTION 7: DISCHARGE -->
+        <!-- ============================================================ -->
+        <div class="section" id="discharge">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h3>&#x1F3E0; Discharge from Virtual Ward</h3>
+                <span class="toggle">&#x25BC;</span>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+
+                    <h4>Discharge checklist</h4>
+                    <p class="checklist-label" id="discharge-label">0 of 7 completed</p>
+                    <div class="checklist-progress"><div class="checklist-progress-bar" id="discharge-bar" style="width:0%"></div></div>
+                    <ul class="checklist" id="discharge-checklist">
+                        <li onclick="toggleCheck(this, 'discharge')"><input type="checkbox"><span>IV/SC diuretics converted to appropriate oral dose</span></li>
+                        <li onclick="toggleCheck(this, 'discharge')"><input type="checkbox"><span>Other HF medications reviewed with GP advice on up-titration (ACEi/ARB, SGLT2i, MRA)</span></li>
+                        <li onclick="toggleCheck(this, 'discharge')"><input type="checkbox"><span>Current weight and target weight documented</span></li>
+                        <li onclick="toggleCheck(this, 'discharge')"><input type="checkbox"><span>Comprehensive discharge letter sent to GP</span></li>
+                        <li onclick="toggleCheck(this, 'discharge')"><input type="checkbox"><span>U&amp;E follow-up plan documented (usually within 1&ndash;2 weeks)</span></li>
+                        <li onclick="toggleCheck(this, 'discharge')"><input type="checkbox"><span>Follow-up with local heart failure team arranged</span></li>
+                        <li onclick="toggleCheck(this, 'discharge')"><input type="checkbox"><span>Patient provided with heart failure self-management plan including diuretic plan if weight increases</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ============================================================ -->
+        <!-- REFERENCE -->
+        <!-- ============================================================ -->
+        <div class="section" id="references">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h3>&#x1F4DA; References &amp; Resources</h3>
+                <span class="toggle">&#x25BC;</span>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <ul>
+                        <li>Verma AK, da Silva JH, Kuhl DR. Diuretic effects of subcutaneous furosemide in human volunteers: a randomized pilot study. <em>Ann Pharmacother</em> 2004;38:544&ndash;9.</li>
+                        <li>Zacharias H, Raw J, Nunn A, et al. Is there a role for subcutaneous furosemide in the community and hospice management of end-stage heart failure? <em>Palliat Med</em> 2011;25:658&ndash;63.</li>
+                        <li>Dickman A, Schneider J. <em>The Syringe Driver: Continuous Subcutaneous Infusions in Palliative Care</em>. 4th ed. Oxford University Press, 2016.</li>
+                        <li>Furosemide 20mg/2ml Solution for Injection &mdash; Summary of Product Characteristics (SmPC) &mdash; emc</li>
+                        <li>Metolazone (Xaqua&reg;) prescribing support document</li>
+                    </ul>
+                    <div class="info-box blue">
+                        <strong>Source document</strong>
+                        <p>CUH Virtual Ward, Division C &mdash; Guideline for the Administration of Intravenous and Subcutaneous Diuretics for Heart Failure Patients in the Community Setting. Version 2, October 2025. Authors: Dr Matthew Butler, Dr Joanna Ford, Ms Emma Bines.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 EnRICH &mdash; Enhanced Reviews in Care Homes<br>Cambridge University Hospitals NHS Foundation Trust</p>
+            <p><a href="portal-policies.html">Policies &amp; Guidelines</a> | <a href="staff-portal.html">Staff Portal</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== AUTH CHECK =====
+        (function() {
+            try {
+                if (sessionStorage.getItem('enrich_auth') !== 'true') {
+                    window.location.href = 'staff-portal.html';
+                }
+            } catch(e) {
+                window.location.href = 'staff-portal.html';
+            }
+        })();
+
+        // ===== SECTION TOGGLE =====
+        function toggleSection(header) {
+            const body = header.nextElementSibling;
+            const toggle = header.querySelector('.toggle');
+            body.classList.toggle('open');
+            toggle.classList.toggle('open');
+        }
+
+        // ===== CHECKLIST =====
+        function toggleCheck(li, group) {
+            const cb = li.querySelector('input[type="checkbox"]');
+            cb.checked = !cb.checked;
+            li.classList.toggle('checked', cb.checked);
+            updateProgress(group);
+        }
+
+        function updateProgress(group) {
+            const checklist = document.getElementById(group + '-checklist');
+            const items = checklist.querySelectorAll('input[type="checkbox"]');
+            const checked = checklist.querySelectorAll('input[type="checkbox"]:checked').length;
+            const total = items.length;
+
+            document.getElementById(group + '-bar').style.width = (checked / total * 100) + '%';
+            document.getElementById(group + '-label').textContent = checked + ' of ' + total + (group === 'inclusion' ? ' confirmed' : ' completed');
+        }
+
+        // ===== ROUTE SELECTOR =====
+        function selectRoute(route) {
+            // Toggle cards
+            document.querySelectorAll('.route-card').forEach(c => c.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+
+            // Toggle detail panels
+            document.querySelectorAll('.route-detail').forEach(d => d.classList.remove('visible'));
+            const detail = document.getElementById('route-' + route);
+            if (detail) detail.classList.add('visible');
+        }
+
+        // ===== DOSE CALCULATOR =====
+        function calculateDose() {
+            const sel = document.getElementById('current-oral').value;
+            const result = document.getElementById('dose-result');
+            if (!sel) { result.style.display = 'none'; return; }
+
+            const doseMap = {
+                'furo-40': { iv: 40, time: 'slow IV push over 10 minutes', oral: 'Furosemide 40mg' },
+                'furo-80': { iv: 80, time: '20 minutes', oral: 'Furosemide 80mg' },
+                'furo-120': { iv: 120, time: '30 minutes', oral: 'Furosemide 120mg' },
+                'furo-160': { iv: 160, time: '40 minutes', oral: 'Furosemide 160mg' },
+                'furo-200': { iv: 200, time: '50 minutes', oral: 'Furosemide 200mg' },
+                'furo-240': { iv: 240, time: '60 minutes', oral: 'Furosemide 240mg' },
+                'bumet-1': { iv: 40, time: 'slow IV push over 10 minutes', oral: 'Bumetanide 1mg' },
+                'bumet-2': { iv: 80, time: '20 minutes', oral: 'Bumetanide 2mg' },
+                'bumet-3': { iv: 120, time: '30 minutes', oral: 'Bumetanide 3mg' },
+                'bumet-4': { iv: 160, time: '40 minutes', oral: 'Bumetanide 4mg' },
+                'bumet-5': { iv: 200, time: '50 minutes', oral: 'Bumetanide 5mg' },
+                'bumet-6': { iv: 240, time: '60 minutes', oral: 'Bumetanide 6mg' },
+            };
+
+            const d = doseMap[sel];
+            result.style.display = 'block';
+            result.innerHTML = `
+                <strong>${d.oral} &#x2192; IV Furosemide ${d.iv}mg</strong><br>
+                Infusion time: ${d.time}<br>
+                Max rate: 4mg/min &bull; Commence no later than 4pm<br>
+                <span style="font-size: 0.8rem; color: var(--text-gray);">SC equivalent (end of life): ${d.iv}mg/24h via syringe pump (1:1 from oral dose, noting increased bioavailability)</span>
+            `;
+        }
+    </script>
+</body>
+</html>
