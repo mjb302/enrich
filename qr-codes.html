@@ -231,8 +231,8 @@
     </div>
 
     <div class="controls">
-        <button onclick="window.print()">🖨️ Print All QR Codes</button>
-        <button class="blue" onclick="downloadAllAsImages()">📥 Download All as Images</button>
+        <button onclick="window.print()">ðŸ–¨ï¸ Print All QR Codes</button>
+        <button class="blue" onclick="downloadAllAsImages()">ðŸ“¥ Download All as Images</button>
     </div>
 
     <div class="qr-grid" id="qr-grid">
@@ -240,7 +240,7 @@
     </div>
 
     <script>
-        const baseUrl = "https://mjb302.github.io/enrich";
+        const baseUrl = "https://mjb302.github.io/enrich/referral.html";
         
         const careHomes = [
             { pin: '24569', name: 'Brook House Care Home' },
@@ -281,7 +281,7 @@
             grid.innerHTML = '';
 
             careHomes.forEach((home, index) => {
-                const url = `${baseUrl}/?pin=${home.pin}`;
+                const url = `${baseUrl}?pin=${home.pin}`;
                 
                 const card = document.createElement('div');
                 card.className = 'qr-card';

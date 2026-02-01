@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetables &amp; Schedules | EnRICH Staff Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&amp;family=Merriweather:wght@400;700&amp;display=swap" rel="stylesheet">
+    <style>
+        :root { --enrich-purple: #8B2A7D; --enrich-purple-dark: #6B1F5F; --enrich-blue: #2D7BC4; --enrich-blue-dark: #1E5A94; --enrich-blue-light: #4A9AE8; --enrich-navy: #1E3A5F; --enrich-teal: #2A6575; --white: #FFFFFF; --off-white: #F8F9FA; --light-gray: #E9ECEF; --text-gray: #495057; --shadow: 0 4px 20px rgba(30, 58, 95, 0.15); --shadow-hover: 0 8px 30px rgba(30, 58, 95, 0.25); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--off-white); color: var(--enrich-navy); line-height: 1.6; }
+        header { background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%); color: var(--white); position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow); }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .logo-section { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--white); }
+        .logo-section img { height: 60px; width: auto; background: white; border-radius: 8px; padding: 4px; }
+        .logo-text h1 { font-family: 'Merriweather', Georgia, serif; font-size: 1.5rem; font-weight: 700; }
+        .logo-text p { font-size: 0.85rem; opacity: 0.9; font-weight: 300; }
+        nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        nav a { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: var(--white); padding: 0.6rem 1.2rem; border-radius: 6px; font-family: inherit; font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease; text-decoration: none; }
+        nav a:hover, nav a.active { background: var(--white); color: var(--enrich-purple); }
+        .nhs-banner { background: var(--enrich-blue); color: var(--white); text-align: center; padding: 0.5rem; font-size: 0.85rem; }
+        main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .back-link { display: inline-block; color: var(--enrich-purple); text-decoration: none; font-weight: 600; margin-bottom: 1.5rem; font-size: 0.95rem; }
+        .back-link:hover { text-decoration: underline; }
+        .page-header { background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%); color: var(--white); border-radius: 16px; padding: 2rem 2.5rem; margin-bottom: 2rem; }
+        .page-header h2 { font-family: 'Merriweather', Georgia, serif; font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .page-header p { opacity: 0.9; }
+        .content-section { background: var(--white); border-radius: 12px; padding: 2rem; box-shadow: var(--shadow); margin-bottom: 1.5rem; }
+        .content-section h3 { font-family: 'Merriweather', Georgia, serif; color: var(--enrich-navy); margin-bottom: 1rem; font-size: 1.2rem; }
+        .content-section p { color: var(--text-gray); margin-bottom: 0.75rem; }
+        .content-section ul { color: var(--text-gray); margin-left: 1.5rem; margin-bottom: 1rem; }
+        .content-section li { margin-bottom: 0.4rem; }
+        .placeholder-notice { background: linear-gradient(135deg, rgba(139,42,125,0.08) 0%, rgba(45,123,196,0.08) 100%); border-left: 4px solid var(--enrich-blue); padding: 1.5rem; border-radius: 0 10px 10px 0; margin: 1.5rem 0; }
+        .placeholder-notice h4 { color: var(--enrich-blue); margin-bottom: 0.5rem; }
+        .placeholder-notice p { color: var(--text-gray); margin: 0; }
+        .contact-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        .contact-table th { background: var(--enrich-navy); color: var(--white); padding: 0.75rem 1rem; text-align: left; font-weight: 600; }
+        .contact-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--light-gray); color: var(--text-gray); }
+        .contact-table tr:hover td { background: rgba(139,42,125,0.04); }
+        footer { background: var(--enrich-navy); color: var(--white); padding: 2rem; margin-top: 3rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-content p { opacity: 0.9; font-size: 0.9rem; }
+        .footer-content a { color: var(--enrich-blue-light); }
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; text-align: center; padding: 1rem; }
+            .logo-section { flex-direction: column; gap: 0.5rem; }
+            .logo-section img { height: 50px; }
+            .logo-text h1 { font-size: 1.3rem; }
+            nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; padding-bottom: 5px; }
+            nav::-webkit-scrollbar { display: none; }
+            nav a { flex-shrink: 0; padding: 0.6rem 1rem; font-size: 0.85rem; min-height: 44px; display: flex; align-items: center; }
+            main { padding: 1rem; }
+            .page-header { padding: 1.5rem; }
+            .page-header h2 { font-size: 1.4rem; }
+            .content-section { padding: 1.25rem; }
+            .contact-table { font-size: 0.85rem; }
+            .contact-table th, .contact-table td { padding: 0.5rem; }
+            .footer-content { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo-section">
+                <img src="EnRICH_Logo_solid.png" alt="EnRICH Logo">
+                <div class="logo-text"><h1>EnRICH</h1><p>Enhanced Reviews in Care Homes</p></div>
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About EnRICH</a>
+                <a href="services.html">Our Services</a>
+                <a href="team.html">Meet the Team</a>
+                <a href="referral.html">Make a Referral</a>
+                <a href="resources.html">Resources</a>
+                <a href="staff-portal.html" class="active">Staff Portal</a>
+            </nav>
+        </div>
+    </header>
+    <div class="nhs-banner">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></div>
+
+    <main>
+        <a href="staff-portal.html" class="back-link">&larr; Back to Staff Portal</a>
+
+        <div class="page-header">
+            <h2>&#x1F4C5; Timetables &amp; Schedules</h2>
+            <p>EnRICH Staff Portal &mdash; Authenticated Access</p>
+        </div>
+
+        <div class="content-section">
+            <h3>Weekly Visit Schedule</h3>
+            <p>The EnRICH team visits care homes on a regular schedule. Please note that schedules may change due to clinical need.</p>
+            <table class="contact-table">
+                <thead>
+                    <tr><th>Day</th><th>Activity</th><th>Location / Notes</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Monday</strong></td><td>Community CGA visits</td><td>Scheduled care home visits</td></tr>
+                    <tr><td><strong>Tuesday</strong></td><td>Community CGA visits</td><td>Scheduled care home visits</td></tr>
+                    <tr><td><strong>Wednesday</strong></td><td>MDT meetings &amp; acute reviews</td><td>Virtual / on-site as needed</td></tr>
+                    <tr><td><strong>Thursday</strong></td><td>Community CGA visits</td><td>Scheduled care home visits</td></tr>
+                    <tr><td><strong>Friday</strong></td><td>Follow-up reviews &amp; admin</td><td>Mixed community / hospital</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-section">
+            <h3>MDT Meeting Schedule</h3>
+            <p>Regular multidisciplinary team meetings for enrolled care homes.</p>
+            <table class="contact-table">
+                <thead>
+                    <tr><th>Meeting</th><th>Frequency</th><th>Format</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Care Home MDT</strong></td><td>Fortnightly</td><td>On-site at care home</td></tr>
+                    <tr><td><strong>Team Clinical Meeting</strong></td><td>Weekly (Wednesday)</td><td>Virtual</td></tr>
+                    <tr><td><strong>GP Liaison Meeting</strong></td><td>Monthly</td><td>Virtual</td></tr>
+                    <tr><td><strong>Education Sessions</strong></td><td>As scheduled</td><td>On-site / virtual</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-section">
+            <h3>Service Availability</h3>
+            <ul>
+                <li><strong>Community visits:</strong> Monday to Friday, 9:00 &ndash; 17:00</li>
+                <li><strong>Telephone advice:</strong> Monday to Friday, 9:00 &ndash; 17:00</li>
+                <li><strong>ED front-door reviews:</strong> Monday to Friday during working hours</li>
+                <li><strong>Out of hours:</strong> Contact local GP out-of-hours service or call 111</li>
+            </ul>
+        </div>
+
+        <div class="placeholder-notice">
+            <h4>&#x1F4DD; Content Coming Soon</h4>
+            <p>Detailed care home-specific visit schedules are being finalised. Contact the EnRICH team for your care home's specific schedule.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 EnRICH - Enhanced Reviews in Care Homes<br>Cambridge University Hospitals NHS Foundation Trust</p>
+            <p><a href="resources.html">Resources</a> | <a href="https://mjb302.github.io/enrich-map/" target="_blank">Interactive Map</a></p>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            try {
+                if (sessionStorage.getItem('enrich_auth') !== 'true') {
+                    window.location.href = 'staff-portal.html';
+                }
+            } catch(e) {
+                window.location.href = 'staff-portal.html';
+            }
+        })();
+    </script>
+</body>
+</html>

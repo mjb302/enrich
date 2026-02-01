@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About EnRICH | EnRICH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&amp;family=Merriweather:wght@400;700&amp;display=swap" rel="stylesheet">
+    <style>:root { --enrich-purple: #8B2A7D; --enrich-purple-dark: #6B1F5F; --enrich-blue: #2D7BC4; --enrich-blue-dark: #1E5A94; --enrich-blue-light: #4A9AE8; --enrich-navy: #1E3A5F; --enrich-teal: #2A6575; --white: #FFFFFF; --off-white: #F8F9FA; --light-gray: #E9ECEF; --text-gray: #495057; --shadow: 0 4px 20px rgba(30, 58, 95, 0.15); --shadow-hover: 0 8px 30px rgba(30, 58, 95, 0.25); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--off-white); color: var(--enrich-navy); line-height: 1.6; }
+header { background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%); color: var(--white); position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow); }
+.header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.logo-section { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--white); }
+.logo-section img { height: 60px; width: auto; background: white; border-radius: 8px; padding: 4px; }
+.logo-text h1 { font-family: 'Merriweather', Georgia, serif; font-size: 1.5rem; font-weight: 700; }
+.logo-text p { font-size: 0.85rem; opacity: 0.9; font-weight: 300; }
+nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+nav a { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: var(--white); padding: 0.6rem 1.2rem; border-radius: 6px; font-family: inherit; font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease; text-decoration: none; }
+nav a:hover, nav a.active { background: var(--white); color: var(--enrich-purple); }
+.nhs-banner { background: var(--enrich-blue); color: var(--white); text-align: center; padding: 0.5rem; font-size: 0.85rem; }
+main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+.info-section { margin-bottom: 3rem; }
+.info-section h2 { font-family: 'Merriweather', Georgia, serif; color: var(--enrich-purple); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--enrich-purple); display: inline-block; }
+.info-section h3 { color: var(--enrich-navy); margin: 1.5rem 0 0.75rem; }
+.info-section p { color: var(--text-gray); margin-bottom: 1rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+.card { background: var(--white); border-radius: 12px; padding: 1.5rem; box-shadow: var(--shadow); border-left: 4px solid var(--enrich-purple); transition: all 0.3s ease; }
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.card.blue-accent { border-left-color: var(--enrich-blue); }
+.card h3 { font-family: 'Merriweather', Georgia, serif; color: var(--enrich-purple); margin-bottom: 0.75rem; font-size: 1.2rem; }
+.card.blue-accent h3 { color: var(--enrich-blue); }
+.card p, .card ul { color: var(--text-gray); font-size: 0.95rem; }
+.card ul { margin-left: 1.2rem; margin-top: 0.5rem; }
+.card li { margin-bottom: 0.4rem; }
+a.card-link { text-decoration: none; display: block; cursor: pointer; }
+a.card-link:hover { transform: translateY(-6px); }
+a.card-link .learn-more { display: block; margin-top: 1rem; color: var(--enrich-purple); font-weight: 600; font-size: 0.9rem; }
+a.card-link.blue-accent .learn-more { color: var(--enrich-blue); }
+.highlight-box { background: linear-gradient(135deg, rgba(139,42,125,0.08) 0%, rgba(45,123,196,0.08) 100%); border-left: 4px solid var(--enrich-purple); padding: 1.5rem; border-radius: 0 10px 10px 0; margin: 1.5rem 0; }
+.highlight-box h4 { color: var(--enrich-purple); margin-bottom: 0.5rem; }
+.bgs-resources-card { background: linear-gradient(135deg, #006747 0%, #004d36 100%); border-radius: 12px; padding: 1.5rem; margin-top: 2rem; display: flex; align-items: center; gap: 1.5rem; color: white; }
+.bgs-logo-text { width: 70px; height: 50px; background: white; color: #006747; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; flex-shrink: 0; }
+.bgs-content h4 { margin-bottom: 0.5rem; font-size: 1.1rem; }
+.bgs-content p { opacity: 0.9; font-size: 0.9rem; margin-bottom: 1rem; }
+.bgs-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.bgs-links a { background: white; color: #006747; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s ease; }
+.bgs-links a:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+.links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+.link-card { background: var(--white); border-radius: 12px; padding: 1.5rem; box-shadow: var(--shadow); text-decoration: none; color: inherit; transition: all 0.3s ease; display: block; }
+.link-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.link-card h4 { color: var(--enrich-blue); margin-bottom: 0.5rem; font-size: 1.1rem; }
+.link-card p { color: var(--text-gray); font-size: 0.9rem; margin: 0; }
+.link-card .link-url { color: var(--enrich-purple); font-size: 0.85rem; margin-top: 0.75rem; display: block; word-break: break-all; }
+footer { background: var(--enrich-navy); color: var(--white); padding: 2rem; margin-top: 3rem; }
+.footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-content p { opacity: 0.9; font-size: 0.9rem; }
+.footer-content a { color: var(--enrich-blue-light); }
+@media (max-width: 768px) {
+    .header-content { flex-direction: column; text-align: center; padding: 1rem; }
+    .logo-section { flex-direction: column; gap: 0.5rem; }
+    .logo-section img { height: 50px; }
+    .logo-text h1 { font-size: 1.3rem; }
+    nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; padding-bottom: 5px; }
+    nav::-webkit-scrollbar { display: none; }
+    nav a { flex-shrink: 0; padding: 0.6rem 1rem; font-size: 0.85rem; min-height: 44px; display: flex; align-items: center; }
+    .nhs-banner { font-size: 0.75rem; padding: 0.6rem 1rem; }
+    main { padding: 1rem; }
+    .card-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .bgs-resources-card { flex-direction: column; text-align: center; }
+    .bgs-links { justify-content: center; }
+    .links-grid { grid-template-columns: 1fr; }
+    .footer-content { flex-direction: column; text-align: center; }
+}</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo-section">
+                <img src="EnRICH_Logo_solid.png" alt="EnRICH Logo">
+                <div class="logo-text"><h1>EnRICH</h1><p>Enhanced Reviews in Care Homes</p></div>
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About EnRICH</a>
+                <a href="services.html">Our Services</a>
+                <a href="team.html">Meet the Team</a>
+                <a href="referral.html">Make a Referral</a>
+                <a href="resources.html">Resources</a>
+                <a href="staff-portal.html">Staff Portal</a>
+            </nav>
+        </div>
+    </header>
+    <div class="nhs-banner">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></div>
+
+    <main>
+        <div class="info-section">
+            <h2>About EnRICH</h2>
+            <p>The <strong>Enhanced Reviews in Care Homes (EnRICH)</strong> service is an integrated geriatrician-led interface model developed by Cambridge University Hospitals NHS Foundation Trust in partnership with Cambridgeshire &amp; Peterborough NHS Foundation Trust.</p>
+            <h3>The Challenge We Address</h3>
+            <p>Care home residents represent one of the most vulnerable patient populations, characterized by high rates of frailty, multiple comorbidities, cognitive impairment, and functional dependence. These residents often experience high rates of emergency hospital use, and hospital admission carries additional risks including delirium, deconditioning, hospital-acquired infections, and loss of function.</p>
+            <p>For frail care home residents, hospital transfers can be particularly distressing, involving unfamiliar environments, disrupted routines, and separation from familiar carers during periods of acute vulnerability.</p>
+            <h3>Our Solution</h3>
+            <p>EnRICH delivers integrated geriatrician input spanning community, emergency department (front-door), and inpatient settings. The service provides both proactive and reactive care across the hospital-community boundary.</p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Community-Based Care</h3>
+                    <ul>
+                        <li>Proactive Comprehensive Geriatric Assessments (CGAs)</li>
+                        <li>Acute deterioration reviews in care homes</li>
+                        <li>Advance care planning &amp; ReSPECT discussions</li>
+                        <li>Regular MDT meetings with care home staff</li>
+                    </ul>
+                </div>
+                <div class="card blue-accent">
+                    <h3>Hospital Interface Work</h3>
+                    <ul>
+                        <li>Emergency Department reviews for attending residents</li>
+                        <li>Inpatient continuity of care</li>
+                        <li>Rapid discharge facilitation</li>
+                        <li>Front-door decision support</li>
+                        <li>Virtual ward collaboration</li>
+                    </ul>
+                </div>
+            </div>
+            <h3>Evidence of Impact</h3>
+            <p>A rigorous quasi-experimental evaluation demonstrated substantial clinical impact. These improvements emerged 3-6 months after implementation, reflecting the time needed to build relationships and establish trust with care home staff and residents.</p>
+            <div class="highlight-box">
+                <h4>Key Outcomes</h4>
+                <p><strong>43% reduction in ED attendances</strong> (Rate ratio: 0.57, p&lt;0.001)</p>
+                <p><strong>38% reduction in hospital admissions</strong> (Rate ratio: 0.62, p&lt;0.001)</p>
+                <p><strong>181 ED attendances avoided</strong> in the first year</p>
+                <p><strong>119 hospital admissions avoided</strong> in the first year</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 EnRICH - Enhanced Reviews in Care Homes<br>Cambridge University Hospitals NHS Foundation Trust</p>
+            <p><a href="resources.html">Resources</a> | <a href="https://mjb302.github.io/enrich-map/" target="_blank">Interactive Map</a></p>
+        </div>
+    </footer>
+</body>
+</html>

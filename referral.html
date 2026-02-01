@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Referral | EnRICH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&amp;family=Merriweather:wght@400;700&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --enrich-purple: #8B2A7D;
+            --enrich-purple-dark: #6B1F5F;
+            --enrich-blue: #2D7BC4;
+            --enrich-blue-dark: #1E5A94;
+            --enrich-blue-light: #4A9AE8;
+            --enrich-navy: #1E3A5F;
+            --white: #FFFFFF;
+            --off-white: #F8F9FA;
+            --light-gray: #E9ECEF;
+            --text-gray: #495057;
+            --shadow: 0 4px 20px rgba(30, 58, 95, 0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--off-white); color: var(--enrich-navy); line-height: 1.6; }
+        header { background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%); color: var(--white); position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow); }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .logo-section { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--white); }
+        .logo-section img { height: 60px; width: auto; background: white; border-radius: 8px; padding: 4px; }
+        .logo-text h1 { font-family: 'Merriweather', Georgia, serif; font-size: 1.5rem; font-weight: 700; }
+        .logo-text p { font-size: 0.85rem; opacity: 0.9; font-weight: 300; }
+        nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        nav a { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: var(--white); padding: 0.6rem 1.2rem; border-radius: 6px; font-family: inherit; font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease; text-decoration: none; }
+        nav a:hover, nav a.active { background: var(--white); color: var(--enrich-purple); }
+        .nhs-banner { background: var(--enrich-blue); color: var(--white); text-align: center; padding: 0.5rem; font-size: 0.85rem; }
+        main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .pin-section { max-width: 500px; margin: 0 auto; text-align: center; }
+        .pin-box { background: var(--white); border-radius: 16px; padding: 3rem 2rem; box-shadow: var(--shadow); margin-top: 2rem; }
+        .pin-box h2 { font-family: 'Merriweather', Georgia, serif; color: var(--enrich-purple); margin-bottom: 1rem; }
+        .pin-box p { color: var(--text-gray); margin-bottom: 1.5rem; }
+        .pin-input-container { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .pin-digit { width: 55px; height: 65px; font-size: 1.8rem; text-align: center; border: 2px solid var(--light-gray); border-radius: 10px; font-family: 'Source Sans Pro', sans-serif; font-weight: 600; color: var(--enrich-navy); transition: all 0.2s ease; }
+        .pin-digit:focus { border-color: var(--enrich-purple); outline: none; box-shadow: 0 0 0 3px rgba(139, 42, 125, 0.2); }
+        .btn { background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%); color: var(--white); border: none; padding: 1rem 2.5rem; font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; font-family: inherit; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(139, 42, 125, 0.4); }
+        .btn.blue { background: linear-gradient(135deg, var(--enrich-blue) 0%, var(--enrich-blue-dark) 100%); }
+        .btn.blue:hover { box-shadow: 0 6px 20px rgba(45, 123, 196, 0.4); }
+        .error-message { color: #dc3545; margin-top: 1rem; font-weight: 600; display: none; }
+        .referral-form-container { background: var(--white); border-radius: 16px; padding: 2.5rem; box-shadow: var(--shadow); max-width: 700px; margin: 0 auto; }
+        .referral-form-container h2 { font-family: 'Merriweather', Georgia, serif; color: var(--enrich-purple); margin-bottom: 0.5rem; text-align: center; }
+        .care-home-badge { background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%); color: var(--white); padding: 1rem 1.5rem; border-radius: 10px; text-align: center; margin-bottom: 2rem; }
+        .care-home-badge span { font-size: 0.85rem; opacity: 0.9; }
+        .care-home-badge strong { display: block; font-size: 1.3rem; margin-top: 0.25rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; font-weight: 600; color: var(--enrich-navy); margin-bottom: 0.5rem; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.9rem 1rem; font-size: 1rem; border: 2px solid var(--light-gray); border-radius: 8px; font-family: inherit; transition: all 0.2s ease; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--enrich-blue); outline: none; box-shadow: 0 0 0 3px rgba(45, 123, 196, 0.15); }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        .form-hint { font-size: 0.85rem; color: var(--text-gray); margin-top: 0.4rem; }
+        .email-preview { background: var(--off-white); border: 1px solid var(--light-gray); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; font-family: monospace; font-size: 0.9rem; white-space: pre-wrap; color: var(--text-gray); }
+        .button-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2rem; }
+        .success-message { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 1rem 1.5rem; border-radius: 8px; margin: 1rem 0; display: none; }
+        .back-btn { background: transparent; border: 2px solid var(--enrich-purple); color: var(--enrich-purple); padding: 0.6rem 1.5rem; font-size: 0.9rem; font-weight: 600; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; font-family: inherit; margin-bottom: 1.5rem; }
+        .back-btn:hover { background: var(--enrich-purple); color: var(--white); }
+        footer { background: var(--enrich-navy); color: var(--white); padding: 2rem; margin-top: 3rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-content p { opacity: 0.9; font-size: 0.9rem; }
+        .footer-content a { color: var(--enrich-blue-light); }
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; text-align: center; padding: 1rem; }
+            .logo-section { flex-direction: column; gap: 0.5rem; }
+            .logo-section img { height: 50px; }
+            .logo-text h1 { font-size: 1.3rem; }
+            nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; padding-bottom: 5px; }
+            nav::-webkit-scrollbar { display: none; }
+            nav a { flex-shrink: 0; padding: 0.6rem 1rem; font-size: 0.85rem; min-height: 44px; display: flex; align-items: center; }
+            .nhs-banner { font-size: 0.75rem; padding: 0.6rem 1rem; }
+            main { padding: 1rem; }
+            .pin-box { padding: 1.5rem 1rem; }
+            .pin-box h2 { font-size: 1.3rem; }
+            .pin-input-container { gap: 8px; }
+            .pin-digit { width: 48px; height: 58px; font-size: 1.5rem; }
+            .referral-form-container { padding: 1.25rem; }
+            .form-group input, .form-group textarea, .form-group select { font-size: 16px; padding: 0.8rem; }
+            .email-preview { font-size: 0.8rem; padding: 1rem; }
+            .button-group { flex-direction: column; }
+            .btn { width: 100%; min-height: 50px; }
+            .footer-content { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 380px) {
+            .pin-digit { width: 42px; height: 52px; font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo-section">
+                <img src="EnRICH_Logo_solid.png" alt="EnRICH Logo">
+                <div class="logo-text">
+                    <h1>EnRICH</h1>
+                    <p>Enhanced Reviews in Care Homes</p>
+                </div>
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About EnRICH</a>
+                <a href="services.html">Our Services</a>
+                <a href="team.html">Meet the Team</a>
+                <a href="referral.html" class="active">Make a Referral</a>
+                <a href="resources.html">Resources</a>
+                <a href="staff-portal.html">Staff Portal</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="nhs-banner">
+        A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp;
+        <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong>
+    </div>
+
+    <main>
+        <div class="pin-section" id="pin-entry">
+            <div class="pin-box">
+                <h2>Healthcare Professional &amp; Staff Portal</h2>
+                <p>Enter your 5-digit care home PIN code to access the referral form. This PIN was provided to your care home by the EnRICH team.</p>
+                <div class="pin-input-container">
+                    <input type="text" class="pin-digit" maxlength="1" data-index="0" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 1">
+                    <input type="text" class="pin-digit" maxlength="1" data-index="1" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 2">
+                    <input type="text" class="pin-digit" maxlength="1" data-index="2" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 3">
+                    <input type="text" class="pin-digit" maxlength="1" data-index="3" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 4">
+                    <input type="text" class="pin-digit" maxlength="1" data-index="4" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 5">
+                </div>
+                <button class="btn" id="validate-btn">Access Referral Form</button>
+                <p class="error-message" id="pin-error">Invalid PIN code. Please check and try again.</p>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-gray);">
+                    Don't have a PIN? Please speak to your care home manager or contact the EnRICH team through your usual NHS channels.
+                </p>
+            </div>
+        </div>
+
+        <div id="referral-form" style="display: none;">
+            <button class="back-btn" id="back-btn">&larr; Back to PIN Entry</button>
+            <div class="referral-form-container">
+                <h2>EnRICH Referral Form</h2>
+                <div class="care-home-badge">
+                    <span>Referring from:</span>
+                    <strong id="care-home-display"></strong>
+                </div>
+                <form id="enrich-referral-form">
+                    <div class="form-group">
+                        <label for="nhs-number">Patient NHS Number *</label>
+                        <input type="text" id="nhs-number" name="nhs-number" placeholder="e.g., 123 456 7890" required>
+                        <p class="form-hint">10-digit NHS number</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="patient-firstname">Patient First Name *</label>
+                        <input type="text" id="patient-firstname" name="patient-firstname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="patient-lastname">Patient Last Name *</label>
+                        <input type="text" id="patient-lastname" name="patient-lastname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="referral-reason">Reason for Referral *</label>
+                        <textarea id="referral-reason" name="referral-reason" placeholder="Please describe the reason for referral, including any specific concerns or recent changes in the resident's condition..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="referrer-name">Your Name</label>
+                        <input type="text" id="referrer-name" name="referrer-name" placeholder="Optional">
+                    </div>
+                    <div class="form-group">
+                        <label for="referrer-role">Your Role</label>
+                        <select id="referrer-role" name="referrer-role">
+                            <option value="">Select your role (optional)</option>
+                            <option value="Care Home Manager">Care Home Manager</option>
+                            <option value="Registered Nurse">Registered Nurse</option>
+                            <option value="Senior Carer">Senior Carer</option>
+                            <option value="Carer">Carer</option>
+                            <option value="GP">GP</option>
+                            <option value="Community Matron">Community Matron</option>
+                            <option value="District Nurse">District Nurse</option>
+                            <option value="Other Healthcare Professional">Other Healthcare Professional</option>
+                        </select>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <label style="font-weight: 600; color: var(--enrich-navy);">Email Preview</label>
+                        <p class="form-hint">This information will be formatted for the referral email:</p>
+                        <div class="email-preview" id="email-preview">Care Home Name: [Will be auto-filled]
+Patient NHS Number: 
+Patient First Name: 
+Patient Last Name: 
+Reason for Referral: 
+
+Referred by: 
+Role: </div>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="btn" id="send-email-btn">Open Email Client to Send</button>
+                        <button type="button" class="btn blue" id="copy-btn">Copy Details to Clipboard</button>
+                    </div>
+                    <div class="success-message" id="copy-success">&#x2714; Details copied to clipboard! You can now paste them into your email.</div>
+                </form>
+                <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--light-gray); text-align: center;">
+                    <p style="color: var(--text-gray); font-size: 0.9rem;">
+                        Send referrals to: <a href="mailto:cuh.carehomesteam@nhs.net" style="color: var(--enrich-purple); font-weight: 600;">cuh.carehomesteam@nhs.net</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 EnRICH - Enhanced Reviews in Care Homes<br>
+            Cambridge University Hospitals NHS Foundation Trust</p>
+            <p><a href="resources.html">Resources</a> | <a href="https://mjb302.github.io/enrich-map/" target="_blank">Interactive Map</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // SHA-256 hashed PIN database - source PINs cannot be recovered from these hashes
+        var careHomePINs = {
+            'f9b612674f3f0acfd4a3d81dcfc2e5d5b7060f8a21be33de7536d1af33b71830': 'Brook House Care Home',
+            'aee73965b29b99f53a3db9504ea2b208c0c018c217fdf15e553e955855953900': 'Cambridge Grove Care Home',
+            '8f2034cfc80faa1621c4d416654243d15498b7eafa3cf8147675e36665313579': 'Cambridge Manor Care Home',
+            'da5c2f49fad2615edf210b93a0408cbb762cc42880e98452fa8a2b5b6ae631f3': 'Hatley Court',
+            '41751ff4c81c502af385eee954b2612b13936e393186543deb80b320407993c8': 'Heathlands House',
+            'd0dca67d8153e8e39f456e5f0441f84b41936cd5149d213ee733b3067e6f82f7': 'Highfield Care Home',
+            '7599b6dd1963f67bc1335b85bbf0b7ad38d81034cc3fc5b69d2327e8b3d3a067': 'Lily House',
+            'f0eed60c335b758b7dbf29308262a8ff638e46de5ee38b79d77994fab5231c05': 'Maycroft Care Home',
+            '3197b1d4f9cb468f58533c516079011b3a6ac205e600d118ee823a31d3808c25': 'Southwell Court',
+            '7a16fd6a5ae1529960527e825cd32ec769aa118e3273cb562e5f316539aff3ae': 'Vera James House',
+            '2fa697315db830fcf1136c0d0dfa87e5fa039f5e611a6aa07947d4769ce252e2': 'Waterbeach Lodge',
+            'd75ce5017561e791495b3e007ead8697b27e277cd9882b2262e0de66d6d1f12e': 'Langdon House',
+            'fe24aa89e33d228cb577bbb4e711915b06afe4ad2a490963e5df25c9842c20e2': 'Alex Wood House',
+            'af8b17e81b1a3801e5e770de0a1a1f43e770030f98fe67221453fdbdd6b1affe': 'Etheldred House Care Home',
+            '80b3383fc7df188f00b97aa5b0625054b193c9cd3a8d261e654bc4e38149c760': 'Hilton Park - Oaklands',
+            '9de02e2a1338c710c7f09d1aeee4142a2b1f9e0c554d29ab9a7be6cbb7008aa9': 'Home Meadow',
+            '8a661929534d66b23ab23c9d7899587221c5eccab66ed61ba17a5163d91ea5f8': 'Primrose Croft Care Home',
+            '18555c2d2c9e8c63d085dc91c61044bfa9f13696209a8110a744feda7645079e': 'Melbourn Springs Care Home',
+            'cd3d20333ca6d04a1f234e9807cc74a028350a671b49c0cc9a026cb5a1d9b00d': 'Home Close',
+            '2d3f2d14c058e044a774908508ed37b9f1b47ffbd519e1e4b1717c489910a096': 'Cleves Place',
+            '6c0865de8b4a8183318369d4f04b06cbf422a29daf4f7a7a45f776c20e6d523d': 'Queens Court',
+            'ed36a326dbeded94e927c06fa922d4207cee5cad1f650d7f30ca4553f348a0e8': 'Townsend Manor',
+            '7edd1a06302c6e71fefb576021cf632d694775c1343b6222bce9cafa08ebbb13': 'Fitzwilliam House Care Home',
+            '3bee6539d1067e8f68bed995929d064d7305b5d270ceff2f8e9d35a899acd37d': 'Bramley Court',
+            '47a3ed983a9127f210c339e591f65506b9cfc127ce1d2cf5f3a26927369e7ddf': 'Cottenham Court Care Home',
+            '81c73f02bbe4878ec04ac472e5e70718db0948303f697749685897d4b86db5d7': 'Woodlands Care Centre',
+            '87874556d2abe6ee84d5aa4a69124d6f05afcf8c1b50e18eddc57ba367f30bdd': 'The Cambridgeshire Care Home',
+            'c9ab187dc9a3366dd148631ef1b508d55f37f98e15d33801d65fcedc76ff865b': 'Melwood Grange',
+            'f67445e4610f525afd0a733e5cc4993c329546a1f97392cf8943ee8c49a5f339': 'Midfield Lodge',
+            '77450960dfed2bba6594e0f4c712e28cd19fb93ae61a383015354edc22a3ff8a': 'Symonds House',
+            '1b6b1543dc6c1d432ae5735f9be6b64ac122672114330ac29226d65acc581bd2': 'Orchard House Residential Care Home'
+        };
+
+        var currentCareHome = '';
+        var pinInputs = document.querySelectorAll('.pin-digit');
+
+        async function hashPIN(pin) {
+            var encoder = new TextEncoder();
+            var data = encoder.encode(pin);
+            var hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            var hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+        }
+
+        pinInputs.forEach(function(input, index) {
+            input.addEventListener('input', function(e) {
+                var value = e.target.value;
+                if (!/^\d*$/.test(value)) { e.target.value = ''; return; }
+                if (value && index < pinInputs.length - 1) { pinInputs[index + 1].focus(); }
+                if (index === pinInputs.length - 1 && value) { validatePIN(); }
+            });
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) { pinInputs[index - 1].focus(); }
+                if (e.key === 'Enter') { validatePIN(); }
+            });
+            input.addEventListener('paste', function(e) {
+                e.preventDefault();
+                var pastedData = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 5);
+                pastedData.split('').forEach(function(digit, i) {
+                    if (pinInputs[i]) { pinInputs[i].value = digit; }
+                });
+                if (pastedData.length === 5) { pinInputs[4].focus(); validatePIN(); }
+            });
+        });
+
+        document.getElementById('validate-btn').addEventListener('click', validatePIN);
+        document.getElementById('back-btn').addEventListener('click', showPinEntry);
+        document.getElementById('send-email-btn').addEventListener('click', sendReferralEmail);
+        document.getElementById('copy-btn').addEventListener('click', copyToClipboard);
+
+        async function validatePIN() {
+            var pin = Array.from(pinInputs).map(function(input) { return input.value; }).join('');
+            var errorMsg = document.getElementById('pin-error');
+            if (pin.length !== 5) {
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = 'Please enter all 5 digits.';
+                return;
+            }
+            var hash = await hashPIN(pin);
+            if (careHomePINs[hash]) {
+                currentCareHome = careHomePINs[hash];
+                try { sessionStorage.setItem('enrich_auth', 'true'); sessionStorage.setItem('enrich_home', currentCareHome); } catch(e) {}
+                showReferralForm();
+                errorMsg.style.display = 'none';
+            } else {
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = 'Invalid PIN code. Please check and try again.';
+            }
+        }
+
+        function showReferralForm() {
+            document.getElementById('pin-entry').style.display = 'none';
+            document.getElementById('referral-form').style.display = 'block';
+            document.getElementById('care-home-display').textContent = currentCareHome;
+            updateEmailPreview();
+        }
+
+        function showPinEntry() {
+            document.getElementById('pin-entry').style.display = 'block';
+            document.getElementById('referral-form').style.display = 'none';
+            pinInputs.forEach(function(input) { input.value = ''; });
+            pinInputs[0].focus();
+            document.getElementById('enrich-referral-form').reset();
+            currentCareHome = '';
+            try { sessionStorage.removeItem('enrich_auth'); sessionStorage.removeItem('enrich_home'); } catch(e) {}
+        }
+
+        function updateEmailPreview() {
+            var preview = document.getElementById('email-preview');
+            var nhsNumber = document.getElementById('nhs-number').value || '';
+            var firstName = document.getElementById('patient-firstname').value || '';
+            var lastName = document.getElementById('patient-lastname').value || '';
+            var reason = document.getElementById('referral-reason').value || '';
+            var referrerName = document.getElementById('referrer-name').value || '';
+            var referrerRole = document.getElementById('referrer-role').value || '';
+            preview.textContent = 'Care Home Name: ' + (currentCareHome || '[Will be auto-filled]') + '\nPatient NHS Number: ' + nhsNumber + '\nPatient First Name: ' + firstName + '\nPatient Last Name: ' + lastName + '\nReason for Referral: ' + reason + '\n\nReferred by: ' + referrerName + '\nRole: ' + referrerRole;
+        }
+
+        document.querySelectorAll('#enrich-referral-form input, #enrich-referral-form textarea, #enrich-referral-form select').forEach(function(field) {
+            field.addEventListener('input', updateEmailPreview);
+            field.addEventListener('change', updateEmailPreview);
+        });
+
+        function sendReferralEmail() {
+            var nhsNumber = document.getElementById('nhs-number').value;
+            var firstName = document.getElementById('patient-firstname').value;
+            var lastName = document.getElementById('patient-lastname').value;
+            var reason = document.getElementById('referral-reason').value;
+            var referrerName = document.getElementById('referrer-name').value;
+            var referrerRole = document.getElementById('referrer-role').value;
+            if (!nhsNumber || !firstName || !lastName || !reason) { alert('Please fill in all required fields.'); return; }
+            var subject = encodeURIComponent('EnRICH Referral - ' + firstName + ' ' + lastName + ' - ' + currentCareHome);
+            var body = encodeURIComponent('EnRICH Referral Form\n\nCare Home Name: ' + currentCareHome + '\nPatient NHS Number: ' + nhsNumber + '\nPatient First Name: ' + firstName + '\nPatient Last Name: ' + lastName + '\n\nReason for Referral:\n' + reason + '\n\n---\nReferred by: ' + (referrerName || 'Not specified') + '\nRole: ' + (referrerRole || 'Not specified') + '\n\n---\nSent via EnRICH Online Referral System');
+            window.location.href = 'mailto:cuh.carehomesteam@nhs.net?subject=' + subject + '&body=' + body;
+        }
+
+        function copyToClipboard() {
+            var nhsNumber = document.getElementById('nhs-number').value;
+            var firstName = document.getElementById('patient-firstname').value;
+            var lastName = document.getElementById('patient-lastname').value;
+            var reason = document.getElementById('referral-reason').value;
+            var referrerName = document.getElementById('referrer-name').value;
+            var referrerRole = document.getElementById('referrer-role').value;
+            if (!nhsNumber || !firstName || !lastName || !reason) { alert('Please fill in all required fields before copying.'); return; }
+            var text = 'EnRICH Referral Form\n\nCare Home Name: ' + currentCareHome + '\nPatient NHS Number: ' + nhsNumber + '\nPatient First Name: ' + firstName + '\nPatient Last Name: ' + lastName + '\n\nReason for Referral:\n' + reason + '\n\n---\nReferred by: ' + (referrerName || 'Not specified') + '\nRole: ' + (referrerRole || 'Not specified');
+            navigator.clipboard.writeText(text).then(function() {
+                var successMsg = document.getElementById('copy-success');
+                successMsg.style.display = 'block';
+                setTimeout(function() { successMsg.style.display = 'none'; }, 3000);
+            }).catch(function() { alert('Failed to copy. Please select and copy the text manually.'); });
+        }
+
+        // Check for PIN in URL (QR code access) - hash it before checking
+        (async function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var pin = urlParams.get('pin');
+            if (pin && pin.length === 5) {
+                // Clear the PIN from the URL bar immediately
+                if (window.history.replaceState) {
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+                var hash = await hashPIN(pin);
+                if (careHomePINs[hash]) {
+                    currentCareHome = careHomePINs[hash];
+                    try { sessionStorage.setItem('enrich_auth', 'true'); sessionStorage.setItem('enrich_home', currentCareHome); } catch(e) {}
+                    showReferralForm();
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

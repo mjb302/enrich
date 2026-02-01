@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDT Collaboration | EnRICH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Merriweather:wght@400;700&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --enrich-purple: #8B2A7D;
+            --enrich-blue: #1E3A5F;
+            --enrich-navy: #0D1B2A;
+            --light-purple: #F5EBF4;
+            --light-blue: #E8EEF4;
+            --white: #FFFFFF;
+            --text-gray: #4A5568;
+            --bgs-green: #006747;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--enrich-navy);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-blue) 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-section img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 2px solid white;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            background: white;
+            color: var(--enrich-purple);
+        }
+
+        .nhs-banner {
+            background: #005EB8;
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title h2 {
+            font-family: 'Merriweather', Georgia, serif;
+            font-size: 2rem;
+            color: var(--enrich-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-title p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 12px rgba(30, 58, 95, 0.08);
+        }
+
+        .content-card h3 {
+            color: var(--enrich-blue);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .content-card p {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .definition-box {
+            background: var(--light-blue);
+            border-left: 4px solid var(--enrich-blue);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+
+        .definition-box cite {
+            display: block;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--enrich-blue);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .partner-card {
+            background: var(--light-blue);
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-align: center;
+            border-top: 3px solid var(--enrich-blue);
+        }
+
+        .partner-card .icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .partner-card h4 {
+            color: var(--enrich-navy);
+            margin-bottom: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .partner-card p {
+            font-size: 0.85rem;
+            margin: 0;
+            color: var(--text-gray);
+        }
+
+        .mdt-box {
+            background: linear-gradient(135deg, var(--enrich-blue) 0%, var(--enrich-purple) 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .mdt-box h4 {
+            margin-bottom: 1rem;
+        }
+
+        .mdt-box ul {
+            margin-left: 1.5rem;
+        }
+
+        .mdt-box li {
+            margin-bottom: 0.5rem;
+            opacity: 0.95;
+        }
+
+        .evidence-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .evidence-list li {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: var(--light-blue);
+            border-radius: 6px;
+            padding-left: 2.5rem;
+            position: relative;
+        }
+
+        .evidence-list li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0.75rem;
+            color: var(--bgs-green);
+            font-weight: bold;
+        }
+
+        .ics-box {
+            background: var(--light-purple);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 2px solid var(--enrich-purple);
+        }
+
+        .ics-box h4 {
+            color: var(--enrich-purple);
+            margin-bottom: 1rem;
+        }
+
+        .ics-box p {
+            margin-bottom: 0.5rem;
+        }
+
+        .ics-box ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .ics-box li {
+            margin-bottom: 0.25rem;
+            color: var(--text-gray);
+        }
+
+        .bgs-attribution {
+            background: linear-gradient(135deg, var(--bgs-green) 0%, #004d36 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .bgs-attribution h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .bgs-attribution p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .bgs-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .bgs-attribution a {
+            display: inline-block;
+            background: white;
+            color: var(--bgs-green);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .bgs-attribution a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .enrich-note {
+            background: var(--light-blue);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border: 2px solid var(--enrich-blue);
+        }
+
+        .enrich-note h4 {
+            color: var(--enrich-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: var(--enrich-navy);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .page-title h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-card {
+                padding: 1.25rem;
+            }
+
+            .partners-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .bgs-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="EnRICH_Logo_solid.png" alt="EnRICH Logo">
+                <div class="logo-text">
+                    <h1>EnRICH</h1>
+                    <p>Enhanced Reviews in Care Homes</p>
+                </div>
+            </div>
+            <a href="index.html" class="back-link">&larr; Back to EnRICH</a>
+        </div>
+    </header>
+
+    <div class="nhs-banner">
+        A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong>
+    </div>
+
+    <main>
+        <div class="page-title">
+            <h2>MDT Collaboration</h2>
+            <p>Working together for better outcomes</p>
+        </div>
+
+        <div class="content-card">
+            <h3>The Power of Partnership</h3>
+            <p>Effective care for older adults with complex needs requires collaboration across multiple disciplines and organisations. The EnRICH service works closely with a wide range of partners to ensure coordinated, person-centred care for care home residents.</p>
+            
+            <div class="definition-box">
+                "Providing proactive care for care home residents requires multidisciplinary team (MDT) working. MDT meetings provide structured opportunities for clinical review, shared decision-making, and coordinated care planning."
+                <cite>&mdash; British Geriatrics Society / Enhanced Health in Care Homes Framework</cite>
+            </div>
+
+            <p>By bringing together different perspectives and expertise, we can address the full range of residents' needs - medical, psychological, social, and functional - in a coordinated way.</p>
+        </div>
+
+        <div class="content-card">
+            <h3>Our Partners</h3>
+            <p>We work closely with a range of healthcare partners across the system:</p>
+
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="icon">&#x1F468;&#x200D;&#x2695;&#xFE0F;</div>
+                    <h4>GPs</h4>
+                    <p>Primary care liaison and shared management</p>
+                </div>
+                <div class="partner-card">
+                    <div class="icon">&#x1F469;&#x200D;&#x2695;&#xFE0F;</div>
+                    <h4>Community Matrons</h4>
+                    <p>Case management and complex care coordination</p>
+                </div>
+                <div class="partner-card">
+                    <div class="icon">&#x1F3E0;</div>
+                    <h4>Care Home Staff</h4>
+                    <p>Daily care delivery, monitoring, and communication</p>
+                </div>
+                <div class="partner-card">
+                    <div class="icon">&#x1F48A;</div>
+                    <h4>Pharmacists</h4>
+                    <p>Medication review and optimisation</p>
+                </div>
+                <div class="partner-card">
+                    <div class="icon">&#x1F691;</div>
+                    <h4>Ambulance Services</h4>
+                    <p>Emergency response and conveyance decisions</p>
+                </div>
+                <div class="partner-card">
+                    <div class="icon">&#x1F3E5;</div>
+                    <h4>Hospital Teams</h4>
+                    <p>ED, acute medicine, and discharge teams</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h3>Regular MDT Meetings</h3>
+            <p>Structured multidisciplinary team meetings are at the heart of the EnRICH approach:</p>
+
+            <div class="mdt-box">
+                <h4>What Happens in MDT Meetings</h4>
+                <ul>
+                    <li><strong>Case discussion</strong> - Review of residents with complex needs or recent changes</li>
+                    <li><strong>Care planning</strong> - Developing and updating personalised care plans</li>
+                    <li><strong>Problem solving</strong> - Addressing challenges with input from multiple perspectives</li>
+                    <li><strong>Communication</strong> - Ensuring all team members have current information</li>
+                    <li><strong>Education</strong> - Sharing knowledge and learning from cases</li>
+                    <li><strong>Forward planning</strong> - Anticipating needs and preparing for changes</li>
+                </ul>
+            </div>
+
+            <p>MDT meetings ensure that care is coordinated, comprehensive, and aligned with each resident's goals. They also help identify residents who might benefit from proactive intervention before a crisis occurs.</p>
+        </div>
+
+        <div class="content-card">
+            <h3>Benefits of MDT Working</h3>
+            <p>Evidence shows that multidisciplinary collaboration leads to better outcomes:</p>
+
+            <ul class="evidence-list">
+                <li><strong>Comprehensive assessment</strong> - Multiple perspectives identify more issues and opportunities</li>
+                <li><strong>Coordinated care</strong> - Avoiding gaps and duplication in services</li>
+                <li><strong>Faster response</strong> - Clear communication channels when problems arise</li>
+                <li><strong>Reduced hospital admissions</strong> - More problems managed safely in the community</li>
+                <li><strong>Better advance care planning</strong> - Shared understanding of residents' wishes</li>
+                <li><strong>Staff satisfaction</strong> - Feeling supported in delivering complex care</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h3>Integrated Care System Working</h3>
+
+            <div class="ics-box">
+                <h4>Part of a Bigger Picture</h4>
+                <p>EnRICH operates within the Cambridgeshire &amp; Peterborough Integrated Care System (ICS), contributing to system-wide efforts to improve care for older people.</p>
+                <p>We work with:</p>
+                <ul>
+                    <li>Cambridge University Hospitals NHS Foundation Trust</li>
+                    <li>Cambridgeshire &amp; Peterborough NHS Foundation Trust (CPFT)</li>
+                    <li>Primary Care Networks (PCNs)</li>
+                    <li>East of England Ambulance Service</li>
+                    <li>Local Authority social care teams</li>
+                    <li>Voluntary sector organisations</li>
+                </ul>
+            </div>
+
+            <p>This integrated approach ensures that care home residents benefit from the full range of services available across the health and care system, with smooth transitions between settings.</p>
+        </div>
+
+        <div class="enrich-note">
+            <h4>How EnRICH Connects the System</h4>
+            <p>The EnRICH team acts as a bridge between care homes and the wider health system. By maintaining relationships with multiple partners and providing continuity across settings, we help ensure that care is coordinated and that residents don't fall through the gaps. When a resident needs input from another service, we can facilitate referrals and ensure effective handover.</p>
+        </div>
+
+        <div class="bgs-attribution">
+            <h4>Learn More from the British Geriatrics Society</h4>
+            <p>Access resources on MDT working and care home medicine.</p>
+            <div class="bgs-links">
+                <a href="https://www.bgs.org.uk/resources/care-home-resource-introduction" target="_blank" rel="noopener noreferrer">Care Home Resources &rarr;</a>
+                <a href="https://www.bgs.org.uk/resources/cga-in-primary-care-settings" target="_blank" rel="noopener noreferrer">CGA in Primary Care &rarr;</a>
+                <a href="https://www.bgs.org.uk/resources/resource-series/silver-book-ii" target="_blank" rel="noopener noreferrer">Silver Book II &rarr;</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 EnRICH - Enhanced Reviews in Care Homes | Cambridge University Hospitals NHS Foundation Trust</p>
+        <p><a href="index.html">Return to EnRICH Homepage</a></p>
+    </footer>
+</body>
+</html>
