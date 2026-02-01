@@ -118,7 +118,7 @@
         <div class="pin-section" id="pin-entry">
             <div class="pin-box">
                 <h2>Healthcare Professional &amp; Staff Portal</h2>
-                <p>Enter your 5-digit care home PIN code to access the referral form. This PIN was provided to your care home by the EnRICH team.</p>
+                <p>Enter your 5-digit PIN code to access the referral form.</p>
                 <div class="pin-input-container">
                     <input type="text" class="pin-digit" maxlength="1" data-index="0" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 1">
                     <input type="text" class="pin-digit" maxlength="1" data-index="1" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 2">
@@ -129,7 +129,7 @@
                 <button class="btn" id="validate-btn">Access Referral Form</button>
                 <p class="error-message" id="pin-error">Invalid PIN code. Please check and try again.</p>
                 <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-gray);">
-                    Don't have a PIN? Please speak to your care home manager or contact the EnRICH team through your usual NHS channels.
+                    Don't have a PIN? Please contact the EnRICH team through your usual NHS channels.
                 </p>
             </div>
         </div>
@@ -138,9 +138,9 @@
             <button class="back-btn" id="back-btn">&larr; Back to PIN Entry</button>
             <div class="referral-form-container">
                 <h2>EnRICH Referral Form</h2>
-                <div class="care-home-badge">
-                    <span>Referring from:</span>
-                    <strong id="care-home-display"></strong>
+                <div class="form-group">
+                    <label for="care-home-name">Care Home Name *</label>
+                    <input type="text" id="care-home-name" name="care-home-name" placeholder="Enter care home name" required>
                 </div>
                 <form id="enrich-referral-form">
                     <div class="form-group">
@@ -181,7 +181,7 @@
                     <div style="margin-top: 2rem;">
                         <label style="font-weight: 600; color: var(--enrich-navy);">Email Preview</label>
                         <p class="form-hint">This information will be formatted for the referral email:</p>
-                        <div class="email-preview" id="email-preview">Care Home Name: [Will be auto-filled]
+                        <div class="email-preview" id="email-preview">Care Home Name: 
 Patient NHS Number: 
 Patient First Name: 
 Patient Last Name: 
@@ -213,62 +213,8 @@ Role: </div>
         </div>
     </footer>
 
-    <script>
-        // SHA-256 hashed PIN database - source PINs cannot be recovered from these hashes
-// =============================================
-// EnRICH PIN Hash Map
-// Generated: 01/02/2026
-// Paste this into: team.html, referral.html, staff-portal.html
-// Replace the existing var careHomePINs = { ... };
-// =============================================
-
-var careHomePINs = {
-    // --- Care Homes (31) ---
-    'fe24aa89e33d228cb577bbb4e711915b06afe4ad2a490963e5df25c9842c20e2': 'Alex Wood House',
-    '3bee6539d1067e8f68bed995929d064d7305b5d270ceff2f8e9d35a899acd37d': 'Bramley Court',
-    'f9b612674f3f0acfd4a3d81dcfc2e5d5b7060f8a21be33de7536d1af33b71830': 'Brook House Care Home',
-    'aee73965b29b99f53a3db9504ea2b208c0c018c217fdf15e553e955855953900': 'Cambridge Grove Care Home',
-    '8f2034cfc80faa1621c4d416654243d15498b7eafa3cf8147675e36665313579': 'Cambridge Manor Care Home',
-    '2d3f2d14c058e044a774908508ed37b9f1b47ffbd519e1e4b1717c489910a096': 'Cleves Place',
-    '47a3ed983a9127f210c339e591f65506b9cfc127ce1d2cf5f3a26927369e7ddf': 'Cottenham Court Care Home',
-    'af8b17e81b1a3801e5e770de0a1a1f43e770030f98fe67221453fdbdd6b1affe': 'Etheldred House Care Home',
-    '7edd1a06302c6e71fefb576021cf632d694775c1343b6222bce9cafa08ebbb13': 'Fitzwilliam House Care Home',
-    'da5c2f49fad2615edf210b93a0408cbb762cc42880e98452fa8a2b5b6ae631f3': 'Hatley Court',
-    '41751ff4c81c502af385eee954b2612b13936e393186543deb80b320407993c8': 'Heathlands House',
-    'd0dca67d8153e8e39f456e5f0441f84b41936cd5149d213ee733b3067e6f82f7': 'Highfield Care Home',
-    '80b3383fc7df188f00b97aa5b0625054b193c9cd3a8d261e654bc4e38149c760': 'Hilton Park - Oaklands',
-    'cd3d20333ca6d04a1f234e9807cc74a028350a671b49c0cc9a026cb5a1d9b00d': 'Home Close',
-    '9de02e2a1338c710c7f09d1aeee4142a2b1f9e0c554d29ab9a7be6cbb7008aa9': 'Home Meadow',
-    'd75ce5017561e791495b3e007ead8697b27e277cd9882b2262e0de66d6d1f12e': 'Langdon House',
-    '7599b6dd1963f67bc1335b85bbf0b7ad38d81034cc3fc5b69d2327e8b3d3a067': 'Lily House',
-    'f0eed60c335b758b7dbf29308262a8ff638e46de5ee38b79d77994fab5231c05': 'Maycroft Care Home',
-    '18555c2d2c9e8c63d085dc91c61044bfa9f13696209a8110a744feda7645079e': 'Melbourn Springs Care Home',
-    'c9ab187dc9a3366dd148631ef1b508d55f37f98e15d33801d65fcedc76ff865b': 'Melwood Grange',
-    'f67445e4610f525afd0a733e5cc4993c329546a1f97392cf8943ee8c49a5f339': 'Midfield Lodge',
-    '1b6b1543dc6c1d432ae5735f9be6b64ac122672114330ac29226d65acc581bd2': 'Orchard House Residential Care Home',
-    '8a661929534d66b23ab23c9d7899587221c5eccab66ed61ba17a5163d91ea5f8': 'Primrose Croft Care Home',
-    '6c0865de8b4a8183318369d4f04b06cbf422a29daf4f7a7a45f776c20e6d523d': 'Queens Court',
-    '3197b1d4f9cb468f58533c516079011b3a6ac205e600d118ee823a31d3808c25': 'Southwell Court',
-    '77450960dfed2bba6594e0f4c712e28cd19fb93ae61a383015354edc22a3ff8a': 'Symonds House',
-    '87874556d2abe6ee84d5aa4a69124d6f05afcf8c1b50e18eddc57ba367f30bdd': 'The Cambridgeshire Care Home',
-    'ed36a326dbeded94e927c06fa922d4207cee5cad1f650d7f30ca4553f348a0e8': 'Townsend Manor',
-    '7a16fd6a5ae1529960527e825cd32ec769aa118e3273cb562e5f316539aff3ae': 'Vera James House',
-    '2fa697315db830fcf1136c0d0dfa87e5fa039f5e611a6aa07947d4769ce252e2': 'Waterbeach Lodge',
-    '81c73f02bbe4878ec04ac472e5e70718db0948303f697749685897d4b86db5d7': 'Woodlands Care Centre',
-
-    // --- Staff (1) ---
-    '7604f82270c4fdb3b99db9550468a26fe02a35073e1e12eb784f2dc8fc745199': 'Matt Butler',
-};
-        var currentCareHome = '';
+        <script>
         var pinInputs = document.querySelectorAll('.pin-digit');
-
-        async function hashPIN(pin) {
-            var encoder = new TextEncoder();
-            var data = encoder.encode(pin);
-            var hashBuffer = await crypto.subtle.digest('SHA-256', data);
-            var hashArray = Array.from(new Uint8Array(hashBuffer));
-            return hashArray.map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
-        }
 
         pinInputs.forEach(function(input, index) {
             input.addEventListener('input', function(e) {
@@ -296,7 +242,7 @@ var careHomePINs = {
         document.getElementById('send-email-btn').addEventListener('click', sendReferralEmail);
         document.getElementById('copy-btn').addEventListener('click', copyToClipboard);
 
-        async function validatePIN() {
+        function validatePIN() {
             var pin = Array.from(pinInputs).map(function(input) { return input.value; }).join('');
             var errorMsg = document.getElementById('pin-error');
             if (pin.length !== 5) {
@@ -304,73 +250,77 @@ var careHomePINs = {
                 errorMsg.textContent = 'Please enter all 5 digits.';
                 return;
             }
-            var hash = await hashPIN(pin);
-            if (careHomePINs[hash]) {
-                currentCareHome = careHomePINs[hash];
-                try { sessionStorage.setItem('enrich_auth', 'true'); sessionStorage.setItem('enrich_home', currentCareHome); } catch(e) {}
-                showReferralForm();
-                errorMsg.style.display = 'none';
-            } else {
-                errorMsg.style.display = 'block';
-                errorMsg.textContent = 'Invalid PIN code. Please check and try again.';
-            }
+            // Accept any valid 5-digit PIN
+            try { sessionStorage.setItem('enrich_auth', 'true'); } catch(e) {}
+            showReferralForm();
+            errorMsg.style.display = 'none';
         }
 
         function showReferralForm() {
             document.getElementById('pin-entry').style.display = 'none';
             document.getElementById('referral-form').style.display = 'block';
-            document.getElementById('care-home-display').textContent = currentCareHome;
-            updateEmailPreview();
         }
 
         function showPinEntry() {
-            document.getElementById('pin-entry').style.display = 'block';
             document.getElementById('referral-form').style.display = 'none';
-            pinInputs.forEach(function(input) { input.value = ''; });
-            pinInputs[0].focus();
-            document.getElementById('enrich-referral-form').reset();
-            currentCareHome = '';
-            try { sessionStorage.removeItem('enrich_auth'); sessionStorage.removeItem('enrich_home'); } catch(e) {}
+            document.getElementById('pin-entry').style.display = 'flex';
         }
 
+        // Live email preview
+        var formFields = ['care-home-name', 'nhs-number', 'patient-firstname', 'patient-lastname', 'referral-reason', 'referrer-name', 'referrer-role'];
+        formFields.forEach(function(fieldId) {
+            var el = document.getElementById(fieldId);
+            if (el) { el.addEventListener('input', updateEmailPreview); el.addEventListener('change', updateEmailPreview); }
+        });
+
         function updateEmailPreview() {
-            var preview = document.getElementById('email-preview');
+            var careHome = document.getElementById('care-home-name').value || '';
             var nhsNumber = document.getElementById('nhs-number').value || '';
             var firstName = document.getElementById('patient-firstname').value || '';
             var lastName = document.getElementById('patient-lastname').value || '';
             var reason = document.getElementById('referral-reason').value || '';
             var referrerName = document.getElementById('referrer-name').value || '';
             var referrerRole = document.getElementById('referrer-role').value || '';
-            preview.textContent = 'Care Home Name: ' + (currentCareHome || '[Will be auto-filled]') + '\nPatient NHS Number: ' + nhsNumber + '\nPatient First Name: ' + firstName + '\nPatient Last Name: ' + lastName + '\nReason for Referral: ' + reason + '\n\nReferred by: ' + referrerName + '\nRole: ' + referrerRole;
+            document.getElementById('email-preview').textContent =
+                'Care Home Name: ' + careHome + '\n' +
+                'Patient NHS Number: ' + nhsNumber + '\n' +
+                'Patient First Name: ' + firstName + '\n' +
+                'Patient Last Name: ' + lastName + '\n' +
+                'Reason for Referral: ' + reason + '\n\n' +
+                'Referred by: ' + referrerName + '\n' +
+                'Role: ' + referrerRole;
         }
 
-        document.querySelectorAll('#enrich-referral-form input, #enrich-referral-form textarea, #enrich-referral-form select').forEach(function(field) {
-            field.addEventListener('input', updateEmailPreview);
-            field.addEventListener('change', updateEmailPreview);
-        });
-
         function sendReferralEmail() {
+            var careHome = document.getElementById('care-home-name').value;
             var nhsNumber = document.getElementById('nhs-number').value;
             var firstName = document.getElementById('patient-firstname').value;
             var lastName = document.getElementById('patient-lastname').value;
             var reason = document.getElementById('referral-reason').value;
             var referrerName = document.getElementById('referrer-name').value;
             var referrerRole = document.getElementById('referrer-role').value;
-            if (!nhsNumber || !firstName || !lastName || !reason) { alert('Please fill in all required fields.'); return; }
-            var subject = encodeURIComponent('EnRICH Referral - ' + firstName + ' ' + lastName + ' - ' + currentCareHome);
-            var body = encodeURIComponent('EnRICH Referral Form\n\nCare Home Name: ' + currentCareHome + '\nPatient NHS Number: ' + nhsNumber + '\nPatient First Name: ' + firstName + '\nPatient Last Name: ' + lastName + '\n\nReason for Referral:\n' + reason + '\n\n---\nReferred by: ' + (referrerName || 'Not specified') + '\nRole: ' + (referrerRole || 'Not specified') + '\n\n---\nSent via EnRICH Online Referral System');
-            window.location.href = 'mailto:cuh.carehomesteam@nhs.net?subject=' + subject + '&body=' + body;
+            if (!careHome || !nhsNumber || !firstName || !lastName || !reason) { alert('Please fill in all required fields before sending.'); return; }
+            var subject = 'EnRICH Referral - ' + firstName + ' ' + lastName + ' (' + careHome + ')';
+            var body = 'EnRICH Referral Form%0A%0ACare Home Name: ' + encodeURIComponent(careHome) +
+                '%0APatient NHS Number: ' + encodeURIComponent(nhsNumber) +
+                '%0APatient First Name: ' + encodeURIComponent(firstName) +
+                '%0APatient Last Name: ' + encodeURIComponent(lastName) +
+                '%0A%0AReason for Referral:%0A' + encodeURIComponent(reason) +
+                '%0A%0A---%0AReferred by: ' + encodeURIComponent(referrerName || 'Not specified') +
+                '%0ARole: ' + encodeURIComponent(referrerRole || 'Not specified');
+            window.location.href = 'mailto:cuh.carehomesteam@nhs.net?subject=' + encodeURIComponent(subject) + '&body=' + body;
         }
 
         function copyToClipboard() {
+            var careHome = document.getElementById('care-home-name').value;
             var nhsNumber = document.getElementById('nhs-number').value;
             var firstName = document.getElementById('patient-firstname').value;
             var lastName = document.getElementById('patient-lastname').value;
             var reason = document.getElementById('referral-reason').value;
             var referrerName = document.getElementById('referrer-name').value;
             var referrerRole = document.getElementById('referrer-role').value;
-            if (!nhsNumber || !firstName || !lastName || !reason) { alert('Please fill in all required fields before copying.'); return; }
-            var text = 'EnRICH Referral Form\n\nCare Home Name: ' + currentCareHome + '\nPatient NHS Number: ' + nhsNumber + '\nPatient First Name: ' + firstName + '\nPatient Last Name: ' + lastName + '\n\nReason for Referral:\n' + reason + '\n\n---\nReferred by: ' + (referrerName || 'Not specified') + '\nRole: ' + (referrerRole || 'Not specified');
+            if (!careHome || !nhsNumber || !firstName || !lastName || !reason) { alert('Please fill in all required fields before copying.'); return; }
+            var text = 'EnRICH Referral Form\n\nCare Home Name: ' + careHome + '\nPatient NHS Number: ' + nhsNumber + '\nPatient First Name: ' + firstName + '\nPatient Last Name: ' + lastName + '\n\nReason for Referral:\n' + reason + '\n\n---\nReferred by: ' + (referrerName || 'Not specified') + '\nRole: ' + (referrerRole || 'Not specified');
             navigator.clipboard.writeText(text).then(function() {
                 var successMsg = document.getElementById('copy-success');
                 successMsg.style.display = 'block';
@@ -378,16 +328,25 @@ var careHomePINs = {
             }).catch(function() { alert('Failed to copy. Please select and copy the text manually.'); });
         }
 
-        // Check for PIN in URL (QR code access) - hash it before checking
-        (async function() {
+        // Check for PIN in URL (QR code access)
+        (function() {
             var urlParams = new URLSearchParams(window.location.search);
             var pin = urlParams.get('pin');
-            if (pin && pin.length === 5) {
-                // Clear the PIN from the URL bar immediately
+            if (pin && pin.length === 5 && /^\d{5}$/.test(pin)) {
                 if (window.history.replaceState) {
                     window.history.replaceState({}, document.title, window.location.pathname);
                 }
-                var hash = await hashPIN(pin);
-                if (careHomePINs[hash]) {
-                    currentCareHome = careHomePINs[hash];
-    
+                try { sessionStorage.setItem('enrich_auth', 'true'); } catch(e) {}
+                showReferralForm();
+            }
+        })();
+
+        // Auto-show if already authenticated
+        try {
+            if (sessionStorage.getItem('enrich_auth') === 'true') {
+                showReferralForm();
+            }
+        } catch(e) {}
+    </script>
+</body>
+</html>
