@@ -223,6 +223,13 @@
         .tools-box li {
             margin-bottom: 0.5rem;
             color: var(--text-gray);
+            padding-bottom: 0.5rem;
+        }
+
+        .tools-box li:has(span) {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(139, 42, 125, 0.15);
         }
 
         .bgs-attribution {
@@ -405,8 +412,22 @@
             <div class="tools-box">
                 <h4>Key Review Tools</h4>
                 <ul>
-                    <li><strong>STOPP/START Criteria</strong> – Identifies potentially inappropriate medications and prescribing omissions in older people</li>
-                    <li><strong>STOPPFrail</strong> – Specific criteria for deprescribing in frail older patients with limited life expectancy</li>
+                    <li>
+                        <strong>STOPP/START Criteria (Version 3, 2023)</strong> – Identifies potentially inappropriate medications (STOPP) and prescribing omissions (START) in older people. Version 3 includes 190 criteria (133 STOPP and 57 START) validated by a European expert panel, representing a 67% increase from Version 2.<br>
+                        <span style="display: inline-flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem;">
+                            <a href="https://www.cgakit.com/stopp-start-v3" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: var(--enrich-purple); color: white; padding: 0.3rem 0.8rem; border-radius: 4px; text-decoration: none; font-size: 0.8rem; font-weight: 600;">CGA Toolkit &rarr;</a>
+                            <a href="https://doi.org/10.1007/s41999-023-00777-y" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: var(--enrich-blue); color: white; padding: 0.3rem 0.8rem; border-radius: 4px; text-decoration: none; font-size: 0.8rem; font-weight: 600;">Original Paper (Open Access) &rarr;</a>
+                            <a href="https://www.bgs.org.uk/older-adult-pharmacy-resources" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: var(--bgs-green); color: white; padding: 0.3rem 0.8rem; border-radius: 4px; text-decoration: none; font-size: 0.8rem; font-weight: 600;">BGS Pharmacy Resources &rarr;</a>
+                        </span>
+                    </li>
+                    <li>
+                        <strong>STOPPFrail (Version 2)</strong> – Specific criteria for deprescribing in frail older patients with limited life expectancy. Comprises 27 criteria for potentially inappropriate medications, listed by physiological system, to assist structured deprescribing in patients with poor 1-year survival prognosis.<br>
+                        <span style="display: inline-flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem;">
+                            <a href="https://www.cgakit.com/stopp-frail" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: var(--enrich-purple); color: white; padding: 0.3rem 0.8rem; border-radius: 4px; text-decoration: none; font-size: 0.8rem; font-weight: 600;">CGA Toolkit &rarr;</a>
+                            <a href="https://doi.org/10.1093/ageing/afx005" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: var(--enrich-blue); color: white; padding: 0.3rem 0.8rem; border-radius: 4px; text-decoration: none; font-size: 0.8rem; font-weight: 600;">Original Paper &rarr;</a>
+                            <a href="https://www.sps.nhs.uk/articles/tools-to-support-medication-review/" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #005EB8; color: white; padding: 0.3rem 0.8rem; border-radius: 4px; text-decoration: none; font-size: 0.8rem; font-weight: 600;">NHS SPS Guidance &rarr;</a>
+                        </span>
+                    </li>
                     <li><strong>STOPPFall</strong> – Screening tool for medications that increase fall risk</li>
                     <li><strong>Anticholinergic Burden Score</strong> – Assesses cumulative anticholinergic effect of medications</li>
                     <li><strong>7 Steps to Appropriate Polypharmacy</strong> – NHS Scotland structured review framework</li>
