@@ -70,20 +70,44 @@
             font-size: 0.8rem;
             opacity: 0.9;
         }
-
-        .back-link {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 2px solid white;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            font-weight: 500;
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-
-        .back-link:hover {
+        .logo-section {
+            text-decoration: none;
+            color: white;
+        }
+        .logo-section img {
+            background: white;
+            border-radius: 8px;
+            padding: 4px;
+        }
+        nav {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        nav a {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: inherit;
+        }
+        nav a:hover, nav a.active {
             background: white;
             color: var(--enrich-purple);
+        }
+        nav a.pin-link {
+            border-color: rgba(255,255,255,0.5);
         }
 
         .nhs-banner {
@@ -266,6 +290,25 @@
                 flex-direction: column;
                 text-align: center;
             }
+            .logo-section { flex-direction: column; gap: 0.5rem; }
+            .logo-section img { height: 50px; }
+            nav {
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                justify-content: flex-start;
+                padding-bottom: 5px;
+            }
+            nav::-webkit-scrollbar { display: none; }
+            nav a {
+                flex-shrink: 0;
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
 
             .page-title h2 {
                 font-size: 1.5rem;
@@ -284,20 +327,23 @@
 <body>
     <header>
         <div class="header-content">
-            <div class="logo-section">
+            <a href="index.html" class="logo-section">
                 <img src="EnRICH_Logo_solid.png" alt="EnRICH Logo">
-                <div class="logo-text">
-                    <h1>EnRICH</h1>
-                    <p>Enhanced Reviews in Care Homes</p>
-                </div>
-            </div>
-            <a href="index.html" class="back-link">&larr; Back to EnRICH</a>
+                <div class="logo-text"><h1>EnRICH</h1><p>Enhanced Reviews in Care Homes</p></div>
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About EnRICH</a>
+                <a href="services.html" class="active">Our Services</a>
+                <a href="resources.html">Resources</a>
+                <a href="team.html" class="pin-link">&#x1F512; Meet the Team</a>
+                <a href="referral.html" class="pin-link">&#x1F512; Make a Referral</a>
+                <a href="staff-portal.html" class="pin-link">&#x1F512; Staff Portal</a>
+            </nav>
         </div>
     </header>
 
-    <div class="nhs-banner">
-        A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong>
-    </div>
+    <div class="nhs-banner">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></div>
 
     <main>
         <div class="page-title">
@@ -387,8 +433,10 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 EnRICH - Enhanced Reviews in Care Homes | Cambridge University Hospitals NHS Foundation Trust</p>
-        <p><a href="index.html">Return to EnRICH Homepage</a></p>
+        <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <p>&copy; 2026 EnRICH - Enhanced Reviews in Care Homes<br>Cambridge University Hospitals NHS Foundation Trust</p>
+            <p><a href="resources.html">Resources</a> | <a href="https://mjb302.github.io/enrich-map/" target="_blank">Interactive Map</a></p>
+        </div>
     </footer>
 </body>
 </html>

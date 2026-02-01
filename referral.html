@@ -32,6 +32,7 @@
         nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
         nav a { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: var(--white); padding: 0.6rem 1.2rem; border-radius: 6px; font-family: inherit; font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease; text-decoration: none; }
         nav a:hover, nav a.active { background: var(--white); color: var(--enrich-purple); }
+        nav a.pin-link { border-color: rgba(255,255,255,0.5); }
         .nhs-banner { background: var(--enrich-blue); color: var(--white); text-align: center; padding: 0.5rem; font-size: 0.85rem; }
         main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
         .pin-section { max-width: 500px; margin: 0 auto; text-align: center; }
@@ -97,27 +98,21 @@
         <div class="header-content">
             <a href="index.html" class="logo-section">
                 <img src="EnRICH_Logo_solid.png" alt="EnRICH Logo">
-                <div class="logo-text">
-                    <h1>EnRICH</h1>
-                    <p>Enhanced Reviews in Care Homes</p>
-                </div>
+                <div class="logo-text"><h1>EnRICH</h1><p>Enhanced Reviews in Care Homes</p></div>
             </a>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="about.html">About EnRICH</a>
                 <a href="services.html">Our Services</a>
-                <a href="team.html">Meet the Team</a>
-                <a href="referral.html" class="active">Make a Referral</a>
                 <a href="resources.html">Resources</a>
-                <a href="staff-portal.html">Staff Portal</a>
+                <a href="team.html" class="pin-link">&#x1F512; Meet the Team</a>
+                <a href="referral.html" class="active pin-link">&#x1F512; Make a Referral</a>
+                <a href="staff-portal.html" class="pin-link">&#x1F512; Staff Portal</a>
             </nav>
         </div>
     </header>
 
-    <div class="nhs-banner">
-        A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp;
-        <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong>
-    </div>
+    <div class="nhs-banner">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></div>
 
     <main>
         <div class="pin-section" id="pin-entry">
@@ -385,11 +380,4 @@ Role: </div>
                 var hash = await hashPIN(pin);
                 if (careHomePINs[hash]) {
                     currentCareHome = careHomePINs[hash];
-                    try { sessionStorage.setItem('enrich_auth', 'true'); sessionStorage.setItem('enrich_home', currentCareHome); } catch(e) {}
-                    showReferralForm();
-                }
-            }
-        })();
-    </script>
-</body>
-</html>
+    

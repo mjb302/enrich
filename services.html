@@ -19,6 +19,7 @@ header { background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enri
 nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 nav a { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: var(--white); padding: 0.6rem 1.2rem; border-radius: 6px; font-family: inherit; font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease; text-decoration: none; }
 nav a:hover, nav a.active { background: var(--white); color: var(--enrich-purple); }
+        nav a.pin-link { border-color: rgba(255,255,255,0.5); }
 .nhs-banner { background: var(--enrich-blue); color: var(--white); text-align: center; padding: 0.5rem; font-size: 0.85rem; }
 main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
 .info-section { margin-bottom: 3rem; }
@@ -85,10 +86,10 @@ footer { background: var(--enrich-navy); color: var(--white); padding: 2rem; mar
                 <a href="index.html">Home</a>
                 <a href="about.html">About EnRICH</a>
                 <a href="services.html" class="active">Our Services</a>
-                <a href="team.html">Meet the Team</a>
-                <a href="referral.html">Make a Referral</a>
                 <a href="resources.html">Resources</a>
-                <a href="staff-portal.html">Staff Portal</a>
+                <a href="team.html" class="pin-link">&#x1F512; Meet the Team</a>
+                <a href="referral.html" class="pin-link">&#x1F512; Make a Referral</a>
+                <a href="staff-portal.html" class="pin-link">&#x1F512; Staff Portal</a>
             </nav>
         </div>
     </header>

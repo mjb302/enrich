@@ -20,6 +20,7 @@
         nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
         nav a { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: var(--white); padding: 0.6rem 1.2rem; border-radius: 6px; font-family: inherit; font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease; text-decoration: none; }
         nav a:hover, nav a.active { background: var(--white); color: var(--enrich-purple); }
+        nav a.pin-link { border-color: rgba(255,255,255,0.5); }
         .nhs-banner { background: var(--enrich-blue); color: var(--white); text-align: center; padding: 0.5rem; font-size: 0.85rem; }
         main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
         h2 { font-family: 'Merriweather', Georgia, serif; color: var(--enrich-purple); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--enrich-purple); display: inline-block; }
@@ -75,10 +76,10 @@
                 <a href="index.html">Home</a>
                 <a href="about.html">About EnRICH</a>
                 <a href="services.html">Our Services</a>
-                <a href="team.html" class="active">Meet the Team</a>
-                <a href="referral.html">Make a Referral</a>
                 <a href="resources.html">Resources</a>
-                <a href="staff-portal.html">Staff Portal</a>
+                <a href="team.html" class="active pin-link">&#x1F512; Meet the Team</a>
+                <a href="referral.html" class="pin-link">&#x1F512; Make a Referral</a>
+                <a href="staff-portal.html" class="pin-link">&#x1F512; Staff Portal</a>
             </nav>
         </div>
     </header>
@@ -212,22 +213,4 @@
                 errorMsg.style.display = 'none';
                 document.getElementById('team-pin-entry').style.display = 'none';
                 document.getElementById('team-content').style.display = 'block';
-                try { sessionStorage.setItem('enrich_auth', 'true'); sessionStorage.setItem('enrich_home', careHomePINs[hash]); } catch(e) {}
-            } else {
-                errorMsg.style.display = 'block';
-                errorMsg.textContent = 'Invalid PIN. Please try again.';
-            }
-        }
-
-        // Auto-unlock if already authenticated this session
-        (function() {
-            try {
-                if (sessionStorage.getItem('enrich_auth') === 'true') {
-                    document.getElementById('team-pin-entry').style.display = 'none';
-                    document.getElementById('team-content').style.display = 'block';
-                }
-            } catch(e) {}
-        })();
-    </script>
-</body>
-</html>
+                try { sessionStorage.setItem('e
