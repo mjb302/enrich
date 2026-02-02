@@ -21,7 +21,10 @@
         nav a { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: var(--white); padding: 0.6rem 1.2rem; border-radius: 6px; font-family: inherit; font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease; text-decoration: none; }
         nav a:hover, nav a.active { background: var(--white); color: var(--enrich-purple); }
         nav a.pin-link { border-color: rgba(255,255,255,0.5); }
-        .nhs-banner { background: var(--enrich-blue); color: var(--white); text-align: center; padding: 0.5rem; font-size: 0.85rem; }
+        .nhs-banner { background: var(--enrich-blue); color: var(--white); padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; justify-content: center; align-items: center; position: relative; }
+        .nhs-banner .banner-text { text-align: center; flex: 1; }
+        .logoff-btn { position: absolute; right: 1rem; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.5); color: white; padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 600; border-radius: 4px; cursor: pointer; font-family: inherit; transition: all 0.2s ease; display: none; }
+        .logoff-btn:hover { background: rgba(255,255,255,0.35); }
         main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
         h2 { font-family: 'Merriweather', Georgia, serif; color: var(--enrich-purple); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--enrich-purple); display: inline-block; }
         .team-intro { text-align: center; margin-bottom: 2rem; color: var(--text-gray); }
@@ -83,7 +86,7 @@
             </nav>
         </div>
     </header>
-    <div class="nhs-banner">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></div>
+    <div class="nhs-banner"><span class="banner-text">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></span><button class="logoff-btn" id="logoff-btn" onclick="logoff()">Log Off</button></div>
 
     <main>
         <h2>Meet the Team</h2>
@@ -109,12 +112,12 @@
                     <div class="team-member-icon">&#x1F468;&#x200D;&#x2695;&#xFE0F;</div>
                     <h4>[Clinical Lead Name]</h4>
                     <div class="role">Consultant Geriatrician &amp; Clinical Lead</div>
-                    <div class="contact-info"><a href="mailto:cuh.carehomesteam@nhs.net">cuh.carehomesteam@nhs.net</a></div>
+                    <div class="contact-info"><a href="/cdn-cgi/l/email-protection#b1d2c4d99fd2d0c3d4d9dedcd4c2c5d4d0dcf1dfd9c29fdfd4c5"><span class="__cf_email__" data-cfemail="2e4d5b46004d4f5c4b4641434b5d5a4b4f436e40465d00404b5a">[email&#160;protected]</span></a></div>
                 </div>
             </div>
             <div class="team-note">
                 <h4>&#x1F4E7; General Enquiries</h4>
-                <p>For general enquiries about the EnRICH service: <a href="mailto:cuh.carehomesteam@nhs.net">cuh.carehomesteam@nhs.net</a></p>
+                <p>For general enquiries about the EnRICH service: <a href="/cdn-cgi/l/email-protection#503325387e33312235383f3d35232435313d103e38237e3e3524"><span class="__cf_email__" data-cfemail="e0839588ce83819285888f8d85939485818da08e8893ce8e8594">[email&#160;protected]</span></a></p>
             </div>
         </div>
     </main>
@@ -126,7 +129,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         var teamPinInputs = document.querySelectorAll('.team-pin-digit');
 
         teamPinInputs.forEach(function(input, index) {
@@ -162,16 +165,14 @@
             try { sessionStorage.setItem('enrich_auth', 'true'); } catch(e) {}
             document.getElementById('team-pin-entry').style.display = 'none';
             document.getElementById('team-content').style.display = 'block';
-            errorMsg.style.display = 'none';
-        }
-
-        // Auto-show if already authenticated
-        try {
-            if (sessionStorage.getItem('enrich_auth') === 'true') {
-                document.getElementById('team-pin-entry').style.display = 'none';
-                document.getElementById('team-content').style.display = 'block';
+            document.getElementById('logoff-btn').style.display = 'inline-block';
             }
         } catch(e) {}
+
+        function logoff() {
+            try { sessionStorage.removeItem('enrich_auth'); sessionStorage.removeItem('enrich_home'); } catch(e) {}
+            window.location.reload();
+        }
     </script>
 </body>
 </html>

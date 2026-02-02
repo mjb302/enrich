@@ -33,7 +33,10 @@
         nav a { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: var(--white); padding: 0.6rem 1.2rem; border-radius: 6px; font-family: inherit; font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease; text-decoration: none; }
         nav a:hover, nav a.active { background: var(--white); color: var(--enrich-purple); }
         nav a.pin-link { border-color: rgba(255,255,255,0.5); }
-        .nhs-banner { background: var(--enrich-blue); color: var(--white); text-align: center; padding: 0.5rem; font-size: 0.85rem; }
+        .nhs-banner { background: var(--enrich-blue); color: var(--white); padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; justify-content: center; align-items: center; position: relative; }
+        .nhs-banner .banner-text { text-align: center; flex: 1; }
+        .logoff-btn { position: absolute; right: 1rem; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.5); color: white; padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 600; border-radius: 4px; cursor: pointer; font-family: inherit; transition: all 0.2s ease; display: none; }
+        .logoff-btn:hover { background: rgba(255,255,255,0.35); }
         main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
         .pin-section { max-width: 500px; margin: 0 auto; text-align: center; }
         .pin-box { background: var(--white); border-radius: 16px; padding: 3rem 2rem; box-shadow: var(--shadow); margin-top: 2rem; }
@@ -112,7 +115,7 @@
         </div>
     </header>
 
-    <div class="nhs-banner">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></div>
+    <div class="nhs-banner"><span class="banner-text">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></span><button class="logoff-btn" id="logoff-btn" onclick="logoff()">Log Off</button></div>
 
     <main>
         <div class="pin-section" id="pin-entry">
@@ -198,7 +201,7 @@ Role: </div>
                 </form>
                 <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--light-gray); text-align: center;">
                     <p style="color: var(--text-gray); font-size: 0.9rem;">
-                        Send referrals to: <a href="mailto:cuh.carehomesteam@nhs.net" style="color: var(--enrich-purple); font-weight: 600;">cuh.carehomesteam@nhs.net</a>
+                        Send referrals to: <a href="/cdn-cgi/l/email-protection#87e4f2efa9e4e6f5e2efe8eae2f4f3e2e6eac7e9eff4a9e9e2f3" style="color: var(--enrich-purple); font-weight: 600;"><span class="__cf_email__" data-cfemail="d3b0a6bbfdb0b2a1b6bbbcbeb6a0a7b6b2be93bdbba0fdbdb6a7">[email&#160;protected]</span></a>
                     </p>
                 </div>
             </div>
@@ -213,7 +216,7 @@ Role: </div>
         </div>
     </footer>
 
-        <script>
+        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         var pinInputs = document.querySelectorAll('.pin-digit');
 
         pinInputs.forEach(function(input, index) {
@@ -259,6 +262,7 @@ Role: </div>
         function showReferralForm() {
             document.getElementById('pin-entry').style.display = 'none';
             document.getElementById('referral-form').style.display = 'block';
+            document.getElementById('logoff-btn').style.display = 'inline-block';
         }
 
         function showPinEntry() {
@@ -347,6 +351,11 @@ Role: </div>
                 showReferralForm();
             }
         } catch(e) {}
+
+        function logoff() {
+            try { sessionStorage.removeItem('enrich_auth'); sessionStorage.removeItem('enrich_home'); } catch(e) {}
+            window.location.reload();
+        }
     </script>
 </body>
 </html>

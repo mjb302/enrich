@@ -38,7 +38,10 @@
         nav a { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 0.6rem 1.2rem; border-radius: 6px; font-size: 0.9rem; font-weight: 600; transition: all 0.3s; text-decoration: none; font-family: inherit; }
         nav a:hover, nav a.active { background: white; color: var(--enrich-purple); }
         nav a.pin-link { border-color: rgba(255,255,255,0.5); }
-        .nhs-banner { background: var(--enrich-blue); color: white; text-align: center; padding: 0.5rem; font-size: 0.85rem; }
+        .nhs-banner { background: var(--enrich-blue); color: var(--white); padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; justify-content: center; align-items: center; position: relative; }
+        .nhs-banner .banner-text { text-align: center; flex: 1; }
+        .logoff-btn { position: absolute; right: 1rem; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.5); color: white; padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 600; border-radius: 4px; cursor: pointer; font-family: inherit; transition: all 0.2s ease; }
+        .logoff-btn:hover { background: rgba(255,255,255,0.35); }
 
         main { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
         .back-link { display: inline-block; color: var(--enrich-purple); text-decoration: none; font-weight: 600; margin-bottom: 1rem; font-size: 0.9rem; }
@@ -163,7 +166,7 @@
         </nav>
     </div>
 </header>
-<div class="nhs-banner">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></div>
+<div class="nhs-banner"><span class="banner-text">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></span><button class="logoff-btn" id="logoff-btn" onclick="logoff()">Log Off</button></div>
 
 <main>
     <a href="staff-portal.html" class="back-link">&larr; Back to Staff Portal</a>
@@ -204,7 +207,7 @@
                     <h4>Dr Anne Au Yeung</h4>
                     <div class="role">PCN Clinical Lead</div>
                     <div class="desc">Care Home clinical procedures and quality assurance lead.</div>
-                    <div class="email-link">a.auyeung1@nhs.net</div>
+                    <div class="email-link"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="62034c03171b07170c0553220c0a114c0c0716">[email&#160;protected]</a></div>
                 </div>
             </div>
             <div class="team-card">
@@ -229,7 +232,7 @@
                     <h4>Alex Woolfenden</h4>
                     <div class="role">Care Home Paramedic</div>
                     <div class="desc">Acute Care Home visits.</div>
-                    <div class="email-link">alexandra.woolfenden@nhs.net</div>
+                    <div class="email-link"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="72131e170a131c1600135c051d1d1e14171c16171c321c1a015c1c1706">[email&#160;protected]</a></div>
                 </div>
             </div>
             <div class="team-card">
@@ -252,7 +255,7 @@
 
         <div style="background:var(--light-purple); border-radius:10px; padding:1rem 1.25rem; margin-top:0.5rem;">
             <strong style="color:var(--enrich-purple); font-size:0.85rem;">&#x1F4E7; Team Email</strong>
-            <p style="font-size:0.88rem; margin-top:0.25rem;"><a href="mailto:cpicb.cc4pcncarehomesteam@nhs.net" style="color:var(--enrich-blue);">cpicb.cc4pcncarehomesteam@nhs.net</a></p>
+            <p style="font-size:0.88rem; margin-top:0.25rem;"><a href="/cdn-cgi/l/email-protection#afccdfc6cccd81cccc9bdfccc1ccceddcac7c0c2cadcdbcacec2efc1c7dc81c1cadb" style="color:var(--enrich-blue);"><span class="__cf_email__" data-cfemail="0d6e7d646e6f236e6e397d6e636e6c7f68656260687e79686c604d63657e23636879">[email&#160;protected]</span></a></p>
         </div>
     </div>
 
@@ -277,22 +280,22 @@
                             <h5>Care Home Manager</h5>
                             <p><strong>Shelly</strong></p>
                             <p>&#x1F4F1; 07586 062 993</p>
-                            <a href="mailto:home.manager@cambridgemanor.co.uk">home.manager@cambridgemanor.co.uk</a>
+                            <a href="/cdn-cgi/l/email-protection#791116141c57141817181e1c0b391a18141b0b101d1e1c141817160b571a16570c12"><span class="__cf_email__" data-cfemail="f39b9c9e96dd9e929d92949681b390929e91819a9794969e929d9c81dd909cdd8698">[email&#160;protected]</span></a>
                             <p style="margin-top:0.3rem;"><strong>Suja Mathai</strong> (Clinical Services Manager)</p>
-                            <a href="mailto:csm@cambridgemanor.co.uk">csm@cambridgemanor.co.uk</a>
+                            <a href="/cdn-cgi/l/email-protection#c1a2b2ac81a2a0aca3b3a8a5a6a4aca0afaeb3efa2aeefb4aa"><span class="__cf_email__" data-cfemail="bcdfcfd1fcdfddd1deced5d8dbd9d1ddd2d3ce92dfd392c9d7">[email&#160;protected]</span></a>
                             <p class="note">Suja very responsive on email</p>
                         </div>
                         <div class="ch-block">
                             <h5>GP</h5>
                             <p><strong>Dr Katy Wyatt</strong></p>
-                            <a href="mailto:katherine.wyatt1@nhs.net">katherine.wyatt1@nhs.net</a>
+                            <a href="/cdn-cgi/l/email-protection#7a111b0e121f0813141f540d031b0e0e4b3a14120954141f0e"><span class="__cf_email__" data-cfemail="9ef5ffeaf6fbecf7f0fbb0e9e7ffeaeaafdef0f6edb0f0fbea">[email&#160;protected]</span></a>
                             <p>&#x1F4DE; 01223 422544</p>
                             <p>&#x1F4C5; <strong>Tues AM</strong></p>
                         </div>
                         <div class="ch-block">
                             <h5>Primary Care Contacts</h5>
                             <p><strong>Abbie</strong> &mdash; Care Home Coordinator</p>
-                            <a href="mailto:cpicb.nrmccarehomes@nhs.net">cpicb.nrmccarehomes@nhs.net</a>
+                            <a href="/cdn-cgi/l/email-protection#beddced7dddc90d0ccd3dddddfccdbd6d1d3dbcdfed0d6cd90d0dbca"><span class="__cf_email__" data-cfemail="d6b5a6bfb5b4f8b8a4bbb5b5b7a4b3beb9bbb3a596b8bea5f8b8b3a2">[email&#160;protected]</span></a>
                             <p class="note">Please task GP and Abbie on S1 with any meds requests</p>
                         </div>
                     </div>
@@ -311,24 +314,24 @@
                     <div class="ch-grid">
                         <div class="ch-block">
                             <h5>Care Home</h5>
-                            <p><strong>Manager:</strong> <a href="mailto:shiju.jose1@nhs.net">shiju.jose1@nhs.net</a></p>
-                            <p><strong>Deputy:</strong> Aditya &mdash; <a href="mailto:aditya.uthaman@nhs.net">aditya.uthaman@nhs.net</a></p>
+                            <p><strong>Manager:</strong> <a href="/cdn-cgi/l/email-protection#710219181b045f1b1e021440311f19025f1f1405"><span class="__cf_email__" data-cfemail="a5d6cdcccfd08bcfcad6c094e5cbcdd68bcbc0d1">[email&#160;protected]</span></a></p>
+                            <p><strong>Deputy:</strong> Aditya &mdash; <a href="/cdn-cgi/l/email-protection#2e4f4a475a574f005b5a464f434f406e40465d00404b5a"><span class="__cf_email__" data-cfemail="503134392429317e252438313d313e103e38237e3e3524">[email&#160;protected]</span></a></p>
                             <p>&#x1F4DE; 01223 863 414</p>
                         </div>
                         <div class="ch-block">
                             <h5>GP</h5>
                             <p><strong>Dr Ibrahim Shevki</strong></p>
-                            <a href="mailto:Ibrahim.shevki@nhs.net">Ibrahim.shevki@nhs.net</a>
+                            <a href="/cdn-cgi/l/email-protection#337a5141525b5a5e1d405b5645585a735d5b401d5d5647"><span class="__cf_email__" data-cfemail="0c456e7e6d646561227f64697a67654c62647f22626978">[email&#160;protected]</span></a>
                             <p>&#x1F4C5; <strong>Wed AM</strong></p>
                             <p class="note">Locum GP, may only be in surgery on Wed</p>
                         </div>
                         <div class="ch-block">
                             <h5>Other Contacts</h5>
                             <p><strong>Bruce Abel</strong> &mdash; Practice Manager</p>
-                            <a href="mailto:bruce.abel@nhs.net">bruce.abel@nhs.net</a>
+                            <a href="/cdn-cgi/l/email-protection#afcddddaccca81cecdcac3efc1c7dc81c1cadb"><span class="__cf_email__" data-cfemail="f39181869096dd9291969fb39d9b80dd9d9687">[email&#160;protected]</span></a>
                             <p>&#x1F4F1; 07305 105722</p>
                             <p style="margin-top:0.3rem;"><strong>Julie Hyde</strong> &mdash; Community Matron</p>
-                            <a href="mailto:julie.hyde7@nhs.net">julie.hyde7@nhs.net</a>
+                            <a href="/cdn-cgi/l/email-protection#e9839c85808cc781908d8cdea987819ac7878c9d"><span class="__cf_email__" data-cfemail="c2a8b7aeaba7ecaabba6a7f582acaab1ecaca7b6">[email&#160;protected]</span></a>
                         </div>
                     </div>
                 </div>
@@ -348,7 +351,7 @@
                             <h5>Care Home Manager</h5>
                             <p><strong>Razvan Stanbeca</strong></p>
                             <p>&#x1F4DE; 01223 624856</p>
-                            <a href="mailto:admin.heathlandshouse@careuk.com">admin.heathlandshouse@careuk.com</a>
+                            <a href="/cdn-cgi/l/email-protection#dbbabfb6b2b5f5b3bebaafb3b7bab5bfa8b3b4aea8be9bb8baa9beaeb0f5b8b4b6"><span class="__cf_email__" data-cfemail="8feeebe2e6e1a1e7eaeefbe7e3eee1ebfce7e0fafceacfeceefdeafae4a1ece0e2">[email&#160;protected]</span></a>
                         </div>
                         <div class="ch-block">
                             <h5>GP</h5>
@@ -357,9 +360,9 @@
                         </div>
                         <div class="ch-block" style="grid-column: 1 / -1;">
                             <h5>CC4PCN Care Home Team Contacts</h5>
-                            <p><strong>Alex Woolfenden</strong> &mdash; PCN Paramedic &mdash; <a href="mailto:alexandra.woolfenden@nhs.net">alexandra.woolfenden@nhs.net</a></p>
+                            <p><strong>Alex Woolfenden</strong> &mdash; PCN Paramedic &mdash; <a href="/cdn-cgi/l/email-protection#e1808d8499808f859380cf968e8e8d87848f85848fa18f8992cf8f8495"><span class="__cf_email__" data-cfemail="a4c5c8c1dcc5cac0d6c58ad3cbcbc8c2c1cac0c1cae4caccd78acac1d0">[email&#160;protected]</span></a></p>
                             <p><strong>George</strong> &mdash; Care Coordinator &nbsp;|&nbsp; <strong>Kelly</strong> &mdash; Care Coordinator &nbsp;|&nbsp; <strong>Eva Burdett</strong> &mdash; Pharmacist</p>
-                            <p style="margin-top:0.3rem;">&#x1F4E7; Team: <a href="mailto:cpicb.cc4pcncarehomesteam@nhs.net">cpicb.cc4pcncarehomesteam@nhs.net</a></p>
+                            <p style="margin-top:0.3rem;">&#x1F4E7; Team: <a href="/cdn-cgi/l/email-protection#0360736a60612d60603773606d606271666b6c6e66707766626e436d6b702d6d6677"><span class="__cf_email__" data-cfemail="3f5c4f565c5d115c5c0b4f5c515c5e4d5a5750525a4c4b5a5e527f51574c11515a4b">[email&#160;protected]</span></a></p>
                         </div>
                     </div>
                 </div>
@@ -379,21 +382,21 @@
                             <h5>Care Home Manager</h5>
                             <p><strong>Lisa King</strong></p>
                             <p>&#x1F4DE; 01763 750006</p>
-                            <a href="mailto:southwellcourt@blackswan.co.uk">southwellcourt@blackswan.co.uk</a>
+                            <a href="/cdn-cgi/l/email-protection#07746872736f70626b6b646872757347656b66646c7470666929646829726c"><span class="__cf_email__" data-cfemail="6f1c001a1b07180a03030c001a1d1b2f0d030e0c041c180e01410c00411a04">[email&#160;protected]</span></a>
                         </div>
                         <div class="ch-block">
                             <h5>GP</h5>
                             <p><strong>Dr Sarah Smith</strong></p>
-                            <a href="mailto:sarahsmith2@nhs.net">sarahsmith2@nhs.net</a>
+                            <a href="/cdn-cgi/l/email-protection#0a796b786b627967637e62384a64627924646f7e"><span class="__cf_email__" data-cfemail="d5a6b4a7b4bda6b8bca1bde795bbbda6fbbbb0a1">[email&#160;protected]</span></a>
                             <p>&#x1F4F1; 07979 074830</p>
                             <p>&#x1F4C5; <strong>Wed AM</strong> (performed by Sue Ward)</p>
                         </div>
                         <div class="ch-block">
                             <h5>Other Contacts</h5>
                             <p><strong>Sarah Russell</strong> &mdash; Practice Manager</p>
-                            <a href="mailto:sarahrussell5@nhs.net">sarahrussell5@nhs.net</a>
+                            <a href="/cdn-cgi/l/email-protection#592a382b38312b2c2a2a3c35356c1937312a77373c2d"><span class="__cf_email__" data-cfemail="2c5f4d5e4d445e595f5f494040196c42445f02424958">[email&#160;protected]</span></a>
                             <p style="margin-top:0.3rem;"><strong>Sue Ward</strong> &mdash; Community Matron</p>
-                            <a href="mailto:sue.ward17@nhs.net">sue.ward17@nhs.net</a>
+                            <a href="/cdn-cgi/l/email-protection#f1828494df86908395c0c6b19f9982df9f9485"><span class="__cf_email__" data-cfemail="3c4f4959124b5d4e580d0b7c52544f12525948">[email&#160;protected]</span></a>
                             <p>&#x1F4F1; 07549 317062</p>
                             <p class="note">Sue is best contact &mdash; visits multiple times a week, very happy to review acutely</p>
                         </div>
@@ -415,12 +418,12 @@
                             <h5>Care Home Manager</h5>
                             <p><strong>Bev Murray</strong></p>
                             <p>&#x1F4DE; 01353 661113</p>
-                            <a href="mailto:b.murray@glenholme.org.uk">b.murray@glenholme.org.uk</a>
+                            <a href="/cdn-cgi/l/email-protection#9efcb0f3ebececffe7def9f2fbf0f6f1f2f3fbb0f1ecf9b0ebf5"><span class="__cf_email__" data-cfemail="8feda1e2fafdfdeef6cfe8e3eae1e7e0e3e2eaa1e0fde8a1fae4">[email&#160;protected]</span></a>
                         </div>
                         <div class="ch-block">
                             <h5>GP</h5>
                             <p><strong>Dr Jo Baker / Dr Charlotte Cook</strong></p>
-                            <a href="mailto:jo.baker3@nhs.net">jo.baker3@nhs.net</a> / <a href="mailto:charlotte.cook14@nhs.net">charlotte.cook14@nhs.net</a>
+                            <a href="/cdn-cgi/l/email-protection#660c094804070d03145526080e1548080312"><span class="__cf_email__" data-cfemail="9bf1f4b5f9faf0fee9a8dbf5f3e8b5f5feef">[email&#160;protected]</span></a> / <a href="/cdn-cgi/l/email-protection#c5a6ada4b7a9aab1b1a0eba6aaaaaef4f185abadb6ebaba0b1"><span class="__cf_email__" data-cfemail="b6d5ded7c4dad9c2c2d398d5d9d9dd8782f6d8dec598d8d3c2">[email&#160;protected]</span></a>
                             <p>&#x1F4C5; <strong>Wednesday PM</strong></p>
                         </div>
                     </div>
@@ -441,17 +444,17 @@
                             <h5>Care Home Manager</h5>
                             <p><strong>Manuela Barbosa</strong></p>
                             <p>&#x1F4DE; 01223 737146</p>
-                            <a href="mailto:manuela.barbosa@excelcareholdings.com">manuela.barbosa@excelcareholdings.com</a>
+                            <a href="/cdn-cgi/l/email-protection#630e020d16060f024d010211010c100223061b00060f000211060b0c0f070a0d04104d000c0e"><span class="__cf_email__" data-cfemail="325f535c47575e531c505340505d415372574a51575e515340575a5d5e565b5c55411c515d5f">[email&#160;protected]</span></a>
                         </div>
                         <div class="ch-block">
                             <h5>GP</h5>
                             <p><strong>Dr Anne Au Yeung</strong> / Dr Peter</p>
-                            <a href="mailto:a.auyeung1@nhs.net">a.auyeung1@nhs.net</a>
+                            <a href="/cdn-cgi/l/email-protection#bedf90dfcbc7dbcbd0d98ffed0d6cd90d0dbca"><span class="__cf_email__" data-cfemail="04652a65717d61716a6335446a6c772a6a6170">[email&#160;protected]</span></a>
                             <p>&#x1F4C5; <strong>Tuesday morning</strong></p>
                         </div>
                         <div class="ch-block">
                             <h5>CC4 Team</h5>
-                            <a href="mailto:cpicb.cc4pcncarehomesteam@nhs.net">cpicb.cc4pcncarehomesteam@nhs.net</a>
+                            <a href="/cdn-cgi/l/email-protection#80e3f0e9e3e2aee3e3b4f0e3eee3e1f2e5e8efede5f3f4e5e1edc0eee8f3aeeee5f4"><span class="__cf_email__" data-cfemail="096a79606a6b276a6a3d796a676a687b6c6166646c7a7d6c68644967617a27676c7d">[email&#160;protected]</span></a>
                         </div>
                     </div>
                 </div>
@@ -471,12 +474,12 @@
                             <h5>Care Home Manager</h5>
                             <p><strong>Rex Pudol</strong></p>
                             <p>&#x1F4DE; 01223 827477</p>
-                            <a href="mailto:cambridge@hamberleycarehomes.co.uk">cambridge@hamberleycarehomes.co.uk</a>
+                            <a href="/cdn-cgi/l/email-protection#88ebe9e5eafae1ecefedc8e0e9e5eaedfae4edf1ebe9faede0e7e5edfba6ebe7a6fde3"><span class="__cf_email__" data-cfemail="4320222e21312a272426032b222e2126312f263a202231262b2c2e26306d202c6d3628">[email&#160;protected]</span></a>
                         </div>
                         <div class="ch-block">
                             <h5>GP</h5>
                             <p><strong>Dr Anne Au Yeung</strong> / Dr Peter</p>
-                            <a href="mailto:a.auyeung1@nhs.net">a.auyeung1@nhs.net</a>
+                            <a href="/cdn-cgi/l/email-protection#6a0b440b1f130f1f040d5b2a04021944040f1e"><span class="__cf_email__" data-cfemail="c2a3eca3b7bba7b7aca5f382acaab1ecaca7b6">[email&#160;protected]</span></a>
                             <p>&#x1F4C5; <strong>Friday morning</strong></p>
                         </div>
                     </div>
@@ -497,12 +500,12 @@
                             <h5>Care Home Manager</h5>
                             <p><strong>Lynn Ward</strong></p>
                             <p>&#x1F4DE; 01223 862576</p>
-                            <a href="mailto:waterbeachlodge@agecare.uk.com">waterbeachlodge@agecare.uk.com</a>
+                            <a href="/cdn-cgi/l/email-protection#bccbddc8d9ceded9dddfd4d0d3d8dbd9fcdddbd9dfddced992c9d792dfd3d1"><span class="__cf_email__" data-cfemail="eb9c8a9f8e99898e8a888387848f8c8eab8a8c8e888a998ec59e80c5888486">[email&#160;protected]</span></a>
                         </div>
                         <div class="ch-block">
                             <h5>Other Contacts</h5>
                             <p><strong>Julie Hyde</strong> &mdash; Community Matron</p>
-                            <a href="mailto:julie.hyde7@nhs.net">julie.hyde7@nhs.net</a>
+                            <a href="/cdn-cgi/l/email-protection#1d776871747833756479782a5d73756e33737869"><span class="__cf_email__" data-cfemail="7319061f1a165d1b0a171644331d1b005d1d1607">[email&#160;protected]</span></a>
                         </div>
                     </div>
                 </div>
@@ -522,7 +525,7 @@
                             <h5>Care Home Manager</h5>
                             <p><strong>Aaron Barham</strong></p>
                             <p>&#x1F4DE; 01799 282 664</p>
-                            <a href="mailto:manager.highfield@mmcg.co.uk">manager.highfield@mmcg.co.uk</a>
+                            <a href="/cdn-cgi/l/email-protection#83eee2ede2e4e6f1adebeae4ebe5eae6efe7c3eeeee0e4ade0ecadf6e8"><span class="__cf_email__" data-cfemail="3558545b545250471b5d5c525d535c50595175585856521b565a1b405e">[email&#160;protected]</span></a>
                         </div>
                         <div class="ch-block">
                             <h5>GP</h5>
@@ -597,7 +600,7 @@
     </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Auth check
 (function(){try{if(sessionStorage.getItem('enrich_auth')!=='true'){window.location.href='staff-portal.html';}}catch(e){window.location.href='staff-portal.html';}})();
 
@@ -696,8 +699,7 @@ var gpData = [
 ["Shelford Medical Practice (Granta)","Ashen Green, Great Shelford","CB22 5FY","0300 2345555","noreply.grantamedicalpractices.sms@nhs.net","Nicki Foster","Cambridgeshire & Peterborough","Yes"],
 ["Spinney Surgery","Ramsey Road, St Ives","PE27 3TP","01480 495347","secretary.spinney@nhs.net","Debbie Wheatley","Cambridgeshire & Peterborough","No"],
 ["St George's Medical Centre","Parson's Lane, Littleport","CB6 1JU","01353 864100","capccg.stgeorgesmedicalcentre@nhs.net","Simon Randall","Cambridgeshire & Peterborough","Yes"],
-["St Mary's Surgery","37 St Mary's Street, Ely","CB7 4HF","01353 663434","stmarysely-reminder@nhs.net","Tony Davies","Cambridgeshire & Peterborough","Yes"],
-["St Neots Health Centre","24 Moores Walk, St Neots","PE19 1AG","01480 219317","capccg.stneotshc@nhs.net","Denise Russell","Cambridgeshire & Peterborough","No"],
+["St Mary's Surgery","37 St Mary's Street, Ely","CB7 4HF","01353 663434","stmarysely-reminder@nhs.net","Tony Davies","Cambridgeshire & Peterborough","Yes"],["St Neots Health Centre","24 Moores Walk, St Neots","PE19 1AG","01480 219317","capccg.stneotshc@nhs.net","Denise Russell","Cambridgeshire & Peterborough","No"],
 ["Staploe Medical Centre","Brewhouse Lane, Soham","CB7 5JD","01353 624123","CAPCCG.staploe@nhs.net","Andy Botcher","Cambridgeshire & Peterborough","Yes"],
 ["Swavesey Surgery","58 Boxworth End, Swavesey","CB24 4RA","01954 230202","admin.swaveseysurgery@nhs.net","Lorna Gardiner","Cambridgeshire & Peterborough","Yes"],
 ["Trinity Surgery","29 St Augustine's Road, Wisbech","PE13 3UZ","01945 476999","CAPCCG.trinityadmin@nhs.net","Helen Clayton","Cambridgeshire & Peterborough","No"],
@@ -765,6 +767,12 @@ function sortGPs(col) {
 
 // Initial render
 renderGPs(gpData);
+
+// Log Off
+function logoff() {
+    try { sessionStorage.removeItem('enrich_auth'); sessionStorage.removeItem('enrich_home'); } catch(e) {}
+    window.location.href = 'staff-portal.html';
+}
 </script>
 </body>
 </html>

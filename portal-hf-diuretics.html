@@ -91,7 +91,10 @@
         }
         nav a:hover, nav a.active { background: white; color: var(--enrich-purple); }
         nav a.pin-link { border-color: rgba(255,255,255,0.5); }
-        .nhs-banner { background: var(--enrich-blue); color: white; text-align: center; padding: 0.5rem; font-size: 0.85rem; }
+        .nhs-banner { background: var(--enrich-blue); color: var(--white); padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; justify-content: center; align-items: center; position: relative; }
+        .nhs-banner .banner-text { text-align: center; flex: 1; }
+        .logoff-btn { position: absolute; right: 1rem; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.5); color: white; padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 600; border-radius: 4px; cursor: pointer; font-family: inherit; transition: all 0.2s ease; }
+        .logoff-btn:hover { background: rgba(255,255,255,0.35); }
 
         /* Layout */
         main { max-width: 960px; margin: 0 auto; padding: 1.5rem; }
@@ -530,7 +533,7 @@
             </nav>
         </div>
     </header>
-    <div class="nhs-banner">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></div>
+    <div class="nhs-banner"><span class="banner-text">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></span><button class="logoff-btn" id="logoff-btn" onclick="logoff()">Log Off</button></div>
 
     <main>
         <a href="portal-policies.html" class="back-link">&larr; Back to Policies &amp; Guidelines</a>
@@ -551,7 +554,7 @@
             <div class="icon">&#9888;&#xFE0F;</div>
             <div>
                 <p><strong>Clinical Guideline &mdash; For Use by Trained Healthcare Professionals</strong></p>
-                <p>This tool summarises the CUH guideline for parenteral diuretics in heart failure. It does not replace clinical judgement. Always discuss with a consultant or senior clinical team member when uncertain.</p>
+                <p>This tool summarises the CUH Virtual Ward guideline for parenteral diuretics in heart failure. It does not replace clinical judgement. Always discuss with the Virtual Ward consultant or senior clinical team when uncertain.</p>
             </div>
         </div>
 
@@ -577,7 +580,7 @@
             </div>
             <div class="section-body open">
                 <div class="section-content">
-                    <p>These guidelines facilitate the administration of hospital-initiated diuretic therapy in patients' own homes under the management of the <strong> EnRICH Team or Virtual Ward at Cambridge University Hospitals NHS Foundation Trust</strong>.</p>
+                    <p>These guidelines facilitate the administration of hospital-initiated diuretic therapy in patients' own homes under the management of the <strong>Virtual Ward at Cambridge University Hospitals NHS Foundation Trust</strong>.</p>
 
                     <h4>This protocol offers three treatment options:</h4>
                     <ol>
@@ -952,7 +955,7 @@
 
                     <div class="info-box amber">
                         <strong>&#x260E;&#xFE0F; Key contacts</strong>
-                        <p>CUH EnRICH Team (via email) & Virtual Ward (24h): <strong>01223 806806</strong></p>
+                        <p>CUH Virtual Ward (24h): <strong>01223 806806</strong></p>
                     </div>
                 </div>
             </div>
@@ -1100,6 +1103,12 @@
                 Max rate: 4mg/min &bull; Commence no later than 4pm<br>
                 <span style="font-size: 0.8rem; color: var(--text-gray);">SC equivalent (end of life): ${d.iv}mg/24h via syringe pump (1:1 from oral dose, noting increased bioavailability)</span>
             `;
+        }
+    </script>
+    <script>
+        function logoff() {
+            try { sessionStorage.removeItem('enrich_auth'); sessionStorage.removeItem('enrich_home'); } catch(e) {}
+            window.location.href = 'staff-portal.html';
         }
     </script>
 </body>
