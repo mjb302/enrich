@@ -255,7 +255,40 @@ footer {
                 </div>
                 <div class="form-group">
                     <label for="care-home-name">Care Home Name *</label>
-                    <input type="text" id="care-home-name" name="care-home-name" placeholder="Enter care home name" required>
+                    <select id="care-home-name" name="care-home-name" required>
+                        <option value="">Select care home</option>
+                        <option value="Alex Wood House">Alex Wood House (referrals accepted from 02/2026)</option>
+                        <option value="Bramley Court">Bramley Court (referrals accepted from 02/2027)</option>
+                        <option value="Brook House Care Home">Brook House Care Home</option>
+                        <option value="Cambridge Grove Care Home">Cambridge Grove Care Home</option>
+                        <option value="Cambridge Manor Care Home">Cambridge Manor Care Home</option>
+                        <option value="Cleves Place">Cleves Place (referrals accepted from 10/2026)</option>
+                        <option value="Cottenham Court Care Home">Cottenham Court Care Home (referrals accepted from 02/2027)</option>
+                        <option value="Etheldred House Care Home">Etheldred House Care Home (referrals accepted from 02/2026)</option>
+                        <option value="Fitzwilliam House Care Home">Fitzwilliam House Care Home (referrals accepted from 10/2026)</option>
+                        <option value="Hatley Court">Hatley Court</option>
+                        <option value="Heathlands House">Heathlands House</option>
+                        <option value="Highfield Care Home">Highfield Care Home</option>
+                        <option value="Hilton Park - Oaklands">Hilton Park - Oaklands (referrals accepted from 02/2026)</option>
+                        <option value="Home Close">Home Close (referrals accepted from 06/2026)</option>
+                        <option value="Home Meadow">Home Meadow (referrals accepted from 06/2026)</option>
+                        <option value="Langdon House">Langdon House (referrals accepted from 02/2026)</option>
+                        <option value="Lily House">Lily House</option>
+                        <option value="Maycroft Care Home">Maycroft Care Home</option>
+                        <option value="Melbourn Springs Care Home">Melbourn Springs Care Home (referrals accepted from 06/2026)</option>
+                        <option value="Melwood Grange">Melwood Grange (referrals accepted from 06/2027)</option>
+                        <option value="Midfield Lodge">Midfield Lodge (referrals accepted from 06/2027)</option>
+                        <option value="Orchard House Residential Care Home">Orchard House Residential Care Home (referrals accepted from 10/2027)</option>
+                        <option value="Primrose Croft Care Home">Primrose Croft Care Home (referrals accepted from 06/2026)</option>
+                        <option value="Queens Court">Queens Court (referrals accepted from 10/2026)</option>
+                        <option value="Southwell Court">Southwell Court</option>
+                        <option value="Symonds House">Symonds House (referrals accepted from 10/2027)</option>
+                        <option value="The Cambridgeshire Care Home">The Cambridgeshire Care Home (referrals accepted from 02/2027)</option>
+                        <option value="Townsend Manor">Townsend Manor (referrals accepted from 10/2026)</option>
+                        <option value="Vera James House">Vera James House</option>
+                        <option value="Waterbeach Lodge">Waterbeach Lodge</option>
+                        <option value="Woodlands Care Centre">Woodlands Care Centre (referrals accepted from 02/2027)</option>
+                    </select>
                 </div>
                 <form id="enrich-referral-form">
                     <div class="form-group">
@@ -443,6 +476,11 @@ Role: </div>
         formFields.forEach(function(fieldId) {
             var el = document.getElementById(fieldId);
             if (el) { el.addEventListener('input', updateEmailPreview); el.addEventListener('change', updateEmailPreview); }
+        });
+
+        document.getElementById('care-home-name').addEventListener('change', function() {
+            var name = this.value;
+            document.getElementById('referral-care-home-display').textContent = name || '';
         });
 
         function updateEmailPreview() {
