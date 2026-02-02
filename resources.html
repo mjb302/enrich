@@ -4,33 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Useful Resources | EnRICH</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&amp;family=Merriweather:wght@400;700&amp;display=swap" rel="stylesheet">
-    <style>:root { --enrich-purple: #8B2A7D; --enrich-purple-dark: #6B1F5F; --enrich-blue: #2D7BC4; --enrich-blue-dark: #1E5A94; --enrich-blue-light: #4A9AE8; --enrich-navy: #1E3A5F; --enrich-teal: #2A6575; --white: #FFFFFF; --off-white: #F8F9FA; --light-gray: #E9ECEF; --text-gray: #495057; --shadow: 0 4px 20px rgba(30, 58, 95, 0.15); --shadow-hover: 0 8px 30px rgba(30, 58, 95, 0.25); }
+    <style>
+:root {
+    --enrich-purple: #8B2A7D;
+    --enrich-purple-dark: #6B1F5F;
+    --enrich-purple-light: #A84D99;
+    --enrich-blue: #2D7BC4;
+    --enrich-blue-dark: #1E5A94;
+    --enrich-blue-light: #4A9AE8;
+    --enrich-navy: #1E3A5F;
+    --enrich-teal: #2A6575;
+    --white: #FFFFFF;
+    --off-white: #F8F9FA;
+    --light-gray: #E9ECEF;
+    --text-gray: #495057;
+    --light-purple: #F5EBF4;
+    --light-blue: #E8EEF4;
+    --bgs-green: #006747;
+    --shadow: 0 4px 20px rgba(30, 58, 95, 0.15);
+    --shadow-hover: 0 8px 30px rgba(30, 58, 95, 0.25);
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--off-white); color: var(--enrich-navy); line-height: 1.6; }
-header { background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%); color: var(--white); position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow); }
-.header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-.logo-section { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--white); }
-.logo-section img { height: 60px; width: auto; background: white; border-radius: 8px; padding: 4px; }
-.logo-text h1 { font-family: 'Merriweather', Georgia, serif; font-size: 1.5rem; font-weight: 700; }
-.logo-text p { font-size: 0.85rem; opacity: 0.9; font-weight: 300; }
-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-nav a { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: var(--white); padding: 0.6rem 1.2rem; border-radius: 6px; font-family: inherit; font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease; text-decoration: none; }
-nav a:hover, nav a.active { background: var(--white); color: var(--enrich-purple); }
-        nav a.pin-link { border-color: rgba(255,255,255,0.5); }
-.nhs-banner { background: var(--enrich-blue); color: var(--white); text-align: center; padding: 0.5rem; font-size: 0.85rem; }
-main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+body {
+    font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--off-white);
+    color: var(--enrich-navy);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+header {
+    background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%);
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--white);
+}
+.logo-section img {
+    height: 120px;
+    width: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 6px;
+}
+.logo-text h1 {
+    font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.logo-text p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+nav {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+nav a {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    padding: 0.55rem 1rem;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+nav a:hover, nav a.active {
+    background: var(--white);
+    color: var(--enrich-purple);
+}
+nav a.pin-link { border-color: rgba(255,255,255,0.5); }
+.nhs-banner {
+    background: var(--enrich-blue);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.nhs-banner .banner-text { text-align: center; flex: 1; }
+.logoff-btn {
+    position: absolute;
+    right: 1rem;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.5);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    display: none;
+}
+.logoff-btn:hover { background: rgba(255,255,255,0.35); }
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+footer {
+    background: var(--enrich-navy);
+    color: var(--white);
+    padding: 2rem;
+    margin-top: 3rem;
+}
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.footer-content p { opacity: 0.9; font-size: 0.9rem; }
+.footer-content a { color: var(--enrich-blue-light); }
+@media (max-width: 768px) {
+    .header-content { flex-direction: column; text-align: center; padding: 1rem; }
+    .logo-section { flex-direction: column; gap: 0.5rem; }
+    .logo-section img { height: 100px; }
+    .logo-text h1 { font-size: 1.5rem; }
+    nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; padding-bottom: 5px; }
+    nav::-webkit-scrollbar { display: none; }
+    nav a { flex-shrink: 0; padding: 0.55rem 0.8rem; font-size: 0.8rem; min-height: 44px; display: flex; align-items: center; }
+    .nhs-banner { font-size: 0.75rem; padding: 0.6rem 1rem; }
+    main { padding: 1rem; }
+    .footer-content { flex-direction: column; text-align: center; }
+}
+
 .info-section { margin-bottom: 3rem; }
-.info-section h2 { font-family: 'Merriweather', Georgia, serif; color: var(--enrich-purple); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--enrich-purple); display: inline-block; }
+.info-section h2 { font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif; color: var(--enrich-purple); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--enrich-purple); display: inline-block; }
 .info-section h3 { color: var(--enrich-navy); margin: 1.5rem 0 0.75rem; }
 .info-section p { color: var(--text-gray); margin-bottom: 1rem; }
 .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
 .card { background: var(--white); border-radius: 12px; padding: 1.5rem; box-shadow: var(--shadow); border-left: 4px solid var(--enrich-purple); transition: all 0.3s ease; }
 .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
 .card.blue-accent { border-left-color: var(--enrich-blue); }
-.card h3 { font-family: 'Merriweather', Georgia, serif; color: var(--enrich-purple); margin-bottom: 0.75rem; font-size: 1.2rem; }
+.card h3 { font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif; color: var(--enrich-purple); margin-bottom: 0.75rem; font-size: 1.2rem; }
 .card.blue-accent h3 { color: var(--enrich-blue); }
 .card p, .card ul { color: var(--text-gray); font-size: 0.95rem; }
 .card ul { margin-left: 1.2rem; margin-top: 0.5rem; }
@@ -54,26 +191,13 @@ a.card-link.blue-accent .learn-more { color: var(--enrich-blue); }
 .link-card h4 { color: var(--enrich-blue); margin-bottom: 0.5rem; font-size: 1.1rem; }
 .link-card p { color: var(--text-gray); font-size: 0.9rem; margin: 0; }
 .link-card .link-url { color: var(--enrich-purple); font-size: 0.85rem; margin-top: 0.75rem; display: block; word-break: break-all; }
-footer { background: var(--enrich-navy); color: var(--white); padding: 2rem; margin-top: 3rem; }
-.footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-.footer-content p { opacity: 0.9; font-size: 0.9rem; }
-.footer-content a { color: var(--enrich-blue-light); }
 @media (max-width: 768px) {
-    .header-content { flex-direction: column; text-align: center; padding: 1rem; }
-    .logo-section { flex-direction: column; gap: 0.5rem; }
-    .logo-section img { height: 50px; }
-    .logo-text h1 { font-size: 1.3rem; }
-    nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; padding-bottom: 5px; }
-    nav::-webkit-scrollbar { display: none; }
-    nav a { flex-shrink: 0; padding: 0.6rem 1rem; font-size: 0.85rem; min-height: 44px; display: flex; align-items: center; }
-    .nhs-banner { font-size: 0.75rem; padding: 0.6rem 1rem; }
-    main { padding: 1rem; }
     .card-grid { grid-template-columns: 1fr; gap: 1rem; }
     .bgs-resources-card { flex-direction: column; text-align: center; }
     .bgs-links { justify-content: center; }
     .links-grid { grid-template-columns: 1fr; }
-    .footer-content { flex-direction: column; text-align: center; }
-}</style>
+}
+    </style>
 </head>
 <body>
     <header>
@@ -87,15 +211,18 @@ footer { background: var(--enrich-navy); color: var(--white); padding: 2rem; mar
                 <a href="about.html">About EnRICH</a>
                 <a href="services.html">Our Services</a>
                 <a href="resources.html" class="active">Resources</a>
+                <a href="care-homes.html">Our Care Homes</a>
                 <a href="team.html" class="pin-link">&#x1F512; Meet the Team</a>
                 <a href="referral.html" class="pin-link">&#x1F512; Make a Referral</a>
                 <a href="staff-portal.html" class="pin-link">&#x1F512; Staff Portal</a>
             </nav>
         </div>
     </header>
-    <div class="nhs-banner">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></div>
+
+    <div class="nhs-banner"><span class="banner-text">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></span></div>
 
     <main>
+
         <div class="info-section">
             <h2>Useful Resources &amp; Links</h2>
             <p>For more information about geriatric medicine, frailty, and local health services, please visit the following resources:</p>
@@ -107,15 +234,20 @@ footer { background: var(--enrich-navy); color: var(--white); padding: 2rem; mar
                 <a href="https://www.bgs.org.uk/resources/resource-series/fit-for-frailty" target="_blank" rel="noopener noreferrer" class="link-card"><h4>Fit for Frailty (BGS)</h4><p>Comprehensive guidance on frailty assessment and management.</p><span class="link-url">www.bgs.org.uk/resources</span></a>
                 <a href="https://www.resus.org.uk/respect" target="_blank" rel="noopener noreferrer" class="link-card"><h4>ReSPECT Process</h4><p>Information about Recommended Summary Plan for Emergency Care and Treatment.</p><span class="link-url">www.resus.org.uk/respect</span></a>
             </div>
-            <div class="highlight-box" style="margin-top: 2rem;"><h4>Contact the EnRICH Team</h4><p>Healthcare professionals can access team contact details via the <a href="team.html" style="color: var(--enrich-purple); font-weight: 600;">Meet the Team</a> page using their care home PIN code. For emergency situations, always call 999.</p></div>
+            <div class="highlight-box" style="margin-top: 2rem;"><h4>Contact the EnRICH Team</h4><p>Healthcare professionals can access team contact details via the <a href="team.html" style="color: var(--enrich-purple); font-weight: 600;">Meet the Team</a> page using their EnRICH PIN code. For emergency situations, always call 999.</p></div>
         </div>
     </main>
 
     <footer>
         <div class="footer-content">
             <p>&copy; 2026 EnRICH - Enhanced Reviews in Care Homes<br>Cambridge University Hospitals NHS Foundation Trust</p>
-            <p><a href="resources.html">Resources</a> | <a href="https://mjb302.github.io/enrich-map/" target="_blank">Interactive Map</a></p>
+            <p>
+                <a href="resources.html">Resources</a> |
+                <a href="care-homes.html">Our Care Homes</a> |
+                <a href="https://mjb302.github.io/enrich-map/" target="_blank">Care Home Map</a>
+            </p>
         </div>
     </footer>
+
 </body>
 </html>

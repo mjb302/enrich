@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information for Residents &amp; Families | EnRICH</title>
+    <style>
+:root {
+    --enrich-purple: #8B2A7D;
+    --enrich-purple-dark: #6B1F5F;
+    --enrich-purple-light: #A84D99;
+    --enrich-blue: #2D7BC4;
+    --enrich-blue-dark: #1E5A94;
+    --enrich-blue-light: #4A9AE8;
+    --enrich-navy: #1E3A5F;
+    --enrich-teal: #2A6575;
+    --white: #FFFFFF;
+    --off-white: #F8F9FA;
+    --light-gray: #E9ECEF;
+    --text-gray: #495057;
+    --light-purple: #F5EBF4;
+    --light-blue: #E8EEF4;
+    --bgs-green: #006747;
+    --shadow: 0 4px 20px rgba(30, 58, 95, 0.15);
+    --shadow-hover: 0 8px 30px rgba(30, 58, 95, 0.25);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--off-white);
+    color: var(--enrich-navy);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+header {
+    background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%);
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--white);
+}
+.logo-section img {
+    height: 120px;
+    width: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 6px;
+}
+.logo-text h1 {
+    font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.logo-text p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+nav {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+nav a {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    padding: 0.55rem 1rem;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+nav a:hover, nav a.active {
+    background: var(--white);
+    color: var(--enrich-purple);
+}
+nav a.pin-link { border-color: rgba(255,255,255,0.5); }
+.nhs-banner {
+    background: var(--enrich-blue);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.nhs-banner .banner-text { text-align: center; flex: 1; }
+.logoff-btn {
+    position: absolute;
+    right: 1rem;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.5);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    display: none;
+}
+.logoff-btn:hover { background: rgba(255,255,255,0.35); }
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+footer {
+    background: var(--enrich-navy);
+    color: var(--white);
+    padding: 2rem;
+    margin-top: 3rem;
+}
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.footer-content p { opacity: 0.9; font-size: 0.9rem; }
+.footer-content a { color: var(--enrich-blue-light); }
+@media (max-width: 768px) {
+    .header-content { flex-direction: column; text-align: center; padding: 1rem; }
+    .logo-section { flex-direction: column; gap: 0.5rem; }
+    .logo-section img { height: 100px; }
+    .logo-text h1 { font-size: 1.5rem; }
+    nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; padding-bottom: 5px; }
+    nav::-webkit-scrollbar { display: none; }
+    nav a { flex-shrink: 0; padding: 0.55rem 0.8rem; font-size: 0.8rem; min-height: 44px; display: flex; align-items: center; }
+    .nhs-banner { font-size: 0.75rem; padding: 0.6rem 1rem; }
+    main { padding: 1rem; }
+    .footer-content { flex-direction: column; text-align: center; }
+}
+
+.families-hero {
+    background: linear-gradient(135deg, var(--enrich-navy) 0%, var(--enrich-teal) 100%);
+    color: white; border-radius: 16px; padding: 2.5rem; margin-bottom: 2rem; text-align: center;
+}
+.families-hero h2 { font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 2rem; margin-bottom: 0.75rem; }
+.families-hero p { opacity: 0.95; max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
+.info-card { background: var(--white); border-radius: 12px; padding: 2rem; box-shadow: var(--shadow); margin-bottom: 1.5rem; }
+.info-card h3 { color: var(--enrich-purple); margin-bottom: 1rem; font-size: 1.25rem; }
+.info-card p { color: var(--text-gray); margin-bottom: 1rem; }
+.info-card ul { color: var(--text-gray); margin-left: 1.5rem; margin-bottom: 1rem; }
+.info-card li { margin-bottom: 0.5rem; }
+.referral-notice {
+    background: linear-gradient(135deg, rgba(139,42,125,0.1) 0%, rgba(45,123,196,0.1) 100%);
+    border: 2px solid var(--enrich-purple); border-radius: 12px;
+    padding: 2rem; margin: 2rem 0; text-align: center;
+}
+.referral-notice h3 { color: var(--enrich-purple); margin-bottom: 1rem; font-size: 1.3rem; }
+.referral-notice p { color: var(--text-gray); max-width: 600px; margin: 0 auto 1rem; }
+.referral-notice .step { display: inline-block; background: var(--enrich-purple); color: white; width: 30px; height: 30px; border-radius: 50%; line-height: 30px; font-weight: 700; margin-right: 0.5rem; }
+.referral-steps { text-align: left; max-width: 500px; margin: 1.5rem auto 0; }
+.referral-steps p { margin-bottom: 0.75rem; font-size: 1rem; }
+@media (max-width: 768px) {
+    .families-hero { padding: 1.5rem; }
+    .families-hero h2 { font-size: 1.5rem; }
+    .info-card { padding: 1.25rem; }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo-section">
+                <img src="EnRICH_Logo_solid.png" alt="EnRICH Logo">
+                <div class="logo-text"><h1>EnRICH</h1><p>Enhanced Reviews in Care Homes</p></div>
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About EnRICH</a>
+                <a href="services.html">Our Services</a>
+                <a href="resources.html">Resources</a>
+                <a href="care-homes.html">Our Care Homes</a>
+                <a href="team.html" class="pin-link">&#x1F512; Meet the Team</a>
+                <a href="referral.html" class="pin-link">&#x1F512; Make a Referral</a>
+                <a href="staff-portal.html" class="pin-link">&#x1F512; Staff Portal</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="nhs-banner"><span class="banner-text">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></span></div>
+
+    <main>
+
+        <div class="families-hero">
+            <h2>Information for Residents &amp; Families</h2>
+            <p>The EnRICH team provides specialist geriatrician care to residents in care homes across Cambridgeshire. Here is what you need to know about our service.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>What We Do</h3>
+            <p>EnRICH (Enhanced Reviews in Care Homes) brings specialist geriatrician expertise directly into care homes. Our team works alongside care home staff and GPs to provide:</p>
+            <ul>
+                <li><strong>Comprehensive health assessments</strong> &mdash; thorough reviews of physical, mental, and social wellbeing</li>
+                <li><strong>Medication reviews</strong> &mdash; ensuring medications are appropriate and optimised</li>
+                <li><strong>Advance care planning</strong> &mdash; respectful conversations about future wishes and preferences</li>
+                <li><strong>Rapid response</strong> &mdash; specialist support when residents become unwell, helping avoid unnecessary hospital trips where safe to do so</li>
+                <li><strong>Continuity of care</strong> &mdash; the same team provides care in the community and hospital, ensuring no information is lost</li>
+            </ul>
+        </div>
+
+        <div class="referral-notice">
+            <h3>&#x1F4AC; How to Access the EnRICH Service</h3>
+            <p>Although families and residents cannot refer to us directly, you can request a review through your care home. Here's how:</p>
+            <div class="referral-steps">
+                <p><span class="step">1</span> <strong>Speak to a member of care home staff</strong> about your concerns or the concerns you have about your loved one.</p>
+                <p><span class="step">2</span> <strong>Discuss whether an EnRICH referral would be appropriate.</strong> Care home staff can discuss with the GP if needed.</p>
+                <p><span class="step">3</span> <strong>A care home staff member or GP will refer</strong> to the EnRICH team on your behalf using their secure EnRICH PIN code.</p>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <h3>What to Expect</h3>
+            <p>If a referral is made, a member of the EnRICH team will visit the care home to carry out an assessment. This will typically include:</p>
+            <ul>
+                <li>A conversation with the resident (and family members if they wish to be involved)</li>
+                <li>A review of the resident's medical history and current health</li>
+                <li>Discussion with care home staff about day-to-day care needs</li>
+                <li>A personalised care plan developed in partnership with the resident, family, and care team</li>
+            </ul>
+            <p>We believe in person-centred care and will always seek to understand and respect the wishes and preferences of each individual resident.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>Contact Us</h3>
+            <p>If you have any questions about the EnRICH service, you can ask a member of care home staff to put you in touch with our team. For general enquiries, the care home team can email <strong>cuh.carehomesteam@nhs.net</strong>.</p>
+            <p>For emergency situations, always call <strong>999</strong>.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 EnRICH - Enhanced Reviews in Care Homes<br>Cambridge University Hospitals NHS Foundation Trust</p>
+            <p>
+                <a href="resources.html">Resources</a> |
+                <a href="care-homes.html">Our Care Homes</a> |
+                <a href="https://mjb302.github.io/enrich-map/" target="_blank">Care Home Map</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

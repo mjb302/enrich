@@ -3,519 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heart Failure Diuretic Management | EnRICH Staff Portal</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <title>Heart Failure &amp; Diuretics | EnRICH</title>
     <style>
-        :root {
-            --enrich-purple: #8B2A7D;
-            --enrich-blue: #1E3A5F;
-            --enrich-navy: #0D1B2A;
-            --light-purple: #F5EBF4;
-            --light-blue: #E8EEF4;
-            --white: #FFFFFF;
-            --text-gray: #4A5568;
-            --off-white: #F8F9FA;
-            --light-gray: #E9ECEF;
-            --green: #006747;
-            --green-light: #E6F5EF;
-            --amber: #92400E;
-            --amber-light: #FEF3C7;
-            --amber-bg: #FFFBEB;
-            --red: #991B1B;
-            --red-light: #FEE2E2;
-            --red-bg: #FEF2F2;
-            --blue-accent: #1E40AF;
-            --blue-light: #DBEAFE;
-            --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
-        }
+:root {
+    --enrich-purple: #8B2A7D;
+    --enrich-purple-dark: #6B1F5F;
+    --enrich-purple-light: #A84D99;
+    --enrich-blue: #2D7BC4;
+    --enrich-blue-dark: #1E5A94;
+    --enrich-blue-light: #4A9AE8;
+    --enrich-navy: #1E3A5F;
+    --enrich-teal: #2A6575;
+    --white: #FFFFFF;
+    --off-white: #F8F9FA;
+    --light-gray: #E9ECEF;
+    --text-gray: #495057;
+    --light-purple: #F5EBF4;
+    --light-blue: #E8EEF4;
+    --bgs-green: #006747;
+    --shadow: 0 4px 20px rgba(30, 58, 95, 0.15);
+    --shadow-hover: 0 8px 30px rgba(30, 58, 95, 0.25);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--off-white);
+    color: var(--enrich-navy);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+header {
+    background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%);
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--white);
+}
+.logo-section img {
+    height: 120px;
+    width: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 6px;
+}
+.logo-text h1 {
+    font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.logo-text p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+nav {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+nav a {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    padding: 0.55rem 1rem;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+nav a:hover, nav a.active {
+    background: var(--white);
+    color: var(--enrich-purple);
+}
+nav a.pin-link { border-color: rgba(255,255,255,0.5); }
+.nhs-banner {
+    background: var(--enrich-blue);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.nhs-banner .banner-text { text-align: center; flex: 1; }
+.logoff-btn {
+    position: absolute;
+    right: 1rem;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.5);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    display: none;
+}
+.logoff-btn:hover { background: rgba(255,255,255,0.35); }
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+footer {
+    background: var(--enrich-navy);
+    color: var(--white);
+    padding: 2rem;
+    margin-top: 3rem;
+}
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.footer-content p { opacity: 0.9; font-size: 0.9rem; }
+.footer-content a { color: var(--enrich-blue-light); }
+@media (max-width: 768px) {
+    .header-content { flex-direction: column; text-align: center; padding: 1rem; }
+    .logo-section { flex-direction: column; gap: 0.5rem; }
+    .logo-section img { height: 100px; }
+    .logo-text h1 { font-size: 1.5rem; }
+    nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; padding-bottom: 5px; }
+    nav::-webkit-scrollbar { display: none; }
+    nav a { flex-shrink: 0; padding: 0.55rem 0.8rem; font-size: 0.8rem; min-height: 44px; display: flex; align-items: center; }
+    .nhs-banner { font-size: 0.75rem; padding: 0.6rem 1rem; }
+    main { padding: 1rem; }
+    .footer-content { flex-direction: column; text-align: center; }
+}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--off-white);
-            color: var(--enrich-navy);
-            line-height: 1.6;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-blue) 100%);
-            color: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-            color: white;
-        }
-        .logo-section img {
-            height: 50px;
-            width: auto;
-            background: white;
-            border-radius: 8px;
-            padding: 4px;
-        }
-        .logo-text h1 { font-size: 1.5rem; font-weight: 700; }
-        .logo-text p { font-size: 0.8rem; opacity: 0.9; }
-        nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-        nav a {
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.3);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            font-family: inherit;
-        }
-        nav a:hover, nav a.active { background: white; color: var(--enrich-purple); }
-        nav a.pin-link { border-color: rgba(255,255,255,0.5); }
-        .nhs-banner { background: var(--enrich-blue); color: var(--white); padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; justify-content: center; align-items: center; position: relative; }
-        .nhs-banner .banner-text { text-align: center; flex: 1; }
-        .logoff-btn { position: absolute; right: 1rem; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.5); color: white; padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 600; border-radius: 4px; cursor: pointer; font-family: inherit; transition: all 0.2s ease; }
-        .logoff-btn:hover { background: rgba(255,255,255,0.35); }
-
-        /* Layout */
-        main { max-width: 960px; margin: 0 auto; padding: 1.5rem; }
-
-        .back-link {
-            display: inline-block;
-            color: var(--enrich-purple);
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-        .back-link:hover { text-decoration: underline; }
-
-        /* Page Hero */
-        .page-hero {
-            background: linear-gradient(135deg, var(--enrich-navy) 0%, var(--enrich-blue) 100%);
-            color: white;
-            border-radius: 14px;
-            padding: 2rem 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .page-hero h2 {
-            font-family: 'Merriweather', Georgia, serif;
-            font-size: 1.6rem;
-            margin-bottom: 0.5rem;
-        }
-        .page-hero .subtitle { opacity: 0.85; font-size: 0.95rem; }
-        .page-hero .meta {
-            margin-top: 1rem;
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            font-size: 0.8rem;
-            opacity: 0.7;
-        }
-
-        /* Draft banner */
-        .draft-banner {
-            background: var(--amber-bg);
-            border: 2px solid #F59E0B;
-            border-radius: 10px;
-            padding: 1rem 1.25rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-        }
-        .draft-banner .icon { font-size: 1.3rem; flex-shrink: 0; }
-        .draft-banner strong { color: var(--amber); }
-        .draft-banner p { color: #78350F; font-size: 0.85rem; margin: 0; }
-
-        /* Quick Nav */
-        .quick-nav {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .quick-nav a {
-            background: white;
-            border: 1.5px solid var(--light-gray);
-            border-radius: 8px;
-            padding: 0.7rem 0.75rem;
-            text-decoration: none;
-            color: var(--enrich-navy);
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-align: center;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.35rem;
-        }
-        .quick-nav a:hover {
-            border-color: var(--enrich-purple);
-            background: var(--light-purple);
-            color: var(--enrich-purple);
-        }
-
-        /* Sections */
-        .section {
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            margin-bottom: 1.25rem;
-            overflow: hidden;
-        }
-        .section-header {
-            padding: 1rem 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            user-select: none;
-            transition: background 0.2s;
-        }
-        .section-header:hover { background: rgba(0,0,0,0.02); }
-        .section-header h3 {
-            font-family: 'Merriweather', Georgia, serif;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .section-header .toggle {
-            font-size: 1.2rem;
-            transition: transform 0.3s;
-            color: var(--text-gray);
-            flex-shrink: 0;
-        }
-        .section-header .toggle.open { transform: rotate(180deg); }
-        .section-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-        }
-        .section-body.open { max-height: 5000px; }
-        .section-content {
-            padding: 0 1.5rem 1.5rem;
-        }
-
-        /* Typography inside sections */
-        .section-content p { color: var(--text-gray); margin-bottom: 0.75rem; font-size: 0.9rem; }
-        .section-content ul, .section-content ol {
-            color: var(--text-gray);
-            margin: 0 0 1rem 1.25rem;
-            font-size: 0.9rem;
-        }
-        .section-content li { margin-bottom: 0.35rem; }
-        .section-content h4 {
-            color: var(--enrich-navy);
-            font-size: 0.95rem;
-            margin: 1.25rem 0 0.5rem;
-        }
-
-        /* Info boxes */
-        .info-box {
-            border-radius: 8px;
-            padding: 1rem 1.25rem;
-            margin: 1rem 0;
-            font-size: 0.85rem;
-        }
-        .info-box.green { background: var(--green-light); border-left: 4px solid var(--green); }
-        .info-box.amber { background: var(--amber-bg); border-left: 4px solid #F59E0B; }
-        .info-box.red { background: var(--red-bg); border-left: 4px solid #EF4444; }
-        .info-box.blue { background: #EFF6FF; border-left: 4px solid #3B82F6; }
-        .info-box strong { display: block; margin-bottom: 0.3rem; }
-        .info-box p { margin: 0; color: inherit; }
-
-        /* Checklist */
-        .checklist { list-style: none; margin: 0 0 1rem 0; padding: 0; }
-        .checklist li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.6rem;
-            padding: 0.5rem 0.75rem;
-            border-radius: 6px;
-            margin-bottom: 0.3rem;
-            font-size: 0.88rem;
-            color: var(--text-gray);
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .checklist li:hover { background: rgba(0,0,0,0.02); }
-        .checklist li input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            margin-top: 2px;
-            flex-shrink: 0;
-            accent-color: var(--enrich-purple);
-            cursor: pointer;
-        }
-        .checklist li.checked { color: var(--green); }
-        .checklist li.checked span { text-decoration: line-through; opacity: 0.7; }
-
-        .checklist-progress {
-            background: var(--light-gray);
-            border-radius: 20px;
-            height: 8px;
-            margin: 0.5rem 0 1rem;
-            overflow: hidden;
-        }
-        .checklist-progress-bar {
-            height: 100%;
-            background: var(--enrich-purple);
-            border-radius: 20px;
-            transition: width 0.3s;
-        }
-        .checklist-label {
-            font-size: 0.75rem;
-            color: var(--text-gray);
-            font-weight: 600;
-        }
-
-        /* Tables */
-        .dose-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-            font-size: 0.85rem;
-        }
-        .dose-table th {
-            background: var(--enrich-navy);
-            color: white;
-            padding: 0.65rem 0.75rem;
-            text-align: left;
-            font-weight: 600;
-            font-size: 0.8rem;
-        }
-        .dose-table td {
-            padding: 0.6rem 0.75rem;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        .dose-table tr:hover td { background: rgba(139,42,125,0.04); }
-        .dose-table tr:nth-child(even) td { background: var(--off-white); }
-        .dose-table tr:nth-child(even):hover td { background: rgba(139,42,125,0.06); }
-        .dose-table .highlight td { background: var(--light-purple); font-weight: 600; }
-
-        /* Monitoring table */
-        .monitor-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-            font-size: 0.84rem;
-        }
-        .monitor-table th {
-            background: var(--enrich-navy);
-            color: white;
-            padding: 0.6rem 0.75rem;
-            text-align: left;
-            font-weight: 600;
-            font-size: 0.78rem;
-        }
-        .monitor-table td {
-            padding: 0.6rem 0.75rem;
-            border-bottom: 1px solid var(--light-gray);
-            vertical-align: top;
-        }
-        .monitor-table .level { font-weight: 700; white-space: nowrap; }
-        .monitor-table .level-warn { color: #D97706; }
-        .monitor-table .level-danger { color: #DC2626; }
-
-        /* Decision flowchart */
-        .flow-step {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 0.75rem;
-            align-items: flex-start;
-        }
-        .flow-num {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--enrich-purple);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.85rem;
-            flex-shrink: 0;
-        }
-        .flow-content {
-            flex: 1;
-            padding-top: 4px;
-            font-size: 0.9rem;
-            color: var(--text-gray);
-        }
-        .flow-content strong { color: var(--enrich-navy); }
-        .flow-connector {
-            width: 2px;
-            height: 16px;
-            background: var(--light-gray);
-            margin-left: 15px;
-        }
-
-        /* Route selector (interactive) */
-        .route-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-        .route-card {
-            border: 2px solid var(--light-gray);
-            border-radius: 10px;
-            padding: 1.25rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-align: center;
-        }
-        .route-card:hover { border-color: var(--enrich-purple); }
-        .route-card.selected {
-            border-color: var(--enrich-purple);
-            background: var(--light-purple);
-            box-shadow: 0 0 0 3px rgba(139,42,125,0.15);
-        }
-        .route-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
-        .route-card h4 { font-size: 0.95rem; color: var(--enrich-navy); margin-bottom: 0.3rem; }
-        .route-card p { font-size: 0.8rem; color: var(--text-gray); margin: 0; }
-        .route-card .tag {
-            display: inline-block;
-            padding: 0.15rem 0.5rem;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-top: 0.5rem;
-        }
-        .tag-green { background: var(--green-light); color: var(--green); }
-        .tag-blue { background: var(--blue-light); color: var(--blue-accent); }
-        .tag-amber { background: var(--amber-light); color: var(--amber); }
-
-        .route-detail {
-            display: none;
-            animation: fadeIn 0.3s ease;
-        }
-        .route-detail.visible { display: block; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Dose calculator */
-        .calc-row {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            flex-wrap: wrap;
-            margin: 1rem 0;
-        }
-        .calc-row label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--enrich-navy);
-        }
-        .calc-row select, .calc-row input {
-            padding: 0.5rem 0.75rem;
-            border: 1.5px solid var(--light-gray);
-            border-radius: 6px;
-            font-family: inherit;
-            font-size: 0.9rem;
-        }
-        .calc-row select:focus, .calc-row input:focus {
-            outline: none;
-            border-color: var(--enrich-purple);
-        }
-        .calc-result {
-            background: var(--light-purple);
-            border-radius: 8px;
-            padding: 1rem 1.25rem;
-            margin: 0.75rem 0;
-            font-size: 0.9rem;
-        }
-        .calc-result strong { color: var(--enrich-purple); }
-
-        /* Footer */
-        footer {
-            background: var(--enrich-navy);
-            color: white;
-            padding: 2rem;
-            margin-top: 2rem;
-        }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            font-size: 0.9rem;
-        }
-        .footer-content a { color: #93C5FD; }
-
-        /* Print */
-        @media print {
-            header, nav, .nhs-banner, .quick-nav, .back-link, footer { display: none; }
-            .section-body { max-height: none !important; }
-            .section { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .header-content { flex-direction: column; text-align: center; }
-            .logo-section { flex-direction: column; gap: 0.5rem; }
-            .logo-section img { height: 50px; }
-            nav {
-                width: 100%;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                justify-content: flex-start;
-                padding-bottom: 5px;
-            }
-            nav::-webkit-scrollbar { display: none; }
-            nav a {
-                flex-shrink: 0;
-                padding: 0.6rem 1rem;
-                font-size: 0.85rem;
-                min-height: 44px;
-                display: flex;
-                align-items: center;
-            }
-            main { padding: 1rem; }
-            .page-hero { padding: 1.5rem; }
-            .page-hero h2 { font-size: 1.3rem; }
-            .page-hero .meta { flex-direction: column; gap: 0.25rem; }
-            .route-cards { grid-template-columns: 1fr; }
-            .dose-table, .monitor-table { font-size: 0.78rem; }
-            .dose-table th, .dose-table td,
-            .monitor-table th, .monitor-table td { padding: 0.4rem 0.5rem; }
-            .calc-row { flex-direction: column; align-items: stretch; }
-        }
+.back-link { display: inline-block; color: var(--enrich-purple); text-decoration: none; font-weight: 600; margin-bottom: 1.5rem; font-size: 0.95rem; }
+.back-link:hover { text-decoration: underline; }
+.page-header { background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%); color: var(--white); border-radius: 16px; padding: 2rem 2.5rem; margin-bottom: 2rem; }
+.page-header h2 { font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 1.8rem; margin-bottom: 0.5rem; }
+.page-header p { opacity: 0.9; }
+.content-section { background: var(--white); border-radius: 12px; padding: 2rem; box-shadow: var(--shadow); margin-bottom: 1.5rem; }
+.content-section h3 { font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif; color: var(--enrich-navy); margin-bottom: 1rem; font-size: 1.2rem; }
+.content-section p { color: var(--text-gray); margin-bottom: 0.75rem; }
+.content-section ul { color: var(--text-gray); margin-left: 1.5rem; margin-bottom: 1rem; }
+.content-section li { margin-bottom: 0.4rem; }
+.placeholder-notice { background: linear-gradient(135deg, rgba(139,42,125,0.08) 0%, rgba(45,123,196,0.08) 100%); border-left: 4px solid var(--enrich-blue); padding: 1.5rem; border-radius: 0 10px 10px 0; margin: 1.5rem 0; }
+.placeholder-notice h4 { color: var(--enrich-blue); margin-bottom: 0.5rem; }
+.placeholder-notice p { color: var(--text-gray); margin: 0; }
+.contact-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.contact-table th { background: var(--enrich-navy); color: var(--white); padding: 0.75rem 1rem; text-align: left; font-weight: 600; }
+.contact-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--light-gray); color: var(--text-gray); }
+.contact-table tr:hover td { background: rgba(139,42,125,0.04); }
+@media (max-width: 768px) {
+    .page-header { padding: 1.5rem; }
+    .page-header h2 { font-size: 1.4rem; }
+    .content-section { padding: 1.25rem; }
+    .contact-table { font-size: 0.85rem; }
+    .contact-table th, .contact-table td { padding: 0.5rem; }
+}
     </style>
 </head>
 <body>
-
     <header>
         <div class="header-content">
             <a href="index.html" class="logo-section">
@@ -527,12 +197,14 @@
                 <a href="about.html">About EnRICH</a>
                 <a href="services.html">Our Services</a>
                 <a href="resources.html">Resources</a>
+                <a href="care-homes.html">Our Care Homes</a>
                 <a href="team.html" class="pin-link">&#x1F512; Meet the Team</a>
                 <a href="referral.html" class="pin-link">&#x1F512; Make a Referral</a>
                 <a href="staff-portal.html" class="active pin-link">&#x1F512; Staff Portal</a>
             </nav>
         </div>
     </header>
+
     <div class="nhs-banner"><span class="banner-text">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></span><button class="logoff-btn" id="logoff-btn" onclick="logoff()">Log Off</button></div>
 
     <main>
@@ -1014,18 +686,20 @@
                 </div>
             </div>
         </div>
-
     </main>
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2026 EnRICH &mdash; Enhanced Reviews in Care Homes<br>Cambridge University Hospitals NHS Foundation Trust</p>
-            <p><a href="portal-policies.html">Policies &amp; Guidelines</a> | <a href="staff-portal.html">Staff Portal</a></p>
+            <p>&copy; 2026 EnRICH - Enhanced Reviews in Care Homes<br>Cambridge University Hospitals NHS Foundation Trust</p>
+            <p>
+                <a href="resources.html">Resources</a> |
+                <a href="care-homes.html">Our Care Homes</a> |
+                <a href="https://mjb302.github.io/enrich-map/" target="_blank">Care Home Map</a>
+            </p>
         </div>
     </footer>
 
     <script>
-        // ===== AUTH CHECK =====
         (function() {
             try {
                 if (sessionStorage.getItem('enrich_auth') !== 'true') {
@@ -1035,77 +709,6 @@
                 window.location.href = 'staff-portal.html';
             }
         })();
-
-        // ===== SECTION TOGGLE =====
-        function toggleSection(header) {
-            const body = header.nextElementSibling;
-            const toggle = header.querySelector('.toggle');
-            body.classList.toggle('open');
-            toggle.classList.toggle('open');
-        }
-
-        // ===== CHECKLIST =====
-        function toggleCheck(li, group) {
-            const cb = li.querySelector('input[type="checkbox"]');
-            cb.checked = !cb.checked;
-            li.classList.toggle('checked', cb.checked);
-            updateProgress(group);
-        }
-
-        function updateProgress(group) {
-            const checklist = document.getElementById(group + '-checklist');
-            const items = checklist.querySelectorAll('input[type="checkbox"]');
-            const checked = checklist.querySelectorAll('input[type="checkbox"]:checked').length;
-            const total = items.length;
-
-            document.getElementById(group + '-bar').style.width = (checked / total * 100) + '%';
-            document.getElementById(group + '-label').textContent = checked + ' of ' + total + (group === 'inclusion' ? ' confirmed' : ' completed');
-        }
-
-        // ===== ROUTE SELECTOR =====
-        function selectRoute(route) {
-            // Toggle cards
-            document.querySelectorAll('.route-card').forEach(c => c.classList.remove('selected'));
-            event.currentTarget.classList.add('selected');
-
-            // Toggle detail panels
-            document.querySelectorAll('.route-detail').forEach(d => d.classList.remove('visible'));
-            const detail = document.getElementById('route-' + route);
-            if (detail) detail.classList.add('visible');
-        }
-
-        // ===== DOSE CALCULATOR =====
-        function calculateDose() {
-            const sel = document.getElementById('current-oral').value;
-            const result = document.getElementById('dose-result');
-            if (!sel) { result.style.display = 'none'; return; }
-
-            const doseMap = {
-                'furo-40': { iv: 40, time: 'slow IV push over 10 minutes', oral: 'Furosemide 40mg' },
-                'furo-80': { iv: 80, time: '20 minutes', oral: 'Furosemide 80mg' },
-                'furo-120': { iv: 120, time: '30 minutes', oral: 'Furosemide 120mg' },
-                'furo-160': { iv: 160, time: '40 minutes', oral: 'Furosemide 160mg' },
-                'furo-200': { iv: 200, time: '50 minutes', oral: 'Furosemide 200mg' },
-                'furo-240': { iv: 240, time: '60 minutes', oral: 'Furosemide 240mg' },
-                'bumet-1': { iv: 40, time: 'slow IV push over 10 minutes', oral: 'Bumetanide 1mg' },
-                'bumet-2': { iv: 80, time: '20 minutes', oral: 'Bumetanide 2mg' },
-                'bumet-3': { iv: 120, time: '30 minutes', oral: 'Bumetanide 3mg' },
-                'bumet-4': { iv: 160, time: '40 minutes', oral: 'Bumetanide 4mg' },
-                'bumet-5': { iv: 200, time: '50 minutes', oral: 'Bumetanide 5mg' },
-                'bumet-6': { iv: 240, time: '60 minutes', oral: 'Bumetanide 6mg' },
-            };
-
-            const d = doseMap[sel];
-            result.style.display = 'block';
-            result.innerHTML = `
-                <strong>${d.oral} &#x2192; IV Furosemide ${d.iv}mg</strong><br>
-                Infusion time: ${d.time}<br>
-                Max rate: 4mg/min &bull; Commence no later than 4pm<br>
-                <span style="font-size: 0.8rem; color: var(--text-gray);">SC equivalent (end of life): ${d.iv}mg/24h via syringe pump (1:1 from oral dose, noting increased bioavailability)</span>
-            `;
-        }
-    </script>
-    <script>
         function logoff() {
             try { sessionStorage.removeItem('enrich_auth'); sessionStorage.removeItem('enrich_home'); } catch(e) {}
             window.location.href = 'staff-portal.html';

@@ -4,68 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meet the Team | EnRICH</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&amp;family=Merriweather:wght@400;700&amp;display=swap" rel="stylesheet">
     <style>
-        :root { --enrich-purple: #8B2A7D; --enrich-purple-dark: #6B1F5F; --enrich-blue: #2D7BC4; --enrich-blue-dark: #1E5A94; --enrich-blue-light: #4A9AE8; --enrich-navy: #1E3A5F; --white: #FFFFFF; --off-white: #F8F9FA; --light-gray: #E9ECEF; --text-gray: #495057; --shadow: 0 4px 20px rgba(30, 58, 95, 0.15); }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--off-white); color: var(--enrich-navy); line-height: 1.6; }
-        header { background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%); color: var(--white); position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow); }
-        .header-content { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-        .logo-section { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--white); }
-        .logo-section img { height: 60px; width: auto; background: white; border-radius: 8px; padding: 4px; }
-        .logo-text h1 { font-family: 'Merriweather', Georgia, serif; font-size: 1.5rem; font-weight: 700; }
-        .logo-text p { font-size: 0.85rem; opacity: 0.9; font-weight: 300; }
-        nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-        nav a { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: var(--white); padding: 0.6rem 1.2rem; border-radius: 6px; font-family: inherit; font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease; text-decoration: none; }
-        nav a:hover, nav a.active { background: var(--white); color: var(--enrich-purple); }
-        nav a.pin-link { border-color: rgba(255,255,255,0.5); }
-        .nhs-banner { background: var(--enrich-blue); color: var(--white); padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; justify-content: center; align-items: center; position: relative; }
-        .nhs-banner .banner-text { text-align: center; flex: 1; }
-        .logoff-btn { position: absolute; right: 1rem; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.5); color: white; padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 600; border-radius: 4px; cursor: pointer; font-family: inherit; transition: all 0.2s ease; display: none; }
-        .logoff-btn:hover { background: rgba(255,255,255,0.35); }
-        main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        h2 { font-family: 'Merriweather', Georgia, serif; color: var(--enrich-purple); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--enrich-purple); display: inline-block; }
-        .team-intro { text-align: center; margin-bottom: 2rem; color: var(--text-gray); }
-        .team-pin-section { background: linear-gradient(135deg, #F5EBF4 0%, #E8EEF4 100%); border-radius: 12px; padding: 2rem; text-align: center; max-width: 500px; margin: 0 auto 2rem auto; }
-        .team-pin-section h3 { color: var(--enrich-navy); margin-bottom: 1rem; }
-        .team-pin-section p { color: var(--text-gray); margin-bottom: 1.5rem; }
-        .team-pin-inputs { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; }
-        .team-pin-digit { width: 50px; height: 55px; text-align: center; font-size: 1.5rem; font-weight: 700; border: 2px solid #ddd; border-radius: 8px; transition: all 0.2s ease; font-family: inherit; }
-        .team-pin-digit:focus { border-color: var(--enrich-purple); outline: none; box-shadow: 0 0 0 3px rgba(139, 42, 125, 0.2); }
-        .btn { background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%); color: var(--white); border: none; padding: 0.8rem 2rem; font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; font-family: inherit; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(139, 42, 125, 0.4); }
-        .team-pin-error { color: #dc3545; font-size: 0.9rem; display: none; margin-top: 1rem; }
-        .team-content { display: none; }
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .team-member { background: var(--white); border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 12px rgba(30, 58, 95, 0.08); border-top: 4px solid var(--enrich-purple); text-align: center; }
-        .team-member-icon { font-size: 3rem; margin-bottom: 0.5rem; }
-        .team-member h4 { color: var(--enrich-navy); margin-bottom: 0.25rem; }
-        .team-member .role { color: var(--enrich-purple); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.75rem; }
-        .team-member .contact-info { background: #F5EBF4; border-radius: 8px; padding: 0.75rem; margin-top: 1rem; }
-        .team-member .contact-info a { color: var(--enrich-blue); text-decoration: none; font-size: 0.85rem; }
-        .team-note { background: #E8EEF4; border-left: 4px solid var(--enrich-blue); padding: 1rem 1.5rem; border-radius: 0 8px 8px 0; margin-top: 2rem; }
-        .team-note h4 { color: var(--enrich-navy); margin-bottom: 0.5rem; }
-        .team-note p { color: var(--text-gray); margin: 0; }
-        .team-note a { color: var(--enrich-blue); }
-        footer { background: var(--enrich-navy); color: var(--white); padding: 2rem; margin-top: 3rem; }
-        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-        .footer-content p { opacity: 0.9; font-size: 0.9rem; }
-        .footer-content a { color: var(--enrich-blue-light); }
-        @media (max-width: 768px) {
-            .header-content { flex-direction: column; text-align: center; padding: 1rem; }
-            .logo-section { flex-direction: column; gap: 0.5rem; }
-            .logo-section img { height: 50px; }
-            .logo-text h1 { font-size: 1.3rem; }
-            nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; padding-bottom: 5px; }
-            nav::-webkit-scrollbar { display: none; }
-            nav a { flex-shrink: 0; padding: 0.6rem 1rem; font-size: 0.85rem; min-height: 44px; display: flex; align-items: center; }
-            main { padding: 1rem; }
-            .team-pin-digit { width: 45px; height: 50px; font-size: 1.3rem; }
-            .team-grid { grid-template-columns: 1fr; }
-            .footer-content { flex-direction: column; text-align: center; }
-        }
+:root {
+    --enrich-purple: #8B2A7D;
+    --enrich-purple-dark: #6B1F5F;
+    --enrich-purple-light: #A84D99;
+    --enrich-blue: #2D7BC4;
+    --enrich-blue-dark: #1E5A94;
+    --enrich-blue-light: #4A9AE8;
+    --enrich-navy: #1E3A5F;
+    --enrich-teal: #2A6575;
+    --white: #FFFFFF;
+    --off-white: #F8F9FA;
+    --light-gray: #E9ECEF;
+    --text-gray: #495057;
+    --light-purple: #F5EBF4;
+    --light-blue: #E8EEF4;
+    --bgs-green: #006747;
+    --shadow: 0 4px 20px rgba(30, 58, 95, 0.15);
+    --shadow-hover: 0 8px 30px rgba(30, 58, 95, 0.25);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--off-white);
+    color: var(--enrich-navy);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+header {
+    background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%);
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--white);
+}
+.logo-section img {
+    height: 120px;
+    width: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 6px;
+}
+.logo-text h1 {
+    font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.logo-text p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+nav {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+nav a {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    padding: 0.55rem 1rem;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+nav a:hover, nav a.active {
+    background: var(--white);
+    color: var(--enrich-purple);
+}
+nav a.pin-link { border-color: rgba(255,255,255,0.5); }
+.nhs-banner {
+    background: var(--enrich-blue);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.nhs-banner .banner-text { text-align: center; flex: 1; }
+.logoff-btn {
+    position: absolute;
+    right: 1rem;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.5);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    display: none;
+}
+.logoff-btn:hover { background: rgba(255,255,255,0.35); }
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+footer {
+    background: var(--enrich-navy);
+    color: var(--white);
+    padding: 2rem;
+    margin-top: 3rem;
+}
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.footer-content p { opacity: 0.9; font-size: 0.9rem; }
+.footer-content a { color: var(--enrich-blue-light); }
+@media (max-width: 768px) {
+    .header-content { flex-direction: column; text-align: center; padding: 1rem; }
+    .logo-section { flex-direction: column; gap: 0.5rem; }
+    .logo-section img { height: 100px; }
+    .logo-text h1 { font-size: 1.5rem; }
+    nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; padding-bottom: 5px; }
+    nav::-webkit-scrollbar { display: none; }
+    nav a { flex-shrink: 0; padding: 0.55rem 0.8rem; font-size: 0.8rem; min-height: 44px; display: flex; align-items: center; }
+    .nhs-banner { font-size: 0.75rem; padding: 0.6rem 1rem; }
+    main { padding: 1rem; }
+    .footer-content { flex-direction: column; text-align: center; }
+}
+
+.pin-section { max-width: 500px; margin: 0 auto; text-align: center; }
+.pin-box { background: var(--white); border-radius: 16px; padding: 3rem 2rem; box-shadow: var(--shadow); margin-top: 2rem; }
+.pin-box h2 { font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif; color: var(--enrich-purple); margin-bottom: 1rem; }
+.pin-box p { color: var(--text-gray); margin-bottom: 1.5rem; }
+.pin-input-container { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+.pin-digit { width: 55px; height: 65px; font-size: 1.8rem; text-align: center; border: 2px solid var(--light-gray); border-radius: 10px; font-family: inherit; font-weight: 600; color: var(--enrich-navy); transition: all 0.2s ease; }
+.pin-digit:focus { border-color: var(--enrich-purple); outline: none; box-shadow: 0 0 0 3px rgba(139, 42, 125, 0.2); }
+.btn { background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%); color: var(--white); border: none; padding: 1rem 2.5rem; font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; font-family: inherit; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(139, 42, 125, 0.4); }
+.btn.blue { background: linear-gradient(135deg, var(--enrich-blue) 0%, var(--enrich-blue-dark) 100%); }
+.btn.blue:hover { box-shadow: 0 6px 20px rgba(45, 123, 196, 0.4); }
+.error-message { color: #dc3545; margin-top: 1rem; font-weight: 600; display: none; }
+@media (max-width: 768px) {
+    .pin-box { padding: 1.5rem 1rem; }
+    .pin-input-container { gap: 8px; }
+    .pin-digit { width: 48px; height: 58px; font-size: 1.5rem; }
+}
+@media (max-width: 380px) { .pin-digit { width: 42px; height: 52px; font-size: 1.3rem; } }
+h2.page-heading { font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif; color: var(--enrich-purple); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--enrich-purple); display: inline-block; }
+.team-intro { text-align: center; margin-bottom: 2rem; color: var(--text-gray); }
+.team-content { display: none; }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.team-member { background: var(--white); border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 12px rgba(30, 58, 95, 0.08); border-top: 4px solid var(--enrich-purple); text-align: center; }
+.team-member-icon { font-size: 3rem; margin-bottom: 0.5rem; }
+.team-member h4 { color: var(--enrich-navy); margin-bottom: 0.25rem; }
+.team-member .role { color: var(--enrich-purple); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.75rem; }
+.team-member .contact-info { background: var(--light-purple); border-radius: 8px; padding: 0.75rem; margin-top: 1rem; }
+.team-member .contact-info a { color: var(--enrich-blue); text-decoration: none; font-size: 0.85rem; }
+.team-note { background: var(--light-blue); border-left: 4px solid var(--enrich-blue); padding: 1rem 1.5rem; border-radius: 0 8px 8px 0; margin-top: 2rem; }
+.team-note h4 { color: var(--enrich-navy); margin-bottom: 0.5rem; }
+.team-note p { color: var(--text-gray); margin: 0; }
+.team-note a { color: var(--enrich-blue); }
+@media (max-width: 768px) { .team-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -80,30 +206,35 @@
                 <a href="about.html">About EnRICH</a>
                 <a href="services.html">Our Services</a>
                 <a href="resources.html">Resources</a>
+                <a href="care-homes.html">Our Care Homes</a>
                 <a href="team.html" class="active pin-link">&#x1F512; Meet the Team</a>
                 <a href="referral.html" class="pin-link">&#x1F512; Make a Referral</a>
                 <a href="staff-portal.html" class="pin-link">&#x1F512; Staff Portal</a>
             </nav>
         </div>
     </header>
+
     <div class="nhs-banner"><span class="banner-text">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></span><button class="logoff-btn" id="logoff-btn" onclick="logoff()">Log Off</button></div>
 
     <main>
-        <h2>Meet the Team</h2>
+
+        <h2 class="page-heading">Meet the Team</h2>
         <div class="team-intro"><p>The EnRICH service is delivered by a dedicated team of healthcare professionals committed to improving care for care home residents across Cambridgeshire.</p></div>
 
-        <div class="team-pin-section" id="team-pin-entry">
-            <h3>&#x1F512; Healthcare Professional Access</h3>
-            <p>Enter your 5-digit PIN code to view team contact details.</p>
-            <div class="team-pin-inputs">
-                <input type="text" class="team-pin-digit" maxlength="1" data-index="0" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 1">
-                <input type="text" class="team-pin-digit" maxlength="1" data-index="1" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 2">
-                <input type="text" class="team-pin-digit" maxlength="1" data-index="2" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 3">
-                <input type="text" class="team-pin-digit" maxlength="1" data-index="3" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 4">
-                <input type="text" class="team-pin-digit" maxlength="1" data-index="4" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 5">
+        <div class="pin-section" id="pin-entry">
+            <div class="pin-box">
+                <h2>&#x1F512; Healthcare Professional Access</h2>
+                <p>Enter your 5-digit EnRICH PIN code to view team contact details.</p>
+                <div class="pin-input-container">
+                    <input type="text" class="pin-digit" maxlength="1" data-index="0" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 1">
+                    <input type="text" class="pin-digit" maxlength="1" data-index="1" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 2">
+                    <input type="text" class="pin-digit" maxlength="1" data-index="2" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 3">
+                    <input type="text" class="pin-digit" maxlength="1" data-index="3" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 4">
+                    <input type="text" class="pin-digit" maxlength="1" data-index="4" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 5">
+                </div>
+                <button class="btn" id="validate-btn">View Team Details</button>
+                <p class="error-message" id="pin-error">Invalid PIN. Please try again.</p>
             </div>
-            <button class="btn" id="team-pin-btn">View Team Details</button>
-            <div class="team-pin-error" id="team-pin-error">Invalid PIN. Please try again.</div>
         </div>
 
         <div class="team-content" id="team-content">
@@ -112,12 +243,12 @@
                     <div class="team-member-icon">&#x1F468;&#x200D;&#x2695;&#xFE0F;</div>
                     <h4>[Clinical Lead Name]</h4>
                     <div class="role">Consultant Geriatrician &amp; Clinical Lead</div>
-                    <div class="contact-info"><a href="/cdn-cgi/l/email-protection#b1d2c4d99fd2d0c3d4d9dedcd4c2c5d4d0dcf1dfd9c29fdfd4c5"><span class="__cf_email__" data-cfemail="2e4d5b46004d4f5c4b4641434b5d5a4b4f436e40465d00404b5a">[email&#160;protected]</span></a></div>
+                    <div class="contact-info"><a href="mailto:cuh.carehomesteam@nhs.net">cuh.carehomesteam@nhs.net</a></div>
                 </div>
             </div>
             <div class="team-note">
                 <h4>&#x1F4E7; General Enquiries</h4>
-                <p>For general enquiries about the EnRICH service: <a href="/cdn-cgi/l/email-protection#503325387e33312235383f3d35232435313d103e38237e3e3524"><span class="__cf_email__" data-cfemail="e0839588ce83819285888f8d85939485818da08e8893ce8e8594">[email&#160;protected]</span></a></p>
+                <p>For general enquiries about the EnRICH service: <a href="mailto:cuh.carehomesteam@nhs.net">cuh.carehomesteam@nhs.net</a></p>
             </div>
         </div>
     </main>
@@ -125,47 +256,111 @@
     <footer>
         <div class="footer-content">
             <p>&copy; 2026 EnRICH - Enhanced Reviews in Care Homes<br>Cambridge University Hospitals NHS Foundation Trust</p>
-            <p><a href="resources.html">Resources</a> | <a href="https://mjb302.github.io/enrich-map/" target="_blank">Interactive Map</a></p>
+            <p>
+                <a href="resources.html">Resources</a> |
+                <a href="care-homes.html">Our Care Homes</a> |
+                <a href="https://mjb302.github.io/enrich-map/" target="_blank">Care Home Map</a>
+            </p>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        var teamPinInputs = document.querySelectorAll('.team-pin-digit');
+    <script>
+        var careHomePINs = {
+    // --- Care Homes (31) ---
+    'fe24aa89e33d228cb577bbb4e711915b06afe4ad2a490963e5df25c9842c20e2': 'Alex Wood House',
+    '3bee6539d1067e8f68bed995929d064d7305b5d270ceff2f8e9d35a899acd37d': 'Bramley Court',
+    'f9b612674f3f0acfd4a3d81dcfc2e5d5b7060f8a21be33de7536d1af33b71830': 'Brook House Care Home',
+    'aee73965b29b99f53a3db9504ea2b208c0c018c217fdf15e553e955855953900': 'Cambridge Grove Care Home',
+    '8f2034cfc80faa1621c4d416654243d15498b7eafa3cf8147675e36665313579': 'Cambridge Manor Care Home',
+    '2d3f2d14c058e044a774908508ed37b9f1b47ffbd519e1e4b1717c489910a096': 'Cleves Place',
+    '47a3ed983a9127f210c339e591f65506b9cfc127ce1d2cf5f3a26927369e7ddf': 'Cottenham Court Care Home',
+    'af8b17e81b1a3801e5e770de0a1a1f43e770030f98fe67221453fdbdd6b1affe': 'Etheldred House Care Home',
+    '7edd1a06302c6e71fefb576021cf632d694775c1343b6222bce9cafa08ebbb13': 'Fitzwilliam House Care Home',
+    'da5c2f49fad2615edf210b93a0408cbb762cc42880e98452fa8a2b5b6ae631f3': 'Hatley Court',
+    '41751ff4c81c502af385eee954b2612b13936e393186543deb80b320407993c8': 'Heathlands House',
+    'd0dca67d8153e8e39f456e5f0441f84b41936cd5149d213ee733b3067e6f82f7': 'Highfield Care Home',
+    '80b3383fc7df188f00b97aa5b0625054b193c9cd3a8d261e654bc4e38149c760': 'Hilton Park - Oaklands',
+    'cd3d20333ca6d04a1f234e9807cc74a028350a671b49c0cc9a026cb5a1d9b00d': 'Home Close',
+    '9de02e2a1338c710c7f09d1aeee4142a2b1f9e0c554d29ab9a7be6cbb7008aa9': 'Home Meadow',
+    'd75ce5017561e791495b3e007ead8697b27e277cd9882b2262e0de66d6d1f12e': 'Langdon House',
+    '7599b6dd1963f67bc1335b85bbf0b7ad38d81034cc3fc5b69d2327e8b3d3a067': 'Lily House',
+    'f0eed60c335b758b7dbf29308262a8ff638e46de5ee38b79d77994fab5231c05': 'Maycroft Care Home',
+    '18555c2d2c9e8c63d085dc91c61044bfa9f13696209a8110a744feda7645079e': 'Melbourn Springs Care Home',
+    'c9ab187dc9a3366dd148631ef1b508d55f37f98e15d33801d65fcedc76ff865b': 'Melwood Grange',
+    'f67445e4610f525afd0a733e5cc4993c329546a1f97392cf8943ee8c49a5f339': 'Midfield Lodge',
+    '1b6b1543dc6c1d432ae5735f9be6b64ac122672114330ac29226d65acc581bd2': 'Orchard House Residential Care Home',
+    '8a661929534d66b23ab23c9d7899587221c5eccab66ed61ba17a5163d91ea5f8': 'Primrose Croft Care Home',
+    '6c0865de8b4a8183318369d4f04b06cbf422a29daf4f7a7a45f776c20e6d523d': 'Queens Court',
+    '3197b1d4f9cb468f58533c516079011b3a6ac205e600d118ee823a31d3808c25': 'Southwell Court',
+    '77450960dfed2bba6594e0f4c712e28cd19fb93ae61a383015354edc22a3ff8a': 'Symonds House',
+    '87874556d2abe6ee84d5aa4a69124d6f05afcf8c1b50e18eddc57ba367f30bdd': 'The Cambridgeshire Care Home',
+    'ed36a326dbeded94e927c06fa922d4207cee5cad1f650d7f30ca4553f348a0e8': 'Townsend Manor',
+    '7a16fd6a5ae1529960527e825cd32ec769aa118e3273cb562e5f316539aff3ae': 'Vera James House',
+    '2fa697315db830fcf1136c0d0dfa87e5fa039f5e611a6aa07947d4769ce252e2': 'Waterbeach Lodge',
+    '81c73f02bbe4878ec04ac472e5e70718db0948303f697749685897d4b86db5d7': 'Woodlands Care Centre',
 
-        teamPinInputs.forEach(function(input, index) {
+    // --- Staff (4) ---
+    'dbf52795a1ef579df9e6a4edea7ba43e52cec7b781455745a5be1352b319713a': 'Alex Rose',
+    '9aad43a4660010666a1517ce2fb3ca90b441bb8562b5f65b8dc0d08fb0d1ca3e': 'Catriona Love',
+    'cffaf21eb3efbcc63067ec3b07a1a79165b5213e430c1e17142f994244604f4c': 'Ed Riddell',
+    '7604f82270c4fdb3b99db9550468a26fe02a35073e1e12eb784f2dc8fc745199': 'Matt Butler',
+};
+
+        async function hashPIN(pin) {
+            var encoder = new TextEncoder();
+            var data = encoder.encode(pin);
+            var hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            var hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+        }
+
+        var pinInputs = document.querySelectorAll('.pin-digit');
+
+        pinInputs.forEach(function(input, index) {
             input.addEventListener('input', function(e) {
                 var value = e.target.value;
                 if (!/^\d*$/.test(value)) { e.target.value = ''; return; }
-                if (value && index < teamPinInputs.length - 1) { teamPinInputs[index + 1].focus(); }
-                if (index === teamPinInputs.length - 1 && value) { validateTeamPIN(); }
+                if (value && index < pinInputs.length - 1) { pinInputs[index + 1].focus(); }
+                if (index === pinInputs.length - 1 && value) { validatePIN(); }
             });
             input.addEventListener('keydown', function(e) {
-                if (e.key === 'Backspace' && !e.target.value && index > 0) { teamPinInputs[index - 1].focus(); }
-                if (e.key === 'Enter') { validateTeamPIN(); }
+                if (e.key === 'Backspace' && !e.target.value && index > 0) { pinInputs[index - 1].focus(); }
+                if (e.key === 'Enter') { validatePIN(); }
             });
             input.addEventListener('paste', function(e) {
                 e.preventDefault();
                 var pastedData = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 5);
-                pastedData.split('').forEach(function(digit, i) { if (teamPinInputs[i]) { teamPinInputs[i].value = digit; } });
-                if (pastedData.length === 5) { teamPinInputs[4].focus(); validateTeamPIN(); }
+                pastedData.split('').forEach(function(digit, i) { if (pinInputs[i]) { pinInputs[i].value = digit; } });
+                if (pastedData.length === 5) { pinInputs[4].focus(); validatePIN(); }
             });
         });
+    </script>
+    <script>
+        document.getElementById('validate-btn').addEventListener('click', validatePIN);
 
-        document.getElementById('team-pin-btn').addEventListener('click', validateTeamPIN);
-
-        function validateTeamPIN() {
-            var pin = Array.from(teamPinInputs).map(function(input) { return input.value; }).join('');
-            var errorMsg = document.getElementById('team-pin-error');
-            if (pin.length !== 5) {
+        async function validatePIN() {
+            var pin = Array.from(pinInputs).map(function(input) { return input.value; }).join('');
+            var errorMsg = document.getElementById('pin-error');
+            if (pin.length !== 5) { errorMsg.style.display = 'block'; errorMsg.textContent = 'Please enter all 5 digits.'; return; }
+            var hash = await hashPIN(pin);
+            if (careHomePINs[hash]) {
+                try { sessionStorage.setItem('enrich_auth', 'true'); } catch(e) {}
+                document.getElementById('pin-entry').style.display = 'none';
+                document.getElementById('team-content').style.display = 'block';
+                document.getElementById('logoff-btn').style.display = 'inline-block';
+                errorMsg.style.display = 'none';
+            } else {
                 errorMsg.style.display = 'block';
-                errorMsg.textContent = 'Please enter all 5 digits.';
-                return;
+                errorMsg.textContent = 'Invalid EnRICH PIN code. Please check and try again.';
             }
-            // Accept any valid 5-digit PIN
-            try { sessionStorage.setItem('enrich_auth', 'true'); } catch(e) {}
-            document.getElementById('team-pin-entry').style.display = 'none';
-            document.getElementById('team-content').style.display = 'block';
-            document.getElementById('logoff-btn').style.display = 'inline-block';
+        }
+
+        // Auto-unlock if already authenticated
+        try {
+            if (sessionStorage.getItem('enrich_auth') === 'true') {
+                document.getElementById('pin-entry').style.display = 'none';
+                document.getElementById('team-content').style.display = 'block';
+                document.getElementById('logoff-btn').style.display = 'inline-block';
             }
         } catch(e) {}
 

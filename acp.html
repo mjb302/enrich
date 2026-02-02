@@ -4,375 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advance Care Planning (ACP) | EnRICH</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Merriweather:wght@400;700&amp;display=swap" rel="stylesheet">
     <style>
-        :root {
-            --enrich-purple: #8B2A7D;
-            --enrich-blue: #1E3A5F;
-            --enrich-navy: #0D1B2A;
-            --light-purple: #F5EBF4;
-            --light-blue: #E8EEF4;
-            --white: #FFFFFF;
-            --text-gray: #4A5568;
-            --bgs-green: #006747;
-        }
+:root {
+    --enrich-purple: #8B2A7D;
+    --enrich-purple-dark: #6B1F5F;
+    --enrich-purple-light: #A84D99;
+    --enrich-blue: #2D7BC4;
+    --enrich-blue-dark: #1E5A94;
+    --enrich-blue-light: #4A9AE8;
+    --enrich-navy: #1E3A5F;
+    --enrich-teal: #2A6575;
+    --white: #FFFFFF;
+    --off-white: #F8F9FA;
+    --light-gray: #E9ECEF;
+    --text-gray: #495057;
+    --light-purple: #F5EBF4;
+    --light-blue: #E8EEF4;
+    --bgs-green: #006747;
+    --shadow: 0 4px 20px rgba(30, 58, 95, 0.15);
+    --shadow-hover: 0 8px 30px rgba(30, 58, 95, 0.25);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--off-white);
+    color: var(--enrich-navy);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+header {
+    background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%);
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--white);
+}
+.logo-section img {
+    height: 120px;
+    width: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 6px;
+}
+.logo-text h1 {
+    font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.logo-text p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+nav {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+nav a {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    padding: 0.55rem 1rem;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+nav a:hover, nav a.active {
+    background: var(--white);
+    color: var(--enrich-purple);
+}
+nav a.pin-link { border-color: rgba(255,255,255,0.5); }
+.nhs-banner {
+    background: var(--enrich-blue);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.nhs-banner .banner-text { text-align: center; flex: 1; }
+.logoff-btn {
+    position: absolute;
+    right: 1rem;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.5);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    display: none;
+}
+.logoff-btn:hover { background: rgba(255,255,255,0.35); }
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+footer {
+    background: var(--enrich-navy);
+    color: var(--white);
+    padding: 2rem;
+    margin-top: 3rem;
+}
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.footer-content p { opacity: 0.9; font-size: 0.9rem; }
+.footer-content a { color: var(--enrich-blue-light); }
+@media (max-width: 768px) {
+    .header-content { flex-direction: column; text-align: center; padding: 1rem; }
+    .logo-section { flex-direction: column; gap: 0.5rem; }
+    .logo-section img { height: 100px; }
+    .logo-text h1 { font-size: 1.5rem; }
+    nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; padding-bottom: 5px; }
+    nav::-webkit-scrollbar { display: none; }
+    nav a { flex-shrink: 0; padding: 0.55rem 0.8rem; font-size: 0.8rem; min-height: 44px; display: flex; align-items: center; }
+    .nhs-banner { font-size: 0.75rem; padding: 0.6rem 1rem; }
+    main { padding: 1rem; }
+    .footer-content { flex-direction: column; text-align: center; }
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--enrich-navy);
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            min-height: 100vh;
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-blue) 100%);
-            color: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo-section img {
-            height: 50px;
-            width: auto;
-        }
-
-        .logo-text h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .logo-text p {
-            font-size: 0.8rem;
-            opacity: 0.9;
-        }
-        /* Navigation */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo-section {
-            text-decoration: none;
-            color: white;
-        }
-        .logo-section img {
-            background: white;
-            border-radius: 8px;
-            padding: 4px;
-        }
-        nav {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-        nav a {
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.3);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            font-family: inherit;
-        }
-        nav a:hover, nav a.active {
-            background: white;
-            color: var(--enrich-purple);
-        }
-        nav a.pin-link {
-            border-color: rgba(255,255,255,0.5);
-        }
-
-        .nhs-banner {
-            background: #005EB8;
-            color: white;
-            text-align: center;
-            padding: 0.5rem;
-            font-size: 0.85rem;
-        }
-
-        main {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
-
-        .page-title {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .page-title h2 {
-            font-family: 'Merriweather', Georgia, serif;
-            font-size: 2rem;
-            color: var(--enrich-navy);
-            margin-bottom: 0.5rem;
-        }
-
-        .page-title p {
-            color: var(--text-gray);
-            font-size: 1.1rem;
-        }
-
-        .content-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 12px rgba(30, 58, 95, 0.08);
-        }
-
-        .content-card h3 {
-            color: var(--enrich-blue);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .content-card p {
-            color: var(--text-gray);
-            margin-bottom: 1rem;
-        }
-
-        .definition-box {
-            background: var(--light-blue);
-            border-left: 4px solid var(--enrich-blue);
-            padding: 1.5rem;
-            border-radius: 0 8px 8px 0;
-            margin: 1.5rem 0;
-            font-style: italic;
-        }
-
-        .definition-box cite {
-            display: block;
-            margin-top: 0.75rem;
-            font-size: 0.9rem;
-            color: var(--enrich-blue);
-            font-style: normal;
-            font-weight: 600;
-        }
-
-        .key-points {
-            list-style: none;
-            padding: 0;
-        }
-
-        .key-points li {
-            padding: 0.75rem 1rem;
-            margin-bottom: 0.5rem;
-            background: var(--light-blue);
-            border-radius: 6px;
-            padding-left: 2.5rem;
-            position: relative;
-        }
-
-        .key-points li::before {
-            content: "\25B6";
-            position: absolute;
-            left: 0.75rem;
-            color: var(--enrich-blue);
-        }
-
-        .conversation-tips {
-            background: var(--light-purple);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .conversation-tips h4 {
-            color: var(--enrich-purple);
-            margin-bottom: 1rem;
-        }
-
-        .conversation-tips ul {
-            margin-left: 1.5rem;
-        }
-
-        .conversation-tips li {
-            margin-bottom: 0.5rem;
-            color: var(--text-gray);
-        }
-
-        .outcomes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .outcome-card {
-            background: var(--light-blue);
-            border-radius: 8px;
-            padding: 1rem;
-            text-align: center;
-            border-top: 3px solid var(--enrich-blue);
-        }
-
-        .outcome-card h4 {
-            color: var(--enrich-navy);
-            font-size: 0.95rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .outcome-card p {
-            font-size: 0.85rem;
-            margin: 0;
-        }
-
-        .respect-box {
-            background: linear-gradient(135deg, #4B0082 0%, #1E3A5F 100%);
-            color: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .respect-box h4 {
-            margin-bottom: 0.5rem;
-        }
-
-        .respect-box p {
-            opacity: 0.95;
-            margin-bottom: 0;
-        }
-
-        .bgs-attribution {
-            background: linear-gradient(135deg, var(--bgs-green) 0%, #004d36 100%);
-            color: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .bgs-attribution h4 {
-            margin-bottom: 0.5rem;
-        }
-
-        .bgs-attribution p {
-            margin-bottom: 1rem;
-            opacity: 0.9;
-        }
-
-        .bgs-attribution a {
-            display: inline-block;
-            background: white;
-            color: var(--bgs-green);
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-
-        .bgs-attribution a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        .enrich-note {
-            background: var(--light-purple);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
-            border: 2px solid var(--enrich-purple);
-        }
-
-        .enrich-note h4 {
-            color: var(--enrich-purple);
-            margin-bottom: 0.5rem;
-        }
-
-        .important-note {
-            background: #FFF3CD;
-            border-left: 4px solid #FFC107;
-            padding: 1rem 1.5rem;
-            border-radius: 0 8px 8px 0;
-            margin: 1.5rem 0;
-        }
-
-        .important-note p {
-            margin: 0;
-            color: #856404;
-        }
-
-        footer {
-            background: var(--enrich-navy);
-            color: white;
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .logo-section { flex-direction: column; gap: 0.5rem; }
-            .logo-section img { height: 50px; }
-            nav {
-                width: 100%;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                justify-content: flex-start;
-                padding-bottom: 5px;
-            }
-            nav::-webkit-scrollbar { display: none; }
-            nav a {
-                flex-shrink: 0;
-                padding: 0.6rem 1rem;
-                font-size: 0.85rem;
-                min-height: 44px;
-                display: flex;
-                align-items: center;
-            }
-
-            .page-title h2 {
-                font-size: 1.5rem;
-            }
-
-            .content-card {
-                padding: 1.25rem;
-            }
-
-            .outcomes-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+.page-title { text-align: center; margin-bottom: 2rem; }
+.page-title h2 { font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 2rem; color: var(--enrich-navy); margin-bottom: 0.5rem; }
+.page-title p { color: var(--text-gray); font-size: 1.1rem; }
+.content-card { background: white; border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 2px 12px rgba(30, 58, 95, 0.08); }
+.content-card h3 { color: var(--enrich-purple); margin-bottom: 1rem; font-size: 1.3rem; }
+.content-card p { color: var(--text-gray); margin-bottom: 1rem; }
+.definition-box { background: var(--light-purple); border-left: 4px solid var(--enrich-purple); padding: 1.5rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0; font-style: italic; }
+.definition-box cite { display: block; margin-top: 0.75rem; font-size: 0.9rem; color: var(--enrich-purple); font-style: normal; font-weight: 600; }
+.domains-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+.domain-card { background: var(--light-blue); border-radius: 8px; padding: 1rem; border-top: 3px solid var(--enrich-blue); }
+.domain-card h4 { color: var(--enrich-navy); margin-bottom: 0.5rem; font-size: 1rem; }
+.domain-card p { font-size: 0.9rem; margin: 0; }
+.evidence-list { list-style: none; padding: 0; }
+.evidence-list li { padding: 0.75rem; margin-bottom: 0.5rem; background: var(--light-blue); border-radius: 6px; padding-left: 2.5rem; position: relative; }
+.evidence-list li::before { content: "\2713"; position: absolute; left: 0.75rem; color: var(--bgs-green); font-weight: bold; }
+.bgs-attribution { background: linear-gradient(135deg, var(--bgs-green) 0%, #004d36 100%); color: white; border-radius: 12px; padding: 1.5rem; margin-top: 2rem; text-align: center; }
+.bgs-attribution h4 { margin-bottom: 0.5rem; }
+.bgs-attribution p { margin-bottom: 1rem; opacity: 0.9; }
+.bgs-attribution a { display: inline-block; background: white; color: var(--bgs-green); padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600; transition: all 0.2s ease; }
+.bgs-attribution a:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+.enrich-note { background: var(--light-purple); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem; border: 2px solid var(--enrich-purple); }
+.enrich-note h4 { color: var(--enrich-purple); margin-bottom: 0.5rem; }
+.back-link { display: inline-block; color: var(--enrich-purple); text-decoration: none; font-weight: 600; margin-bottom: 1.5rem; font-size: 0.95rem; }
+.back-link:hover { text-decoration: underline; }
+main.subpage { max-width: 900px; }
+@media (max-width: 768px) {
+    .page-title h2 { font-size: 1.5rem; }
+    .content-card { padding: 1.25rem; }
+    .domains-grid { grid-template-columns: 1fr; }
+}
     </style>
 </head>
 <body>
@@ -387,6 +203,7 @@
                 <a href="about.html">About EnRICH</a>
                 <a href="services.html" class="active">Our Services</a>
                 <a href="resources.html">Resources</a>
+                <a href="care-homes.html">Our Care Homes</a>
                 <a href="team.html" class="pin-link">&#x1F512; Meet the Team</a>
                 <a href="referral.html" class="pin-link">&#x1F512; Make a Referral</a>
                 <a href="staff-portal.html" class="pin-link">&#x1F512; Staff Portal</a>
@@ -394,9 +211,10 @@
         </div>
     </header>
 
-    <div class="nhs-banner">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></div>
+    <div class="nhs-banner"><span class="banner-text">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></span></div>
 
     <main>
+        <a href="services.html" class="back-link">&larr; Back to Our Services</a>
         <div class="page-title">
             <h2>Advance Care Planning (ACP)</h2>
             <p>Supporting people to share their wishes for future care</p>
@@ -517,10 +335,15 @@
     </main>
 
     <footer>
-        <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div class="footer-content">
             <p>&copy; 2026 EnRICH - Enhanced Reviews in Care Homes<br>Cambridge University Hospitals NHS Foundation Trust</p>
-            <p><a href="resources.html">Resources</a> | <a href="https://mjb302.github.io/enrich-map/" target="_blank">Interactive Map</a></p>
+            <p>
+                <a href="resources.html">Resources</a> |
+                <a href="care-homes.html">Our Care Homes</a> |
+                <a href="https://mjb302.github.io/enrich-map/" target="_blank">Care Home Map</a>
+            </p>
         </div>
     </footer>
+
 </body>
 </html>

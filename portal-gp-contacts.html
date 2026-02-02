@@ -3,173 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacts Directory | EnRICH Staff Portal</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <title>Contacts Directory | EnRICH</title>
     <style>
-        :root {
-            --enrich-purple: #8B2A7D;
-            --enrich-blue: #1E3A5F;
-            --enrich-navy: #0D1B2A;
-            --light-purple: #F5EBF4;
-            --white: #FFFFFF;
-            --text-gray: #4A5568;
-            --off-white: #F8F9FA;
-            --light-gray: #E9ECEF;
-            --green: #006747;
-            --green-light: #E6F5EF;
-            --amber: #92400E;
-            --amber-light: #FEF3C7;
-            --shadow: 0 4px 20px rgba(30, 58, 95, 0.15);
-            --shadow-hover: 0 8px 30px rgba(30, 58, 95, 0.25);
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--off-white); color: var(--enrich-navy); line-height: 1.6; }
+:root {
+    --enrich-purple: #8B2A7D;
+    --enrich-purple-dark: #6B1F5F;
+    --enrich-purple-light: #A84D99;
+    --enrich-blue: #2D7BC4;
+    --enrich-blue-dark: #1E5A94;
+    --enrich-blue-light: #4A9AE8;
+    --enrich-navy: #1E3A5F;
+    --enrich-teal: #2A6575;
+    --white: #FFFFFF;
+    --off-white: #F8F9FA;
+    --light-gray: #E9ECEF;
+    --text-gray: #495057;
+    --light-purple: #F5EBF4;
+    --light-blue: #E8EEF4;
+    --bgs-green: #006747;
+    --shadow: 0 4px 20px rgba(30, 58, 95, 0.15);
+    --shadow-hover: 0 8px 30px rgba(30, 58, 95, 0.25);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--off-white);
+    color: var(--enrich-navy);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+header {
+    background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%);
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--white);
+}
+.logo-section img {
+    height: 120px;
+    width: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 6px;
+}
+.logo-text h1 {
+    font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.logo-text p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+nav {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+nav a {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    padding: 0.55rem 1rem;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+nav a:hover, nav a.active {
+    background: var(--white);
+    color: var(--enrich-purple);
+}
+nav a.pin-link { border-color: rgba(255,255,255,0.5); }
+.nhs-banner {
+    background: var(--enrich-blue);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.nhs-banner .banner-text { text-align: center; flex: 1; }
+.logoff-btn {
+    position: absolute;
+    right: 1rem;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.5);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    display: none;
+}
+.logoff-btn:hover { background: rgba(255,255,255,0.35); }
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+footer {
+    background: var(--enrich-navy);
+    color: var(--white);
+    padding: 2rem;
+    margin-top: 3rem;
+}
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.footer-content p { opacity: 0.9; font-size: 0.9rem; }
+.footer-content a { color: var(--enrich-blue-light); }
+@media (max-width: 768px) {
+    .header-content { flex-direction: column; text-align: center; padding: 1rem; }
+    .logo-section { flex-direction: column; gap: 0.5rem; }
+    .logo-section img { height: 100px; }
+    .logo-text h1 { font-size: 1.5rem; }
+    nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; padding-bottom: 5px; }
+    nav::-webkit-scrollbar { display: none; }
+    nav a { flex-shrink: 0; padding: 0.55rem 0.8rem; font-size: 0.8rem; min-height: 44px; display: flex; align-items: center; }
+    .nhs-banner { font-size: 0.75rem; padding: 0.6rem 1rem; }
+    main { padding: 1rem; }
+    .footer-content { flex-direction: column; text-align: center; }
+}
 
-        /* Header */
-        header { background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-blue) 100%); color: white; padding: 1rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.15); position: sticky; top: 0; z-index: 1000; }
-        .header-content { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-        .logo-section { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: white; }
-        .logo-section img { height: 50px; background: white; border-radius: 8px; padding: 4px; }
-        .logo-text h1 { font-size: 1.5rem; font-weight: 700; }
-        .logo-text p { font-size: 0.8rem; opacity: 0.9; }
-        nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-        nav a { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 0.6rem 1.2rem; border-radius: 6px; font-size: 0.9rem; font-weight: 600; transition: all 0.3s; text-decoration: none; font-family: inherit; }
-        nav a:hover, nav a.active { background: white; color: var(--enrich-purple); }
-        nav a.pin-link { border-color: rgba(255,255,255,0.5); }
-        .nhs-banner { background: var(--enrich-blue); color: var(--white); padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; justify-content: center; align-items: center; position: relative; }
-        .nhs-banner .banner-text { text-align: center; flex: 1; }
-        .logoff-btn { position: absolute; right: 1rem; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.5); color: white; padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 600; border-radius: 4px; cursor: pointer; font-family: inherit; transition: all 0.2s ease; }
-        .logoff-btn:hover { background: rgba(255,255,255,0.35); }
-
-        main { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
-        .back-link { display: inline-block; color: var(--enrich-purple); text-decoration: none; font-weight: 600; margin-bottom: 1rem; font-size: 0.9rem; }
-        .back-link:hover { text-decoration: underline; }
-
-        .page-header { background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-blue) 100%); color: white; border-radius: 14px; padding: 2rem 2.5rem; margin-bottom: 1.5rem; }
-        .page-header h2 { font-family: 'Merriweather', Georgia, serif; font-size: 1.6rem; margin-bottom: 0.4rem; }
-        .page-header p { opacity: 0.85; font-size: 0.9rem; }
-
-        /* Tabs */
-        .tabs { display: flex; gap: 0.25rem; margin-bottom: 1.5rem; background: white; border-radius: 10px; padding: 0.3rem; box-shadow: var(--shadow); overflow-x: auto; }
-        .tab-btn { flex: 1; min-width: 120px; padding: 0.75rem 1rem; border: none; background: transparent; font-family: inherit; font-size: 0.85rem; font-weight: 600; color: var(--text-gray); cursor: pointer; border-radius: 8px; transition: all 0.2s; text-align: center; white-space: nowrap; }
-        .tab-btn:hover { background: var(--off-white); }
-        .tab-btn.active { background: var(--enrich-purple); color: white; }
-        .tab-btn .count { display: inline-block; background: rgba(0,0,0,0.15); padding: 0.1rem 0.4rem; border-radius: 10px; font-size: 0.7rem; margin-left: 0.3rem; }
-        .tab-btn.active .count { background: rgba(255,255,255,0.3); }
-
-        .tab-panel { display: none; }
-        .tab-panel.active { display: block; }
-
-        /* Team Cards */
-        .team-section-title { font-family: 'Merriweather', Georgia, serif; font-size: 1.1rem; color: var(--enrich-navy); margin: 1.5rem 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--light-gray); }
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
-        .team-card { background: white; border-radius: 10px; padding: 1.25rem; box-shadow: var(--shadow); display: flex; gap: 1rem; align-items: flex-start; transition: transform 0.2s; }
-        .team-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-        .team-card.manager { border-left: 4px solid var(--enrich-purple); }
-        .team-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--enrich-purple), var(--enrich-blue)); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0; }
-        .team-info h4 { font-size: 0.95rem; color: var(--enrich-navy); }
-        .team-info .role { font-size: 0.8rem; color: var(--enrich-purple); font-weight: 600; margin-bottom: 0.2rem; }
-        .team-info .desc { font-size: 0.78rem; color: var(--text-gray); }
-        .team-info .email-link { font-size: 0.75rem; color: var(--enrich-blue); word-break: break-all; }
-
-        /* Care Home Cards */
-        .ch-card { background: white; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 1rem; overflow: hidden; }
-        .ch-header { padding: 1rem 1.25rem; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; transition: background 0.2s; }
-        .ch-header:hover { background: rgba(0,0,0,0.02); }
-        .ch-header h4 { font-family: 'Merriweather', Georgia, serif; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; }
-        .ch-toggle { font-size: 1.1rem; color: var(--text-gray); transition: transform 0.3s; flex-shrink: 0; }
-        .ch-toggle.open { transform: rotate(180deg); }
-        .ch-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-        .ch-body.open { max-height: 1500px; }
-        .ch-content { padding: 0 1.25rem 1.25rem; }
-        .ch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .ch-block { background: var(--off-white); border-radius: 8px; padding: 0.85rem; }
-        .ch-block h5 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--enrich-purple); margin-bottom: 0.4rem; }
-        .ch-block p { font-size: 0.84rem; color: var(--text-gray); margin: 0.15rem 0; }
-        .ch-block a { color: var(--enrich-blue); font-size: 0.82rem; word-break: break-all; }
-        .ch-block .note { font-style: italic; font-size: 0.78rem; color: var(--amber); margin-top: 0.3rem; }
-
-        /* GP Directory */
-        .search-bar { display: flex; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap; }
-        .search-bar input { flex: 1; min-width: 200px; padding: 0.65rem 1rem; border: 1.5px solid var(--light-gray); border-radius: 8px; font-family: inherit; font-size: 0.9rem; }
-        .search-bar input:focus { outline: none; border-color: var(--enrich-purple); }
-        .search-bar select { padding: 0.65rem 0.75rem; border: 1.5px solid var(--light-gray); border-radius: 8px; font-family: inherit; font-size: 0.85rem; background: white; }
-        .search-bar select:focus { outline: none; border-color: var(--enrich-purple); }
-        .result-count { font-size: 0.8rem; color: var(--text-gray); margin-bottom: 0.75rem; font-weight: 500; }
-
-        .gp-table-wrap { overflow-x: auto; background: white; border-radius: 12px; box-shadow: var(--shadow); }
-        .gp-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
-        .gp-table th { background: var(--enrich-navy); color: white; padding: 0.6rem 0.75rem; text-align: left; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3px; position: sticky; top: 0; cursor: pointer; user-select: none; white-space: nowrap; }
-        .gp-table th:hover { background: #15294A; }
-        .gp-table th .sort-icon { margin-left: 0.3rem; opacity: 0.5; }
-        .gp-table td { padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--light-gray); vertical-align: top; }
-        .gp-table tr:hover td { background: rgba(139,42,125,0.04); }
-        .gp-table a { color: var(--enrich-blue); text-decoration: none; word-break: break-all; }
-        .gp-table a:hover { text-decoration: underline; }
-        .gp-table .practice-name { font-weight: 600; color: var(--enrich-navy); }
-        .gp-table .badge { display: inline-block; padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600; }
-        .gp-table .badge-yes { background: var(--green-light); color: var(--green); }
-        .gp-table .badge-no { background: #FEE2E2; color: #991B1B; }
-        .gp-table .email-cell { font-size: 0.75rem; max-width: 200px; }
-
-        .no-results { text-align: center; padding: 3rem 1rem; color: var(--text-gray); }
-        .no-results .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
-
-        /* Footer */
-        footer { background: var(--enrich-navy); color: white; padding: 2rem; margin-top: 2rem; }
-        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.9rem; }
-        .footer-content a { color: #93C5FD; }
-
-        @media (max-width: 768px) {
-            .header-content { flex-direction: column; text-align: center; padding: 1rem; }
-            .logo-section { flex-direction: column; gap: 0.5rem; }
-            .logo-section img { height: 50px; }
-            nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start; padding-bottom: 5px; }
-            nav::-webkit-scrollbar { display: none; }
-            nav a { flex-shrink: 0; padding: 0.6rem 1rem; font-size: 0.85rem; min-height: 44px; display: flex; align-items: center; }
-            main { padding: 1rem; }
-            .page-header { padding: 1.5rem; }
-            .page-header h2 { font-size: 1.3rem; }
-            .team-grid { grid-template-columns: 1fr; }
-            .ch-grid { grid-template-columns: 1fr; }
-            .gp-table { font-size: 0.75rem; }
-            .gp-table th, .gp-table td { padding: 0.4rem 0.5rem; }
-            .footer-content { flex-direction: column; text-align: center; }
-        }
-
-        @media print {
-            header, nav, .nhs-banner, .back-link, .tabs, .search-bar, footer { display: none; }
-            .tab-panel { display: block !important; }
-            .ch-body { max-height: none !important; }
-            .gp-table-wrap { box-shadow: none; }
-        }
+.back-link { display: inline-block; color: var(--enrich-purple); text-decoration: none; font-weight: 600; margin-bottom: 1.5rem; font-size: 0.95rem; }
+.back-link:hover { text-decoration: underline; }
+.page-header { background: linear-gradient(135deg, var(--enrich-purple) 0%, var(--enrich-purple-dark) 100%); color: var(--white); border-radius: 16px; padding: 2rem 2.5rem; margin-bottom: 2rem; }
+.page-header h2 { font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 1.8rem; margin-bottom: 0.5rem; }
+.page-header p { opacity: 0.9; }
+.content-section { background: var(--white); border-radius: 12px; padding: 2rem; box-shadow: var(--shadow); margin-bottom: 1.5rem; }
+.content-section h3 { font-family: 'Calibri', 'Gill Sans', 'Segoe UI', Helvetica, Arial, sans-serif; color: var(--enrich-navy); margin-bottom: 1rem; font-size: 1.2rem; }
+.content-section p { color: var(--text-gray); margin-bottom: 0.75rem; }
+.content-section ul { color: var(--text-gray); margin-left: 1.5rem; margin-bottom: 1rem; }
+.content-section li { margin-bottom: 0.4rem; }
+.placeholder-notice { background: linear-gradient(135deg, rgba(139,42,125,0.08) 0%, rgba(45,123,196,0.08) 100%); border-left: 4px solid var(--enrich-blue); padding: 1.5rem; border-radius: 0 10px 10px 0; margin: 1.5rem 0; }
+.placeholder-notice h4 { color: var(--enrich-blue); margin-bottom: 0.5rem; }
+.placeholder-notice p { color: var(--text-gray); margin: 0; }
+.contact-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.contact-table th { background: var(--enrich-navy); color: var(--white); padding: 0.75rem 1rem; text-align: left; font-weight: 600; }
+.contact-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--light-gray); color: var(--text-gray); }
+.contact-table tr:hover td { background: rgba(139,42,125,0.04); }
+@media (max-width: 768px) {
+    .page-header { padding: 1.5rem; }
+    .page-header h2 { font-size: 1.4rem; }
+    .content-section { padding: 1.25rem; }
+    .contact-table { font-size: 0.85rem; }
+    .contact-table th, .contact-table td { padding: 0.5rem; }
+}
     </style>
 </head>
 <body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo-section">
+                <img src="EnRICH_Logo_solid.png" alt="EnRICH Logo">
+                <div class="logo-text"><h1>EnRICH</h1><p>Enhanced Reviews in Care Homes</p></div>
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About EnRICH</a>
+                <a href="services.html">Our Services</a>
+                <a href="resources.html">Resources</a>
+                <a href="care-homes.html">Our Care Homes</a>
+                <a href="team.html" class="pin-link">&#x1F512; Meet the Team</a>
+                <a href="referral.html" class="pin-link">&#x1F512; Make a Referral</a>
+                <a href="staff-portal.html" class="active pin-link">&#x1F512; Staff Portal</a>
+            </nav>
+        </div>
+    </header>
 
-<header>
-    <div class="header-content">
-        <a href="index.html" class="logo-section">
-            <img src="EnRICH_Logo_solid.png" alt="EnRICH Logo">
-            <div class="logo-text"><h1>EnRICH</h1><p>Enhanced Reviews in Care Homes</p></div>
-        </a>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About EnRICH</a>
-            <a href="services.html">Our Services</a>
-            <a href="resources.html">Resources</a>
-            <a href="team.html" class="pin-link">&#x1F512; Meet the Team</a>
-            <a href="referral.html" class="pin-link">&#x1F512; Make a Referral</a>
-            <a href="staff-portal.html" class="active pin-link">&#x1F512; Staff Portal</a>
-        </nav>
-    </div>
-</header>
-<div class="nhs-banner"><span class="banner-text">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></span><button class="logoff-btn" id="logoff-btn" onclick="logoff()">Log Off</button></div>
+    <div class="nhs-banner"><span class="banner-text">A service provided by <strong>Cambridge University Hospitals NHS Foundation Trust</strong> &amp; <strong>Cambridgeshire &amp; Peterborough NHS Foundation Trust</strong></span><button class="logoff-btn" id="logoff-btn" onclick="logoff()">Log Off</button></div>
 
-<main>
-    <a href="staff-portal.html" class="back-link">&larr; Back to Staff Portal</a>
+    <main>
+        <a href="staff-portal.html" class="back-link">&larr; Back to Staff Portal</a>
 
     <div class="page-header">
         <h2>&#x1F4DE; Contacts Directory</h2>
@@ -590,189 +629,33 @@
             </div>
         </div>
     </div>
+    </main>
 
-</main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 EnRICH - Enhanced Reviews in Care Homes<br>Cambridge University Hospitals NHS Foundation Trust</p>
+            <p>
+                <a href="resources.html">Resources</a> |
+                <a href="care-homes.html">Our Care Homes</a> |
+                <a href="https://mjb302.github.io/enrich-map/" target="_blank">Care Home Map</a>
+            </p>
+        </div>
+    </footer>
 
-<footer>
-    <div class="footer-content">
-        <p>&copy; 2026 EnRICH &mdash; Enhanced Reviews in Care Homes<br>Cambridge University Hospitals NHS Foundation Trust</p>
-        <p><a href="portal-policies.html">Policies</a> | <a href="staff-portal.html">Staff Portal</a></p>
-    </div>
-</footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// Auth check
-(function(){try{if(sessionStorage.getItem('enrich_auth')!=='true'){window.location.href='staff-portal.html';}}catch(e){window.location.href='staff-portal.html';}})();
-
-// Tab switching
-function switchTab(tab) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    event.currentTarget.classList.add('active');
-    document.getElementById('panel-' + tab).classList.add('active');
-}
-
-// Care home accordion
-function toggleCH(header) {
-    const body = header.nextElementSibling;
-    const toggle = header.querySelector('.ch-toggle');
-    body.classList.toggle('open');
-    toggle.classList.toggle('open');
-}
-
-// GP Data
-var gpData = [
-["Acorn Surgery","The Oak Tree Centre, 1 Oak Tree Drive, Huntingdon","PE29 7HN","01480 483100","hhcdata.acornsurgery@nhs.net","Trish Hawitt-Palmer","Cambridgeshire & Peterborough","No"],
-["Alconbury Surgery","School Lane, Alconbury","PE28 4EQ","01480 890281","hhcdata.alconburyandbramptonsurgery@nhs.net","Melanie Gearing","Cambridgeshire & Peterborough","No"],
-["Almond Road Surgery","Almond Road, St Neots","PE19 1DZ","01480 473413","hhcdata.almondroadsurgery@nhs.net","Julia Boyd","Cambridgeshire & Peterborough","No"],
-["Angel Hill Surgery","1 Angel Hill, Bury St Edmunds","IP33 1LU","01284 753008","angelhill.secretaries@nhs.net","Lauren Thurston","West Suffolk","No"],
-["Arbury Road Surgery","114 Arbury Road, Cambridge","CB4 2JG","01223 364433","admin.arburyroadsurgery@nhs.net","Amanda Hazeldine","Cambridgeshire & Peterborough","Yes"],
-["Ashwell Surgery","Lawyers Close, Gardiners Lane, Ashwell","SG7 5PY","01462 417377","ashwell.surgery@nhs.net","Mark Pilling","East & North Herts","Yes"],
-["Baldock Surgery","Astonia House, High Street, Baldock","SG7 6BP","01462 892458","baldocksurgery.reception@nhs.net","Michael Sissens","East & North Herts","No"],
-["Bottisham Medical Practice","Tunbridge Lane, Bottisham","CB25 9DU","01223 810030","admin.bottishammedicalpractice@nhs.net","Rowena Pilsworth","Cambridgeshire & Peterborough","Yes"],
-["Bourn Surgery","25 Alms Hill, Bourn","CB23 2SH","01954 719313","bourn.surgery@nhs.net","Tracey Wilson","Cambridgeshire & Peterborough","Yes"],
-["Bridge Street Medical Centre","2 All Saints Passage, Cambridge","CB2 3LS","01223 652671","CAPCCG.bridgestreetclinical@nhs.net","","Cambridgeshire & Peterborough","Yes"],
-["Buckden Mayfield Surgery","Mayfield, Buckden","PE19 5SZ","01480 810216","bandlp@nhs.net","Simon Stitson","Cambridgeshire & Peterborough","No"],
-["Buntingford Medical Centre","White Hart Close, Buntingford","SG9 9DQ","01763 271362","admin.buntingfordmc@nhs.net","Teresa Davidson","East & North Herts","Yes"],
-["Burwell Surgery","Newmarket Road, Burwell","CB25 0AE","01638 741234","admin.burwellsurgery@nhs.net","Deborah Everitt","Cambridgeshire & Peterborough","Yes"],
-["Cambridge Access Surgery","125 Newmarket Road, Cambridge","CB5 8HB","01223 358961","capccg.casgroupmailbox@nhs.net","Yvonne Ellis","Cambridgeshire & Peterborough","Yes"],
-["Cathedral Medical Centre","Princess of Wales Hospital, Lynn Road, Ely","CB6 1DN","01353 669923","cathedral.medicalcentre@nhs.net","Andy Botcher","Cambridgeshire & Peterborough","Yes"],
-["Cedar House Practice (Lakeside)","14 Huntingdon Street, St Neots","PE19 1BQ","01480 406677","lakeside.stneots@nhs.net","Sarah Parren","Cambridgeshire & Peterborough","No"],
-["Cherry Hinton Medical Centre","34 Fishers Lane, Cherry Hinton","CB1 9HR","01223 652221","capccg.CherryHintonMCEDS@nhs.net","Emma Britton","Cambridgeshire & Peterborough","Yes"],
-["Church Street Health Centre","6a Church Street, Somersham","PE28 3EG","01487 208044","hhcdata.churchstreetsurgery@nhs.net","Sue Bryan","Cambridgeshire & Peterborough","No"],
-["Church Street Medical Partnership","30A Church Street, Bishops Stortford","CM23 2LY","01279 657636","css.partners@nhs.net","Debbie Ryan","East & North Herts","No"],
-["Clarkson Surgery (Octogon)","De Havilland Road, Wisbech","PE13 3AN","01945 583133","clarksonsurgery@nhs.net","Kate Wing","Cambridgeshire & Peterborough","No"],
-["Comberton Surgery","58 Green End, Comberton","CB23 7DY","01223 262500","admin.combertonsurgery@nhs.net","Jenny Cottam","Cambridgeshire & Peterborough","Yes"],
-["Cornerstone Practice (Octogon)","26 Elwyn Road, March","PE15 9BF","01354 606300","cornerstone.practice@nhs.net","Sarah Fox","Cambridgeshire & Peterborough","No"],
-["Cornford House Surgery","364 Cherry Hinton Road, Cambridge","CB1 8BA","01223 247505","capccg.cornfordhouse@nhs.net","Sue Bowtle","Cambridgeshire & Peterborough","Yes"],
-["Cottenham Surgery - Lewis House","188 High Street, Cottenham","CB24 8SE","01954 250079","capccg.cottenhamsurgery@nhs.net","Amanda Harrington","Cambridgeshire & Peterborough","Yes"],
-["Crocus Medical Practice","18 Castle Street, Saffron Walden","CB10 1BP","01799 522327","weccg.f81015-surgeryresults@nhs.net","Jan Law","West Essex","Yes"],
-["Doddington Medical Centre","11D Benwick Road, Doddington","PE15 0TG","01354 740311","no-reply.fenlandgp@nhs.net","Elizabeth Welcher","Cambridgeshire & Peterborough","No"],
-["East Barnwell Health Centre","Ditton Lane, Cambridge","CB5 8SP","01223 728900","admin.eastbarnwellhealthcentre@nhs.net","Barbara Caldwell","Cambridgeshire & Peterborough","Yes"],
-["Eaton Socon Health Centre (Lakeside)","274 Great North Road, Eaton Socon","PE19 8BB","01480 210000","lakeside.stneots@nhs.net","Sarah Parren","Cambridgeshire & Peterborough","No"],
-["Firs House Surgery","Station Road, Histon","CB24 9NP","01223 234286","capccg.post-firshouse@nhs.net","Charlotte Doyle","Cambridgeshire & Peterborough","Yes"],
-["George Clare Surgery","Swan Drive, New Road, Chatteris","PE16 6EX","01354 695888","capccg.georgeclaresurgeryadmin@nhs.net","Melissa Morley","Cambridgeshire & Peterborough","No"],
-["Gold Street Surgery","Gold Street, Saffron Walden","CB10 1EJ","01799 525325","edt.goldstreet@nhs.net","Hugh Weller-Lewis","West Essex","Yes"],
-["Granta Medical Practices","London Road, Sawston","CB22 3HU","0300 2345555","noreply.grantamedicalpractices.sms@nhs.net","Nicki Foster","Cambridgeshire & Peterborough","Yes"],
-["Greensands Medical Practice","Brook End, Potton, Sandy","SG19 2QS","01767 260340","greensands.medicalpractice@nhs.net","Nicola Gauge","Bedfordshire","Yes"],
-["Grove Medical Practice","Cromwell Place, St Ives","PE27 5JD","01480 462206","CAPCCG.grove.medical@nhs.net","Marilyn Long/ Sam Jones","Cambridgeshire & Peterborough","No"],
-["Guildhall and Barrow Surgery","Lower Baxter Street, Bury St Edmunds","IP33 1ET","01284 701601","admin.guildhallbarrow@nhs.net","Rebecca Shelly","West Suffolk","No"],
-["Haddenham Surgery","The Green, Haddenham","CB6 3TA","01353 740205","capccg.haddenham@nhs.net","Lynda Winter","Cambridgeshire & Peterborough","Yes"],
-["Harston Surgery","11 Church Street, Harston","CB22 7NP","01223 870250","admin.harston@nhs.net","Gerry O'Leary","Cambridgeshire & Peterborough","Yes"],
-["Hicks Group Practice","75 Ermine Street, Huntingdon","PE29 3EZ","01480 453038","hhcdata.charleshickscentre@nhs.net","Lisa Harrison","Cambridgeshire & Peterborough","No"],
-["Huntingdon Road Surgery","1 Huntingdon Road, Cambridge","CB3 0DB","01223 364127","capccg.hrssecretaries@nhs.net","Neil Paterson","Cambridgeshire & Peterborough","Yes"],
-["Jenner Health Centre","Turners Lane, Whittlesey","PE7 1EJ","01733 206200","capccg.jenneradmin@nhs.net","Kelly Rough","Cambridgeshire & Peterborough","No"],
-["Kimbolton Medical Centre","Hunters Way, Kimbolton","PE28 0JF","01480 860205","hhcdata.huntersway@nhs.net","Nikki Yeomen","Cambridgeshire & Peterborough","No"],
-["Lensfield Medical Practice","48 Lensfield Road, Cambridge","CB2 1EH","01223 651020","capccg.lensfield@nhs.net","Linda Kelly","Cambridgeshire & Peterborough","Yes"],
-["Maple Surgery","Hanover Close, Bar Hill","CB23 8EH","01954 780442","maplesurgery.enquiries@nhs.net","Clare Briars","Cambridgeshire & Peterborough","Yes"],
-["Market Cross Surgery","7 Market Place, Mildenhall","IP28 7EG","01638 713109","WSCCG.marketcrossmcenq@nhs.net","Sarah Greatorex","West Suffolk","Yes"],
-["Mill Road Surgery","279-281 Mill Road, Cambridge","CB1 3DG","01223 247812","admin.millroadsurgery@nhs.net","Heather Harman","Cambridgeshire & Peterborough","Yes"],
-["Milton Surgery","Coles Road, Milton","CB24 6BL","01223 420511","admin.miltonsurgery1@nhs.net","Sophie Ward","Cambridgeshire & Peterborough","Yes"],
-["Moat House Surgery","Beech Close, Warboys","PE28 2RQ","01487 822230","moat.house@nhs.net","Sue Webster","Cambridgeshire & Peterborough","No"],
-["Monkfield Medical Practice","Sackville Way, Cambourne","CB23 6HL","01954 282153","admin.mmp@nhs.net","Hannah Crisford","Cambridgeshire & Peterborough","Yes"],
-["Mount Farm Surgery","Lawson Place, Bury St Edmunds","IP32 7EW","01284 769643","wsccg.mountfarmadmin@nhs.net","Jayne Nayler","West Suffolk","No"],
-["New Queen Street Surgery","Syers Lane, Whittlesey","PE7 1AT","01733 204611","newqueenst.surgery@nhs.net","Diane Groff","Cambridgeshire & Peterborough","No"],
-["Newnham Walk Surgery","Wordsworth Grove, Cambridge","CB3 9HS","01223 366811","admin.newnhamwalksurgery@nhs.net","Barbara Willis","Cambridgeshire & Peterborough","Yes"],
-["Newport Surgery","Frambury Lane, Newport","CB11 3PY","01799 540570","weccg.f81034-results@nhs.net","Sandra Stillwell","West Essex","Yes"],
-["North Brink Practice","7 North Brink, Wisbech","PE13 1JU","01945 660460","secretaries.northbrink@nhs.net","Phillip Wareing","Cambridgeshire & Peterborough","No"],
-["Nuffield Road Medical Centre","Nuffield Road, Cambridge","CB4 1GL","01223 423424","capccg.adminnuffieldroad@nhs.net","Glenn Hearnden","Cambridgeshire & Peterborough","Yes"],
-["Oakfield Surgery","Vicarage Road, Newmarket","CB8 8HP","01638 662018","Wsccg.oakfieldsurgery@nhs.net","Zena Cornell","West Suffolk","Yes"],
-["Orchard House Surgery","Fred Archer Way, Newmarket","CB8 8NU","01638 666887","wsccg.orchardhouse@nhs.net","Megan Quinlan","West Suffolk","Yes"],
-["Orchard Surgery","New Road, Melbourn","SG8 6BX","01763 260220","contact.orchardsurgery@nhs.net","Reginald Tomkins","Cambridgeshire & Peterborough","Yes"],
-["Over Surgery","1 Drings Close, Over","CB24 5NZ","01954 231550","admin.oversurgery@nhs.net","Lorna Gardiner","Cambridgeshire & Peterborough","Yes"],
-["Papworth Surgery (Octogon)","Chequers Lane, Papworth Everard","CB23 3QQ","01480 830888","hhcdata.papworthsurgery@nhs.net","Alexander McKenzie","Cambridgeshire & Peterborough","No"],
-["Parson Drove Surgery","Main Road, Parson Drove, Wisbech","PE13 4LF","01945 700223","capccg.pds-admin@nhs.net","Joe Purvis","Cambridgeshire & Peterborough","No"],
-["Petersfield Medical Practice","25 Mill Road, Cambridge","CB1 2AB","01223 350647","CAPCCG.petersfieldmp@nhs.net","Hamza Ejaz","Cambridgeshire & Peterborough","Yes"],
-["Priors Field Surgery","24 High Street, Sutton","CB6 2RB","01353 778208","priorsfield.surgery@nhs.net","Jennie Sparkes","Cambridgeshire & Peterborough","Yes"],
-["Priory Fields Surgery (Octogon)","Nursery Road, Huntingdon","PE29 3RL","01480 413600","hhcdata.prioryfieldssurgery@nhs.net","Emily Ross","Cambridgeshire & Peterborough","No"],
-["Queen Edith Medical Practice","59 Queen Edith's Way, Cambridge","CB1 8PJ","01223 247288","CAPCCG.generalqemp@nhs.net","Claire Surridge","Cambridgeshire & Peterborough","Yes"],
-["Ramsey Health Centre","Mews Close, Whytefield Road, Ramsey","PE26 1BP","01487 812611","ramsey.health-centre@nhs.net","Julie White","Cambridgeshire & Peterborough","No"],
-["Red House Surgery","96 Chesterton Road, Cambridge","CB4 1ER","01223 365555","redhousesurgery@nhs.net","Caroline Mason","Cambridgeshire & Peterborough","Yes"],
-["Reynard Surgery","Turnpike Road, Red Lodge","IP28 8LB","01638 552211","reynard.surgery@nhs.net","Jessica Norman/ Debbie Allen","West Suffolk","No"],
-["Riverport Medical Practice","Constable Road, St Ives","PE27 3ER","01480 466611","riverport.medicalpractice@nhs.net","Bruce Abel","Cambridgeshire & Peterborough","No"],
-["Riverside Practice","23 Marylebone Road, March","PE15 8BG","01354 661922","riverside.reception@nhs.net","Helen Lattaway","Cambridgeshire & Peterborough","No"],
-["Rookery Medical Centre","Rookery House, Newmarket","CB8 8NW","01638 664338","WSCCG.scanning-rookery@nhs.net","Scott Burley","West Suffolk","Yes"],
-["Rosalind Franklin House (Waterbeach)","Bannold Road, Waterbeach","CB25 9LQ","01223 860387","admin.rosalindfranklinhouse@nhs.net","Perminder Matharu","Cambridgeshire & Peterborough","Yes"],
-["Roysia Surgery","Burns Road, Royston","SG8 5PT","01763 243166","E82132.roysiasurgery@nhs.net","Peter Grantham","Cambridgeshire & Peterborough","Yes"],
-["Royston Health Centre","Melbourn Street, Royston","SG8 7BS","01763 242981","enquiries.roystonhc@nhs.net","Melanie Piggott","Cambridgeshire & Peterborough","Yes"],
-["Sandy Health Centre","Northcroft, Sandy","SG19 1JQ","01767 682525","office.sandy@nhs.net","Rosena Morris","Bedfordshire","No"],
-["Shelford Medical Practice (Granta)","Ashen Green, Great Shelford","CB22 5FY","0300 2345555","noreply.grantamedicalpractices.sms@nhs.net","Nicki Foster","Cambridgeshire & Peterborough","Yes"],
-["Spinney Surgery","Ramsey Road, St Ives","PE27 3TP","01480 495347","secretary.spinney@nhs.net","Debbie Wheatley","Cambridgeshire & Peterborough","No"],
-["St George's Medical Centre","Parson's Lane, Littleport","CB6 1JU","01353 864100","capccg.stgeorgesmedicalcentre@nhs.net","Simon Randall","Cambridgeshire & Peterborough","Yes"],
-["St Mary's Surgery","37 St Mary's Street, Ely","CB7 4HF","01353 663434","stmarysely-reminder@nhs.net","Tony Davies","Cambridgeshire & Peterborough","Yes"],["St Neots Health Centre","24 Moores Walk, St Neots","PE19 1AG","01480 219317","capccg.stneotshc@nhs.net","Denise Russell","Cambridgeshire & Peterborough","No"],
-["Staploe Medical Centre","Brewhouse Lane, Soham","CB7 5JD","01353 624123","CAPCCG.staploe@nhs.net","Andy Botcher","Cambridgeshire & Peterborough","Yes"],
-["Swavesey Surgery","58 Boxworth End, Swavesey","CB24 4RA","01954 230202","admin.swaveseysurgery@nhs.net","Lorna Gardiner","Cambridgeshire & Peterborough","Yes"],
-["Trinity Surgery","29 St Augustine's Road, Wisbech","PE13 3UZ","01945 476999","CAPCCG.trinityadmin@nhs.net","Helen Clayton","Cambridgeshire & Peterborough","No"],
-["Trumpington Street Medical Practice","56 Trumpington Street, Cambridge","CB2 1RG","01223 361611","capccg.trumpingtonstreetmedicalpractice@nhs.net","Wendy Manley","Cambridgeshire & Peterborough","Yes"],
-["Upwell Health Centre","Townley Close, Upwell, Wisbech","PE14 9BT","01945 773671","enquiries.upwellhc@nhs.net","Steven Reeves","Cambridgeshire & Peterborough","No"],
-["Victoria Surgery","Victoria Street, Bury St Edmunds","IP33 3BB","01284 725550","wsccg.victoriasecretary@nhs.net","Jo Shaw","West Suffolk","No"],
-["Wellside Surgery","45 High Street, Sawtry","PE28 5SU","01487 830340","hhcdata.wellsidesurgery@nhs.net","Claire Wright","Cambridgeshire & Peterborough","No"],
-["Wickhambrook Surgery","Boyden Close, Wickhambrook","CB8 8XU","01440 820140","wsccg.wickadmin@nhs.net","Libby Hoffmann","West Suffolk","Yes"],
-["Willingham Medical Practice","52 Long Lane, Willingham","CB24 5LB","01954 260230","willinghammedicalpractice@nhs.net","Sharon Unwin","Cambridgeshire & Peterborough","Yes"],
-["Woodlands Surgery at Eden House","48-49 Bateman Street, Cambridge","CB2 1LR","01223 697600","capccg.woodlands@nhs.net","Kirsty Dance","Cambridgeshire & Peterborough","Yes"],
-["Woolpit Health Centre","Heath Road, Woolpit, Bury St Edmunds","IP30 9QU","01359 240298","wsccg.woolpit@nhs.net","Ben Cobbold","West Suffolk","No"],
-["Yaxley Group Practice (Lakeside)","Landsdowne Road, Yaxley","PE7 3JL","01733 240478","secretariat.ygp@nhs.net","Iaja Selby","Cambridgeshire & Peterborough","No"],
-["York Street Medical Practice","146-148 York Street, Cambridge","CB1 2PY","01223 364116","york.street@nhs.net","Stuart Thorpe","Cambridgeshire & Peterborough","Yes"]
-];
-
-// Render GP table
-function renderGPs(data) {
-    var tbody = document.getElementById('gp-tbody');
-    var html = '';
-    for (var i = 0; i < data.length; i++) {
-        var r = data[i];
-        var emailParts = r[4].split(/[\s,;]+/).filter(function(e){return e.includes('@');});
-        var emailHtml = emailParts.length > 0 ? '<a href="mailto:' + emailParts[0] + '">' + emailParts[0] + '</a>' : '';
-        var catchBadge = r[7] === 'Yes' ? '<span class="badge badge-yes">Yes</span>' : '<span class="badge badge-no">No</span>';
-        html += '<tr>' +
-            '<td class="practice-name">' + r[0] + '</td>' +
-            '<td>' + r[1] + '</td>' +
-            '<td>' + r[2] + '</td>' +
-            '<td style="white-space:nowrap;">' + r[3] + '</td>' +
-            '<td class="email-cell">' + emailHtml + '</td>' +
-            '<td>' + r[5] + '</td>' +
-            '<td style="font-size:0.75rem;">' + r[6] + '</td>' +
-            '<td style="text-align:center;">' + catchBadge + '</td>' +
-            '</tr>';
-    }
-    tbody.innerHTML = html;
-    document.getElementById('gp-result-count').textContent = 'Showing ' + data.length + ' practice' + (data.length !== 1 ? 's' : '');
-    document.getElementById('gp-no-results').style.display = data.length === 0 ? 'block' : 'none';
-}
-
-function filterGPs() {
-    var query = document.getElementById('gp-search').value.toLowerCase();
-    var ccg = document.getElementById('gp-ccg-filter').value;
-    var catchment = document.getElementById('gp-catchment-filter').value;
-    var filtered = gpData.filter(function(r) {
-        var matchesSearch = !query || r.join(' ').toLowerCase().indexOf(query) !== -1;
-        var matchesCCG = !ccg || r[6] === ccg;
-        var matchesCatch = !catchment || r[7] === catchment;
-        return matchesSearch && matchesCCG && matchesCatch;
-    });
-    renderGPs(filtered);
-}
-
-var sortCol = -1, sortAsc = true;
-function sortGPs(col) {
-    if (sortCol === col) { sortAsc = !sortAsc; } else { sortCol = col; sortAsc = true; }
-    gpData.sort(function(a, b) {
-        var va = a[col].toLowerCase(), vb = b[col].toLowerCase();
-        if (va < vb) return sortAsc ? -1 : 1;
-        if (va > vb) return sortAsc ? 1 : -1;
-        return 0;
-    });
-    filterGPs();
-}
-
-// Initial render
-renderGPs(gpData);
-
-// Log Off
-function logoff() {
-    try { sessionStorage.removeItem('enrich_auth'); sessionStorage.removeItem('enrich_home'); } catch(e) {}
-    window.location.href = 'staff-portal.html';
-}
-</script>
+    <script>
+        (function() {
+            try {
+                if (sessionStorage.getItem('enrich_auth') !== 'true') {
+                    window.location.href = 'staff-portal.html';
+                }
+            } catch(e) {
+                window.location.href = 'staff-portal.html';
+            }
+        })();
+        function logoff() {
+            try { sessionStorage.removeItem('enrich_auth'); sessionStorage.removeItem('enrich_home'); } catch(e) {}
+            window.location.href = 'staff-portal.html';
+        }
+    </script>
 </body>
 </html>
