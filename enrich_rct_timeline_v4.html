@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EnRICH-RCT — Planning & Rollout Timeline</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #f6f4f0;
+    --surface: #ffffff;
+    --border: #d4d0c8;
+    --text: #2c2a26;
+    --text-muted: #6b6860;
+    --accent-reg: #b44a2f;
+    --accent-peer: #8b6914;
+    --accent-wave: #1a6b5a;
+    --accent-ctrl: #9e9e9e;
+    --accent-data-trend: #4a6fa5;
+    --accent-data-level: #7b5ea7;
+    --accent-obs: #c97a2e;
+    --accent-prep: #5a7a8a;
+    --today: #d92626;
+    --milestone: #2c2a26;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    padding: 2rem;
+  }
+
+  .header {
+    max-width: 1400px;
+    margin: 0 auto 1.5rem;
+    border-bottom: 3px solid var(--text);
+    padding-bottom: 1rem;
+  }
+
+  .header h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .header .subtitle {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+
+  .legend-bar {
+    max-width: 1400px;
+    margin: 0 auto 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.15rem;
+    align-items: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  .legend-item { display: flex; align-items: center; gap: 0.35rem; }
+  .legend-swatch { width: 16px; height: 9px; border-radius: 2px; flex-shrink: 0; }
+  .legend-line { width: 16px; height: 0; border-top: 2.5px dashed var(--today); flex-shrink: 0; }
+
+  .chart-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: var(--shadow-lg);
+    overflow-x: auto;
+    padding: 1.5rem 1rem 1rem;
+  }
+
+  .chart-wrapper { position: relative; min-width: 1100px; }
+
+  .month-header {
+    display: flex;
+    margin-left: 260px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.35rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .month-cell {
+    flex: 1;
+    text-align: center;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .month-cell.year-start { font-weight: 700; color: var(--text); }
+
+  .year-label { display: flex; margin-left: 260px; margin-bottom: 0.1rem; }
+
+  .year-span {
+    text-align: center;
+    font-size: 0.82rem;
+    font-weight: 700;
+    font-family: 'Source Serif 4', serif;
+    color: var(--text);
+    border-bottom: 2px solid var(--text);
+    padding-bottom: 0.1rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .section-label {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.55rem 0 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-top: 1px solid var(--border);
+    margin-top: 0.35rem;
+  }
+
+  .section-label:first-of-type { border-top: none; margin-top: 0; }
+
+  .row { display: flex; align-items: center; height: 26px; position: relative; }
+
+  .row-label {
+    width: 260px;
+    flex-shrink: 0;
+    font-size: 0.73rem;
+    font-weight: 500;
+    padding-right: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .row-label .count {
+    display: inline-block;
+    background: #e8e6e0;
+    color: var(--text-muted);
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 0px 5px;
+    border-radius: 3px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  .row-track { flex: 1; position: relative; height: 100%; }
+
+  .bar {
+    position: absolute;
+    height: 15px;
+    top: 5.5px;
+    border-radius: 3px;
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: default;
+    transition: opacity 0.15s;
+    z-index: 2;
+  }
+
+  .bar:hover { opacity: 0.82; box-shadow: var(--shadow); }
+
+  .bar-reg { background: var(--accent-reg); }
+  .bar-peer { background: var(--accent-peer); }
+  .bar-wave { background: var(--accent-wave); }
+  .bar-ctrl { background: var(--accent-ctrl); }
+  .bar-prep { background: var(--accent-prep); }
+  .bar-data-trend { background: var(--accent-data-trend); opacity: 0.65; height: 9px; top: 8.5px; border-radius: 2px; }
+  .bar-data-level { background: var(--accent-data-level); opacity: 0.65; height: 9px; top: 8.5px; border-radius: 2px; }
+  .bar-obs { background: var(--accent-obs); opacity: 0.6; }
+
+  .milestone-diamond {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: var(--milestone);
+    transform: rotate(45deg);
+    top: 8.5px;
+    z-index: 3;
+    cursor: default;
+  }
+
+  .milestone-diamond.red { background: var(--accent-reg); }
+  .milestone-diamond.green { background: var(--accent-wave); }
+
+  .today-line {
+    position: absolute;
+    top: 0; bottom: 0; width: 0;
+    border-left: 2.5px dashed var(--today);
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .today-flag {
+    position: absolute;
+    transform: translateX(-50%);
+    background: var(--today);
+    color: #fff;
+    font-size: 0.58rem;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 2px;
+    white-space: nowrap;
+    z-index: 6;
+  }
+
+  .tooltip {
+    display: none;
+    position: fixed;
+    background: var(--text);
+    color: #fff;
+    font-size: 0.72rem;
+    padding: 0.4rem 0.65rem;
+    border-radius: 4px;
+    max-width: 340px;
+    z-index: 100;
+    pointer-events: none;
+    line-height: 1.4;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .notes {
+    max-width: 1400px;
+    margin: 1.5rem auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .note-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    box-shadow: var(--shadow);
+  }
+
+  .note-card h3 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .note-card p, .note-card li { font-size: 0.77rem; color: var(--text-muted); line-height: 1.55; }
+  .note-card ul, .note-card ol { padding-left: 1.1rem; margin-top: 0.25rem; }
+  .note-card li { margin-bottom: 0.2rem; }
+
+  .note-card .role-note {
+    font-size: 0.72rem;
+    color: var(--accent-reg);
+    font-style: italic;
+    margin-left: 0.3rem;
+  }
+
+  .note-card .footnote {
+    margin-top: 0.7rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.72rem;
+    color: var(--accent-reg);
+    font-weight: 600;
+  }
+
+  .wave-table { width: 100%; border-collapse: collapse; font-size: 0.73rem; margin-top: 0.4rem; }
+  .wave-table th { text-align: left; font-weight: 600; padding: 0.25rem 0.4rem; border-bottom: 2px solid var(--border); }
+  .wave-table td { padding: 0.25rem 0.4rem; border-bottom: 1px solid #eee; color: var(--text-muted); }
+
+  @media (max-width: 900px) { .notes { grid-template-columns: 1fr; } body { padding: 1rem; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>EnRICH-RCT &mdash; Regulatory, Peer Review &amp; Rollout Timeline</h1>
+  <div class="subtitle">Phased, paired cluster RCT &middot; 14 matched pairs &middot; 28 homes &middot; 3 waves (May 2026 &ndash; Jan 2027) &middot; Primary analysis &ge; Jul 2028 &middot; Generated <span id="gen-date"></span></div>
+</div>
+
+<div class="legend-bar">
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--accent-reg)"></div>Regulatory &amp; governance</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--accent-peer)"></div>Peer review</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--accent-prep)"></div>Preparation / setup</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--accent-wave)"></div>Intervention arm</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--accent-ctrl)"></div>Control arm (usual care)</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--accent-data-trend)"></div>Trend data window (24 mo)</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--accent-data-level)"></div>Level data window (12 mo)</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--accent-obs)"></div>Analysis</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--milestone); width:9px; height:9px; transform:rotate(45deg); border-radius:0;"></div>Milestone</div>
+  <div class="legend-item"><div class="legend-line"></div><span id="today-legend">Today</span></div>
+</div>
+
+<div class="chart-container">
+  <div class="chart-wrapper" id="chart"></div>
+</div>
+
+<div id="tooltip" class="tooltip"></div>
+
+<div class="notes">
+  <div class="note-card">
+    <h3>Regulatory &amp; Approval Pathway</h3>
+    <p>Working backwards from a May 2026 Wave 1 start, the critical path runs through IRAS submission, REC review, and CAG approval. Estimated timescales:</p>
+    <ul>
+      <li><strong>Protocol finalisation + peer review:</strong> ~5 weeks (mid Feb &ndash; late Mar 2026)</li>
+      <li><strong>IRAS form preparation:</strong> ~2 weeks (late Mar &ndash; mid Apr)</li>
+      <li><strong>REC review:</strong> Statutory 60 calendar days &mdash; the rate-limiting step</li>
+      <li><strong>CAG application:</strong> Runs in parallel; ~40 working days</li>
+      <li><strong>ISRCTN registration:</strong> Alongside IRAS; ~2&ndash;4 weeks</li>
+    </ul>
+    <p style="margin-top:0.5rem;">Even with an aggressive timeline, REC approval likely lands mid-June at earliest. Wave 1 can proceed in May only if classified as service evaluation not requiring REC, or if conditional on approval arriving before first randomisation.</p>
+  </div>
+
+  <div class="note-card">
+    <h3>Wave Schedule &amp; Data Windows (v7)</h3>
+    <table class="wave-table">
+      <thead>
+        <tr><th>Wave</th><th>Start</th><th>Pairs</th><th>Homes</th><th>Trend Window</th><th>Level Window</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>May 2026</td><td>5</td><td>10</td><td>1 Mar 2024 &ndash; 28 Feb 2026</td><td>1 Mar 2025 &ndash; 28 Feb 2026</td></tr>
+        <tr><td>2</td><td>Sep 2026</td><td>5</td><td>10</td><td>1 Jul 2024 &ndash; 30 Jun 2026</td><td>1 Jul 2025 &ndash; 30 Jun 2026</td></tr>
+        <tr><td>3</td><td>Jan 2027</td><td>4</td><td>8</td><td>1 Nov 2024 &ndash; 31 Oct 2026</td><td>1 Nov 2025 &ndash; 31 Oct 2026</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:0.5rem;">All data windows end 2 months before wave start. Wave 1 data is already closed &mdash; extraction and pairing can begin immediately. Minimum 18-month parallel observation from Wave 3 &rarr; primary analysis no earlier than <strong>July 2028</strong>.</p>
+  </div>
+
+  <div class="note-card">
+    <h3>Key Personnel Requiring Funding</h3>
+    <ol>
+      <li>Oversight &mdash; Ethics and Ageing &mdash; <strong>Professor</strong></li>
+      <li>Oversight &mdash; Geriatrics &mdash; <strong>Professor</strong></li>
+      <li>Chief Investigator &mdash; <strong>Quantitative</strong></li>
+      <li>Principal Investigator &mdash; <strong>Qualitative</strong></li>
+      <li>Statistician <span class="role-note">&mdash; Req: access to CUH network</span></li>
+      <li>Administration &mdash; <strong>Band 3&ndash;4 AfC</strong></li>
+      <li>Trust R&amp;D Project Manager</li>
+    </ol>
+    <div class="footnote">Note: R&amp;D overheads of 20% should be factored into any grant funding applications.</div>
+  </div>
+
+  <div class="note-card">
+    <h3>Key Dependencies &amp; Risks</h3>
+    <ul>
+      <li><strong>Critical path:</strong> Peer review &rarr; Protocol lock &rarr; IRAS &rarr; REC approval &rarr; Wave 1</li>
+      <li><strong>Parallel tracks:</strong> CAG and ISRCTN proceed alongside REC; Wave 1 data extraction runs now</li>
+      <li><strong>Risk &mdash; REC queries:</strong> If revisions requested, add 4&ndash;6 weeks &rarr; Wave 1 slips to ~Jul 2026</li>
+      <li><strong>Risk &mdash; Peer review delays:</strong> If reviewers take &gt;3 weeks, compress IRAS prep or accept delay</li>
+      <li><strong>Wave 1 data already closed:</strong> Trend ends Feb 2026, level ends Feb 2026 &mdash; start extraction now</li>
+      <li><strong>Workforce capacity clause:</strong> Protocol allows wave delays; observation period extends to preserve 18-month minimum</li>
+      <li><strong>Wave 2/3 data windows extend into future:</strong> W2 level ends Jun 2026; W3 level ends Oct 2026</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+const TIMELINE_START = new Date(2024, 0, 1);
+const TIMELINE_END   = new Date(2029, 0, 31);
+const TODAY = new Date(); // Dynamic — moves with system date
+const STUDY_END = new Date(2028, 6, 1);
+
+const totalDays = (TIMELINE_END - TIMELINE_START) / 864e5;
+function pct(date) { return ((date - TIMELINE_START) / 864e5) / totalDays * 100; }
+
+// Format today for display
+const mFull = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+document.getElementById('gen-date').textContent = TODAY.getDate() + ' ' + mFull[TODAY.getMonth()] + ' ' + TODAY.getFullYear();
+document.getElementById('today-legend').textContent = 'Today (' + TODAY.getDate() + ' ' + mFull[TODAY.getMonth()].slice(0,3) + ' ' + TODAY.getFullYear() + ')';
+
+const sections = [
+  {
+    title: 'Regulatory & Governance',
+    rows: [
+      { label: 'Protocol finalisation', bars: [
+        { start: new Date(2026,1,11), end: new Date(2026,1,28), cls: 'bar-reg', tip: 'Final protocol draft: 11\u201328 Feb 2026' }
+      ]},
+      { label: 'Peer review (2 reviewers)', bars: [
+        { start: new Date(2026,2,1), end: new Date(2026,2,21), cls: 'bar-peer', tip: 'External peer review: 1\u201321 Mar 2026 (3 weeks)' }
+      ]},
+      { label: 'Post-review revisions', bars: [
+        { start: new Date(2026,2,22), end: new Date(2026,3,4), cls: 'bar-reg', tip: 'Incorporate reviewer comments: 22 Mar \u2013 4 Apr 2026 (2 weeks)' }
+      ],
+        milestones: [{ date: new Date(2026,3,4), tip: 'Protocol locked', cls: '' }]
+      },
+      { label: 'IRAS form preparation', bars: [
+        { start: new Date(2026,3,5), end: new Date(2026,3,18), cls: 'bar-reg', tip: 'IRAS form + supporting documents: 5\u201318 Apr 2026' }
+      ],
+        milestones: [{ date: new Date(2026,3,18), tip: 'IRAS submitted', cls: 'red' }]
+      },
+      { label: 'REC review (60-day clock)', bars: [
+        { start: new Date(2026,3,18), end: new Date(2026,5,17), cls: 'bar-reg', tip: 'REC statutory review: 18 Apr \u2013 17 Jun 2026 (60 days)' }
+      ],
+        milestones: [{ date: new Date(2026,5,17), tip: 'REC favourable opinion (target)', cls: '' }]
+      },
+      { label: 'CAG s251 application (parallel)', bars: [
+        { start: new Date(2026,3,18), end: new Date(2026,5,26), cls: 'bar-reg', tip: 'CAG application: 18 Apr \u2013 26 Jun 2026 (~40 working days)' }
+      ],
+        milestones: [{ date: new Date(2026,5,26), tip: 'CAG approval (target)', cls: '' }]
+      },
+      { label: 'ISRCTN registration (parallel)', bars: [
+        { start: new Date(2026,3,5), end: new Date(2026,4,3), cls: 'bar-reg', tip: 'ISRCTN application: 5 Apr \u2013 3 May 2026' }
+      ],
+        milestones: [{ date: new Date(2026,4,3), tip: 'ISRCTN registered (target)', cls: '' }]
+      },
+      { label: 'HRA confirmation & site setup', bars: [
+        { start: new Date(2026,5,17), end: new Date(2026,6,10), cls: 'bar-reg', tip: 'Final HRA confirmation + local governance: mid Jun \u2013 early Jul 2026' }
+      ]},
+    ]
+  },
+  {
+    title: 'Wave 1 \u2014 May 2026 (5 pairs \u2192 10 homes enrolled)',
+    rows: [
+      { label: 'W1 Trend window (24 mo)', bars: [
+        { start: new Date(2024,2,1), end: new Date(2026,1,28), cls: 'bar-data-trend', tip: 'Wave 1 trend: 1 Mar 2024 \u2013 28 Feb 2026' }
+      ]},
+      { label: 'W1 Level window (12 mo)', bars: [
+        { start: new Date(2025,2,1), end: new Date(2026,1,28), cls: 'bar-data-level', tip: 'Wave 1 level: 1 Mar 2025 \u2013 28 Feb 2026' }
+      ]},
+      { label: 'W1 Data extraction & pairing', bars: [
+        { start: new Date(2026,2,1), end: new Date(2026,3,15), cls: 'bar-prep', tip: 'Extract data, run pairing algorithm, verify balance: Mar \u2013 mid Apr 2026' }
+      ]},
+      { label: 'W1 Randomisation & notification', bars: [
+        { start: new Date(2026,3,15), end: new Date(2026,4,1), cls: 'bar-prep', tip: 'Run randomisation, notify care homes: mid Apr \u2013 1 May 2026' }
+      ]},
+      { labelHtml: 'W1 Intervention arm <span class="count">5 homes</span>', bars: [
+        { start: new Date(2026,4,1), end: STUDY_END, cls: 'bar-wave', tip: 'Wave 1 intervention arm: 5 homes receive EnRICH from May 2026 \u2013 Jul 2028 (26 months)' }
+      ],
+        milestones: [{ date: new Date(2026,4,1), tip: 'Wave 1 starts \u2014 5 pairs enter parallel comparison', cls: 'green' }]
+      },
+      { labelHtml: 'W1 Control arm <span class="count">5 homes</span>', bars: [
+        { start: new Date(2026,4,1), end: STUDY_END, cls: 'bar-ctrl', tip: 'Wave 1 control arm: 5 homes receive usual care from May 2026 \u2013 Jul 2028 (26 months)' }
+      ]},
+    ]
+  },
+  {
+    title: 'Wave 2 \u2014 Sep 2026 (5 pairs \u2192 10 homes enrolled)',
+    rows: [
+      { label: 'W2 Trend window (24 mo)', bars: [
+        { start: new Date(2024,6,1), end: new Date(2026,5,30), cls: 'bar-data-trend', tip: 'Wave 2 trend: 1 Jul 2024 \u2013 30 Jun 2026' }
+      ]},
+      { label: 'W2 Level window (12 mo)', bars: [
+        { start: new Date(2025,6,1), end: new Date(2026,5,30), cls: 'bar-data-level', tip: 'Wave 2 level: 1 Jul 2025 \u2013 30 Jun 2026' }
+      ]},
+      { label: 'W2 Data extraction & re-pairing', bars: [
+        { start: new Date(2026,6,1), end: new Date(2026,7,15), cls: 'bar-prep', tip: 'Extract updated data, re-pair remaining 18 homes: Jul \u2013 mid Aug 2026' }
+      ]},
+      { labelHtml: 'W2 Intervention arm <span class="count">5 homes</span>', bars: [
+        { start: new Date(2026,8,1), end: STUDY_END, cls: 'bar-wave', tip: 'Wave 2 intervention arm: 5 homes receive EnRICH from Sep 2026 \u2013 Jul 2028 (22 months)' }
+      ],
+        milestones: [{ date: new Date(2026,8,1), tip: 'Wave 2 starts \u2014 cumulative: 20 homes in parallel comparison', cls: 'green' }]
+      },
+      { labelHtml: 'W2 Control arm <span class="count">5 homes</span>', bars: [
+        { start: new Date(2026,8,1), end: STUDY_END, cls: 'bar-ctrl', tip: 'Wave 2 control arm: 5 homes receive usual care from Sep 2026 \u2013 Jul 2028 (22 months)' }
+      ]},
+    ]
+  },
+  {
+    title: 'Wave 3 \u2014 Jan 2027 (4 pairs \u2192 8 homes enrolled)',
+    rows: [
+      { label: 'W3 Trend window (24 mo)', bars: [
+        { start: new Date(2024,10,1), end: new Date(2026,9,31), cls: 'bar-data-trend', tip: 'Wave 3 trend: 1 Nov 2024 \u2013 31 Oct 2026' }
+      ]},
+      { label: 'W3 Level window (12 mo)', bars: [
+        { start: new Date(2025,10,1), end: new Date(2026,9,31), cls: 'bar-data-level', tip: 'Wave 3 level: 1 Nov 2025 \u2013 31 Oct 2026' }
+      ]},
+      { label: 'W3 Data extraction & final pairing', bars: [
+        { start: new Date(2026,10,1), end: new Date(2026,11,15), cls: 'bar-prep', tip: 'Extract updated data, pair final 8 homes: Nov \u2013 mid Dec 2026' }
+      ]},
+      { labelHtml: 'W3 Intervention arm <span class="count">4 homes</span>', bars: [
+        { start: new Date(2027,0,1), end: STUDY_END, cls: 'bar-wave', tip: 'Wave 3 intervention arm: 4 homes receive EnRICH from Jan 2027 \u2013 Jul 2028 (18 months)' }
+      ],
+        milestones: [{ date: new Date(2027,0,1), tip: 'Wave 3 starts \u2014 all 28 homes now in parallel comparison', cls: 'green' }]
+      },
+      { labelHtml: 'W3 Control arm <span class="count">4 homes</span>', bars: [
+        { start: new Date(2027,0,1), end: STUDY_END, cls: 'bar-ctrl', tip: 'Wave 3 control arm: 4 homes receive usual care from Jan 2027 \u2013 Jul 2028 (18 months)' }
+      ]},
+    ]
+  },
+  {
+    title: 'Analysis',
+    rows: [
+      { label: 'Earliest primary analysis', bars: [
+        { start: new Date(2028,6,1), end: new Date(2028,8,30), cls: 'bar-obs', tip: 'Primary analysis window: Jul \u2013 Sep 2028' }
+      ],
+        milestones: [{ date: new Date(2028,6,1), tip: 'Primary analysis date: no earlier than Jul 2028 (18 mo after Wave 3 start)', cls: 'red' }]
+      },
+    ]
+  },
+];
+
+// Render
+const chart = document.getElementById('chart');
+const tooltip = document.getElementById('tooltip');
+
+// Year labels
+const yearDiv = document.createElement('div');
+yearDiv.className = 'year-label';
+for (let y = 2024; y <= 2028; y++) {
+  const s = new Date(y, 0, 1);
+  const e = new Date(y + 1, 0, 1) > TIMELINE_END ? TIMELINE_END : new Date(y + 1, 0, 1);
+  const span = document.createElement('div');
+  span.className = 'year-span';
+  span.style.width = (pct(e) - pct(s)) + '%';
+  span.textContent = y;
+  yearDiv.appendChild(span);
+}
+chart.appendChild(yearDiv);
+
+// Month headers
+const monthDiv = document.createElement('div');
+monthDiv.className = 'month-header';
+const mNames = ['J','F','M','A','M','J','J','A','S','O','N','D'];
+let d = new Date(TIMELINE_START);
+while (d < TIMELINE_END) {
+  const cell = document.createElement('div');
+  cell.className = 'month-cell' + (d.getMonth() === 0 ? ' year-start' : '');
+  cell.textContent = mNames[d.getMonth()];
+  monthDiv.appendChild(cell);
+  d = new Date(d.getFullYear(), d.getMonth() + 1, 1);
+}
+chart.appendChild(monthDiv);
+
+// Sections and rows
+sections.forEach(sec => {
+  const lbl = document.createElement('div');
+  lbl.className = 'section-label';
+  lbl.textContent = sec.title;
+  chart.appendChild(lbl);
+
+  sec.rows.forEach(r => {
+    const row = document.createElement('div');
+    row.className = 'row';
+    const rl = document.createElement('div');
+    rl.className = 'row-label';
+    if (r.labelHtml) {
+      rl.innerHTML = r.labelHtml;
+    } else {
+      rl.textContent = r.label;
+    }
+    row.appendChild(rl);
+
+    const track = document.createElement('div');
+    track.className = 'row-track';
+
+    (r.bars || []).forEach(b => {
+      const bar = document.createElement('div');
+      bar.className = 'bar ' + b.cls;
+      const l = pct(b.start);
+      bar.style.left = l + '%';
+      bar.style.width = Math.max(0.3, pct(b.end) - l) + '%';
+      bar.dataset.tip = b.tip;
+      track.appendChild(bar);
+    });
+
+    (r.milestones || []).forEach(m => {
+      const dia = document.createElement('div');
+      dia.className = 'milestone-diamond' + (m.cls ? ' ' + m.cls : '');
+      dia.style.left = 'calc(' + pct(m.date) + '% - 4.5px)';
+      dia.dataset.tip = m.tip;
+      track.appendChild(dia);
+    });
+
+    row.appendChild(track);
+    chart.appendChild(row);
+  });
+});
+
+// Today line — dynamic, uses system date
+const tp = pct(TODAY);
+if (tp >= 0 && tp <= 100) {
+  chart.querySelectorAll('.row-track').forEach(t => {
+    const line = document.createElement('div');
+    line.className = 'today-line';
+    line.style.left = tp + '%';
+    t.appendChild(line);
+  });
+
+  const firstTrack = chart.querySelector('.row-track');
+  if (firstTrack) {
+    const flag = document.createElement('div');
+    flag.className = 'today-flag';
+    flag.style.left = tp + '%';
+    flag.style.top = '-18px';
+    flag.textContent = '\u25BC TODAY';
+    firstTrack.appendChild(flag);
+  }
+}
+
+// Tooltip
+document.addEventListener('mousemove', e => {
+  const el = e.target.closest('[data-tip]');
+  if (el) {
+    tooltip.style.display = 'block';
+    tooltip.textContent = el.dataset.tip;
+    tooltip.style.left = Math.min(e.clientX + 12, window.innerWidth - 360) + 'px';
+    tooltip.style.top = (e.clientY - 36) + 'px';
+  } else {
+    tooltip.style.display = 'none';
+  }
+});
+</script>
+
+</body>
+</html>
