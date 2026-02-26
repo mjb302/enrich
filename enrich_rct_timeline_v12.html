@@ -566,7 +566,7 @@
 <div class="notes">
   <div class="note-card">
     <h3>Regulatory &amp; Approval Pathway</h3>
-    <p>Working backwards from May 2026 Wave 1 start:</p>
+    <p>Working backwards from Aug 2026 Wave 1 start:</p>
     <ul>
       <li><strong>Protocol finalisation + peer review:</strong> ~5 weeks (mid Feb &ndash; late Mar 2026)</li>
       <li><strong>IRAS form preparation:</strong> ~2 weeks (late Mar &ndash; mid Apr)</li>
@@ -574,20 +574,20 @@
       <li><strong>CAG application:</strong> Parallel; ~40 working days</li>
       <li><strong>ISRCTN registration:</strong> Alongside IRAS; ~2&ndash;4 weeks</li>
     </ul>
-    <p style="margin-top:0.5rem;">REC approval likely lands mid-June at earliest. Wave 1 in May requires either service evaluation classification or conditional start pending approval.</p>
+    <p style="margin-top:0.5rem;">Wave 1 now scheduled after HRA confirmation &amp; site setup, removing dependency on early regulatory clearance.</p>
   </div>
 
   <div class="note-card">
-    <h3>Wave Schedule &amp; Data Windows (v7)</h3>
+    <h3>Wave Schedule &amp; Data Windows (v11)</h3>
     <table class="wave-table">
       <thead><tr><th>Wave</th><th>Start</th><th>Pairs</th><th>Homes</th><th>Trend Window</th><th>Level Window</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td>May 2026</td><td>5</td><td>10</td><td>1 Mar 2024 &ndash; 28 Feb 2026</td><td>1 Mar 2025 &ndash; 28 Feb 2026</td></tr>
-        <tr><td>2</td><td>Sep 2026</td><td>5</td><td>10</td><td>1 Jul 2024 &ndash; 30 Jun 2026</td><td>1 Jul 2025 &ndash; 30 Jun 2026</td></tr>
-        <tr><td>3</td><td>Jan 2027</td><td>4</td><td>8</td><td>1 Nov 2024 &ndash; 31 Oct 2026</td><td>1 Nov 2025 &ndash; 31 Oct 2026</td></tr>
+        <tr><td>1</td><td>Aug 2026</td><td>5</td><td>10</td><td>1 Jul 2024 &ndash; 30 Jun 2026</td><td>1 Jul 2025 &ndash; 30 Jun 2026</td></tr>
+        <tr><td>2</td><td>Dec 2026</td><td>5</td><td>10</td><td>1 Nov 2024 &ndash; 31 Oct 2026</td><td>1 Nov 2025 &ndash; 31 Oct 2026</td></tr>
+        <tr><td>3</td><td>Apr 2027</td><td>4</td><td>8</td><td>1 Mar 2025 &ndash; 28 Feb 2027</td><td>1 Mar 2026 &ndash; 28 Feb 2027</td></tr>
       </tbody>
     </table>
-    <p style="margin-top:0.5rem;">W1 data already closed. Primary analysis &ge; <strong>Jul 2028</strong>. Of the 22 original controls, 14 enter the RCT across waves, leaving 8 as pure observational controls.</p>
+    <p style="margin-top:0.5rem;">W1 commences after HRA confirmation. Primary analysis &ge; <strong>Oct 2028</strong>. Of the 22 original controls, 14 enter the RCT across waves, leaving 8 as pure observational controls.</p>
   </div>
 
   <div class="note-card">
@@ -607,11 +607,12 @@
   <div class="note-card">
     <h3>Key Dependencies &amp; Risks</h3>
     <ul>
-      <li><strong>Critical path:</strong> Peer review &rarr; Protocol lock &rarr; IRAS &rarr; REC &rarr; Wave 1</li>
-      <li><strong>Parallel:</strong> CAG + ISRCTN alongside REC; W1 data extraction runs now</li>
-      <li><strong>Risk &mdash; REC queries:</strong> +4&ndash;6 weeks &rarr; W1 slips to ~Jul 2026</li>
+      <li><strong>Critical path:</strong> Peer review &rarr; Protocol lock &rarr; IRAS &rarr; REC &rarr; HRA &rarr; Wave 1</li>
+      <li><strong>Parallel:</strong> CAG + ISRCTN alongside REC; W1 data extraction follows HRA</li>
+      <li><strong>Risk &mdash; REC queries:</strong> +4&ndash;6 weeks &rarr; W1 slips further into autumn 2026</li>
+      <li><strong>Risk &mdash; CAG delays:</strong> Lucy Bennett warns 4+ months not uncommon</li>
       <li><strong>Risk &mdash; Peer review:</strong> &gt;3 weeks &rarr; compress IRAS prep or accept delay</li>
-      <li><strong>W1 data closed:</strong> Trend &amp; level end Feb 2026 &mdash; extract now</li>
+      <li><strong>W1 data window:</strong> Trend &amp; level end Jun 2026 &mdash; extract Jul 2026</li>
       <li><strong>Workforce clause:</strong> Protocol allows wave delays; preserves 18-mo minimum</li>
       <li><strong>Control pool drain:</strong> 14 of 22 original controls enter RCT; 8 remain as pure observational controls throughout</li>
     </ul>
@@ -622,12 +623,12 @@
 const TIMELINE_START = new Date(2024, 5, 1);
 const TIMELINE_END   = new Date(2029, 0, 31);
 const TODAY = new Date();
-const STUDY_END = new Date(2028, 6, 1);
+const STUDY_END = new Date(2028, 9, 1);
 const END_2025 = new Date(2025, 11, 31);
 const PRE_INT_START = new Date(2023, 0, 1); // panel starts Jan 2023
-const W1_START = new Date(2026, 4, 1);
-const W2_START = new Date(2026, 8, 1);
-const W3_START = new Date(2027, 0, 1);
+const W1_START = new Date(2026, 7, 1);
+const W2_START = new Date(2026, 11, 1);
+const W3_START = new Date(2027, 3, 1);
 const LEADER_W = 2.5;
 
 const totalDays = (TIMELINE_END - TIMELINE_START) / 864e5;
@@ -676,10 +677,10 @@ function makeIntRows() {
       dashedJoin: goLiveBeforeTimeline
     });
 
-    // Pale nodata bar (Jan 2026 → Jul 2028)
+    // Pale nodata bar (Jan 2026 → Oct 2028)
     bars.push({
       start: new Date(2026,0,1), end: STUDY_END, cls: 'bg-nodata',
-      tip: 'Home ' + h.id + ': data not analysed (Jan 2026 \u2013 Jul 2028)'
+      tip: 'Home ' + h.id + ': data not analysed (Jan 2026 \u2013 Oct 2028)'
     });
 
     return {
@@ -705,28 +706,28 @@ function makeCtrlRows() {
       dashed: true, dashedCls: '', dashedArrowCls: 'clr-ctrl',
       dashedTip: 'Control observation extends back to Jan 2023',
       bars: [
-        { start: TIMELINE_START, end: W1_START, cls: 'bg-ctrl', tip: '22 matched control homes: usual care Jan 2023 \u2013 Apr 2026 (full pool before RCT)' },
+        { start: TIMELINE_START, end: W1_START, cls: 'bg-ctrl', tip: '22 matched control homes: usual care Jan 2023 \u2013 Jul 2026 (full pool before RCT)' },
       ]
     },
     {
       labelHtml: 'Remaining controls <span class="count">17</span> <span class="count-drain">\u22125 \u2192 RCT W1</span>',
       thin: true,
       bars: [
-        { start: W1_START, end: W2_START, cls: 'bg-ctrl', tip: '17 controls remaining: 5 homes entered RCT Wave 1 (May 2026)' },
+        { start: W1_START, end: W2_START, cls: 'bg-ctrl', tip: '17 controls remaining: 5 homes entered RCT Wave 1 (Aug 2026)' },
       ]
     },
     {
       labelHtml: 'Remaining controls <span class="count">12</span> <span class="count-drain">\u22125 \u2192 RCT W2</span>',
       thin: true,
       bars: [
-        { start: W2_START, end: W3_START, cls: 'bg-ctrl', tip: '12 controls remaining: 5 more homes entered RCT Wave 2 (Sep 2026)' },
+        { start: W2_START, end: W3_START, cls: 'bg-ctrl', tip: '12 controls remaining: 5 more homes entered RCT Wave 2 (Dec 2026)' },
       ]
     },
     {
       labelHtml: 'Remaining controls <span class="count">8</span> <span class="count-drain">\u22124 \u2192 RCT W3</span>',
       thin: true,
       bars: [
-        { start: W3_START, end: STUDY_END, cls: 'bg-ctrl-post', tip: '8 controls remaining as pure observational controls through Jul 2028. All 14 other homes now in RCT.' },
+        { start: W3_START, end: STUDY_END, cls: 'bg-ctrl-post', tip: '8 controls remaining as pure observational controls through Oct 2028. All 14 other homes now in RCT.' },
       ]
     },
   ];
@@ -756,50 +757,50 @@ const sections = [
         milestones: [{ date: new Date(2026,5,26), tip: 'CAG approval (target)' }] },
       { label: 'ISRCTN registration (parallel)', bars: [{ start: new Date(2026,3,5), end: new Date(2026,4,3), cls: 'bg-reg', tip: 'ISRCTN: 5 Apr \u2013 3 May 2026' }],
         milestones: [{ date: new Date(2026,4,3), tip: 'ISRCTN registered (target)' }] },
-      { label: 'HRA confirmation & site setup', bars: [{ start: new Date(2026,5,17), end: new Date(2026,6,10), cls: 'bg-reg', tip: 'HRA + governance: Jun \u2013 Jul 2026' }] },
+      { label: 'HRA confirmation & site setup', bars: [{ start: new Date(2026,5,17), end: new Date(2026,7,1), cls: 'bg-reg', tip: 'HRA + governance: Jun \u2013 Jul 2026' }] },
     ]
   },
   {
-    title: 'RCT Wave 1 \u2014 May 2026 (5 pairs \u2192 10 homes)',
+    title: 'RCT Wave 1 \u2014 Aug 2026 (5 pairs \u2192 10 homes)',
     rows: [
-      { label: 'W1 Trend window (24 mo)', dataBar: true, bars: [{ start: new Date(2024,2,1), end: new Date(2026,1,28), cls: 'bg-data-trend', tip: 'W1 trend: 1 Mar 2024 \u2013 28 Feb 2026' }] },
-      { label: 'W1 Level window (12 mo)', dataBar: true, bars: [{ start: new Date(2025,2,1), end: new Date(2026,1,28), cls: 'bg-data-level', tip: 'W1 level: 1 Mar 2025 \u2013 28 Feb 2026' }] },
-      { label: 'W1 Data extraction & pairing', bars: [{ start: new Date(2026,2,1), end: new Date(2026,3,15), cls: 'bg-prep', tip: 'Extract, pair, verify: Mar \u2013 mid Apr 2026' }] },
-      { label: 'W1 Randomisation & notification', bars: [{ start: new Date(2026,3,15), end: new Date(2026,4,1), cls: 'bg-prep', tip: 'Randomise, notify: mid Apr \u2013 1 May 2026' }] },
-      { labelHtml: 'W1 Intervention arm <span class="count">5 homes</span>', thick: true, bars: [{ start: new Date(2026,4,1), end: STUDY_END, cls: 'bg-rct', tip: 'W1 intervention: 5 homes, May 2026 \u2013 Jul 2028 (26 mo)' }],
-        milestones: [{ date: new Date(2026,4,1), tip: 'Wave 1 starts \u2014 5 pairs enter parallel comparison', cls: 'blue' }] },
-      { labelHtml: 'W1 Control arm <span class="count">5 homes</span>', thick: true, bars: [{ start: new Date(2026,4,1), end: STUDY_END, cls: 'bg-ctrl', tip: 'W1 control: 5 homes usual care, May 2026 \u2013 Jul 2028 (26 mo)' }] },
+      { label: 'W1 Trend window (24 mo)', dataBar: true, bars: [{ start: new Date(2024,6,1), end: new Date(2026,5,30), cls: 'bg-data-trend', tip: 'W1 trend: 1 Jul 2024 \u2013 30 Jun 2026' }] },
+      { label: 'W1 Level window (12 mo)', dataBar: true, bars: [{ start: new Date(2025,6,1), end: new Date(2026,5,30), cls: 'bg-data-level', tip: 'W1 level: 1 Jul 2025 \u2013 30 Jun 2026' }] },
+      { label: 'W1 Data extraction & pairing', bars: [{ start: new Date(2026,6,1), end: new Date(2026,6,18), cls: 'bg-prep', tip: 'Extract, pair, verify: Jul 2026' }] },
+      { label: 'W1 Randomisation & notification', bars: [{ start: new Date(2026,6,18), end: new Date(2026,7,1), cls: 'bg-prep', tip: 'Randomise, notify: mid Jul \u2013 1 Aug 2026' }] },
+      { labelHtml: 'W1 Intervention arm <span class="count">5 homes</span>', thick: true, bars: [{ start: new Date(2026,7,1), end: STUDY_END, cls: 'bg-rct', tip: 'W1 intervention: 5 homes, Aug 2026 \u2013 Oct 2028 (26 mo)' }],
+        milestones: [{ date: new Date(2026,7,1), tip: 'Wave 1 starts \u2014 5 pairs enter parallel comparison', cls: 'blue' }] },
+      { labelHtml: 'W1 Control arm <span class="count">5 homes</span>', thick: true, bars: [{ start: new Date(2026,7,1), end: STUDY_END, cls: 'bg-ctrl', tip: 'W1 control: 5 homes usual care, Aug 2026 \u2013 Oct 2028 (26 mo)' }] },
     ]
   },
   {
-    title: 'RCT Wave 2 \u2014 Sep 2026 (5 pairs \u2192 10 homes)',
+    title: 'RCT Wave 2 \u2014 Dec 2026 (5 pairs \u2192 10 homes)',
     rows: [
-      { label: 'W2 Trend window (24 mo)', dataBar: true, bars: [{ start: new Date(2024,6,1), end: new Date(2026,5,30), cls: 'bg-data-trend', tip: 'W2 trend: 1 Jul 2024 \u2013 30 Jun 2026' }] },
-      { label: 'W2 Level window (12 mo)', dataBar: true, bars: [{ start: new Date(2025,6,1), end: new Date(2026,5,30), cls: 'bg-data-level', tip: 'W2 level: 1 Jul 2025 \u2013 30 Jun 2026' }] },
-      { label: 'W2 Data extraction & re-pairing', bars: [{ start: new Date(2026,6,1), end: new Date(2026,7,15), cls: 'bg-prep', tip: 'Extract updated data, re-pair remaining 18 homes: Jul \u2013 mid Aug 2026' }] },
-      { label: 'W2 Randomisation & notification', bars: [{ start: new Date(2026,7,15), end: new Date(2026,8,1), cls: 'bg-prep', tip: 'Randomise from re-formed pairs, notify care homes: mid Aug \u2013 1 Sep 2026' }] },
-      { labelHtml: 'W2 Intervention arm <span class="count">5 homes</span>', thick: true, bars: [{ start: new Date(2026,8,1), end: STUDY_END, cls: 'bg-rct', tip: 'W2 intervention: 5 homes, Sep 2026 \u2013 Jul 2028 (22 mo)' }],
-        milestones: [{ date: new Date(2026,8,1), tip: 'Wave 2 starts \u2014 20 homes now in parallel comparison', cls: 'blue' }] },
-      { labelHtml: 'W2 Control arm <span class="count">5 homes</span>', thick: true, bars: [{ start: new Date(2026,8,1), end: STUDY_END, cls: 'bg-ctrl', tip: 'W2 control: 5 homes usual care, Sep 2026 \u2013 Jul 2028 (22 mo)' }] },
+      { label: 'W2 Trend window (24 mo)', dataBar: true, bars: [{ start: new Date(2024,10,1), end: new Date(2026,9,31), cls: 'bg-data-trend', tip: 'W2 trend: 1 Nov 2024 \u2013 31 Oct 2026' }] },
+      { label: 'W2 Level window (12 mo)', dataBar: true, bars: [{ start: new Date(2025,10,1), end: new Date(2026,9,31), cls: 'bg-data-level', tip: 'W2 level: 1 Nov 2025 \u2013 31 Oct 2026' }] },
+      { label: 'W2 Data extraction & re-pairing', bars: [{ start: new Date(2026,10,1), end: new Date(2026,10,18), cls: 'bg-prep', tip: 'Extract updated data, re-pair remaining 18 homes: Nov 2026' }] },
+      { label: 'W2 Randomisation & notification', bars: [{ start: new Date(2026,10,18), end: new Date(2026,11,1), cls: 'bg-prep', tip: 'Randomise from re-formed pairs, notify care homes: mid Nov \u2013 1 Dec 2026' }] },
+      { labelHtml: 'W2 Intervention arm <span class="count">5 homes</span>', thick: true, bars: [{ start: new Date(2026,11,1), end: STUDY_END, cls: 'bg-rct', tip: 'W2 intervention: 5 homes, Dec 2026 \u2013 Oct 2028 (22 mo)' }],
+        milestones: [{ date: new Date(2026,11,1), tip: 'Wave 2 starts \u2014 20 homes now in parallel comparison', cls: 'blue' }] },
+      { labelHtml: 'W2 Control arm <span class="count">5 homes</span>', thick: true, bars: [{ start: new Date(2026,11,1), end: STUDY_END, cls: 'bg-ctrl', tip: 'W2 control: 5 homes usual care, Dec 2026 \u2013 Oct 2028 (22 mo)' }] },
     ]
   },
   {
-    title: 'RCT Wave 3 \u2014 Jan 2027 (4 pairs \u2192 8 homes)',
+    title: 'RCT Wave 3 \u2014 Apr 2027 (4 pairs \u2192 8 homes)',
     rows: [
-      { label: 'W3 Trend window (24 mo)', dataBar: true, bars: [{ start: new Date(2024,10,1), end: new Date(2026,9,31), cls: 'bg-data-trend', tip: 'W3 trend: 1 Nov 2024 \u2013 31 Oct 2026' }] },
-      { label: 'W3 Level window (12 mo)', dataBar: true, bars: [{ start: new Date(2025,10,1), end: new Date(2026,9,31), cls: 'bg-data-level', tip: 'W3 level: 1 Nov 2025 \u2013 31 Oct 2026' }] },
-      { label: 'W3 Data extraction & final pairing', bars: [{ start: new Date(2026,10,1), end: new Date(2026,11,15), cls: 'bg-prep', tip: 'Extract updated data, pair final 8 homes: Nov \u2013 mid Dec 2026' }] },
-      { label: 'W3 Randomisation & notification', bars: [{ start: new Date(2026,11,15), end: new Date(2027,0,1), cls: 'bg-prep', tip: 'Randomise from final pairs, notify care homes: mid Dec 2026 \u2013 1 Jan 2027' }] },
-      { labelHtml: 'W3 Intervention arm <span class="count">4 homes</span>', thick: true, bars: [{ start: new Date(2027,0,1), end: STUDY_END, cls: 'bg-rct', tip: 'W3 intervention: 4 homes, Jan 2027 \u2013 Jul 2028 (18 mo)' }],
-        milestones: [{ date: new Date(2027,0,1), tip: 'Wave 3 starts \u2014 all 28 RCT homes enrolled', cls: 'blue' }] },
-      { labelHtml: 'W3 Control arm <span class="count">4 homes</span>', thick: true, bars: [{ start: new Date(2027,0,1), end: STUDY_END, cls: 'bg-ctrl', tip: 'W3 control: 4 homes usual care, Jan 2027 \u2013 Jul 2028 (18 mo)' }] },
+      { label: 'W3 Trend window (24 mo)', dataBar: true, bars: [{ start: new Date(2025,2,1), end: new Date(2027,1,28), cls: 'bg-data-trend', tip: 'W3 trend: 1 Mar 2025 \u2013 28 Feb 2027' }] },
+      { label: 'W3 Level window (12 mo)', dataBar: true, bars: [{ start: new Date(2026,2,1), end: new Date(2027,1,28), cls: 'bg-data-level', tip: 'W3 level: 1 Mar 2026 \u2013 28 Feb 2027' }] },
+      { label: 'W3 Data extraction & final pairing', bars: [{ start: new Date(2027,2,1), end: new Date(2027,2,18), cls: 'bg-prep', tip: 'Extract updated data, pair final 8 homes: Mar 2027' }] },
+      { label: 'W3 Randomisation & notification', bars: [{ start: new Date(2027,2,18), end: new Date(2027,3,1), cls: 'bg-prep', tip: 'Randomise from final pairs, notify care homes: mid Mar \u2013 1 Apr 2027' }] },
+      { labelHtml: 'W3 Intervention arm <span class="count">4 homes</span>', thick: true, bars: [{ start: new Date(2027,3,1), end: STUDY_END, cls: 'bg-rct', tip: 'W3 intervention: 4 homes, Apr 2027 \u2013 Oct 2028 (18 mo)' }],
+        milestones: [{ date: new Date(2027,3,1), tip: 'Wave 3 starts \u2014 all 28 RCT homes enrolled', cls: 'blue' }] },
+      { labelHtml: 'W3 Control arm <span class="count">4 homes</span>', thick: true, bars: [{ start: new Date(2027,3,1), end: STUDY_END, cls: 'bg-ctrl', tip: 'W3 control: 4 homes usual care, Apr 2027 \u2013 Oct 2028 (18 mo)' }] },
     ]
   },
   {
     title: 'Analysis',
     rows: [
-      { label: 'Earliest primary analysis', bars: [{ start: new Date(2028,6,1), end: new Date(2028,8,30), cls: 'bg-obs', tip: 'Primary analysis: Jul \u2013 Sep 2028' }],
-        milestones: [{ date: new Date(2028,6,1), tip: 'Primary analysis: \u2265 Jul 2028 (18 mo after W3)', cls: 'red' }] },
+      { label: 'Earliest primary analysis', bars: [{ start: new Date(2028,9,1), end: new Date(2028,11,31), cls: 'bg-obs', tip: 'Primary analysis: Oct \u2013 Dec 2028' }],
+        milestones: [{ date: new Date(2028,9,1), tip: 'Primary analysis: \u2265 Oct 2028 (18 mo after W3)', cls: 'red' }] },
     ]
   },
 ];
